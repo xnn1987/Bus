@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>SmartDiag 使用说明</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/01/14</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>该部分描述了SmartDiag的使用说明。如需了解详细信息，请访问我们的网站www.actia.com.cn，如要技术支持，请联系我们的售后服务部门或者发送邮件至smartdiag@actia.com.cn。
+	</BodyContent>
+</Article>
+	

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>上海通用</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>上海通用
+	
+	GL8位置：仪表板左下方，16PIN.
+	
+	别克位置：仪表板下方，转向柱附近；16PIN.
+	
+    赛欧位置：仪表板左下方保险盒内，取掉保险盒即可看见；16PIN.
+	
+	</BodyContent>
+</Article>
+	

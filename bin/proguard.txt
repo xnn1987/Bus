@@ -1,0 +1,151 @@
+# view land\res/layout-land/flipper_item_layout.xml #generated:7
+# view res/layout/flipper_item_layout.xml #generated:9
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view AndroidManifest.xml #generated:23
+-keep class cn.com.actia.smartdiag.activities.APPBaseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:59
+-keep class cn.com.actia.smartdiag.activities.APPViewPageActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:128
+-keep class cn.com.actia.smartdiag.activities.DataClockActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:135
+-keep class cn.com.actia.smartdiag.activities.DataHistogramActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:121
+-keep class cn.com.actia.smartdiag.activities.DataTextActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:98
+-keep class cn.com.actia.smartdiag.activities.DeepDiagActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:49
+-keep class cn.com.actia.smartdiag.activities.DrivingManagerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:44
+-keep class cn.com.actia.smartdiag.activities.FastScanActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:142
+-keep class cn.com.actia.smartdiag.activities.FastScanListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:24
+-keep class cn.com.actia.smartdiag.activities.LoadingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:34
+-keep class cn.com.actia.smartdiag.activities.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:18
+-keep class cn.com.actia.smartdiag.activities.MyApplication { <init>(...); }
+
+# view AndroidManifest.xml #generated:167
+-keep class cn.com.actia.smartdiag.activities.RegistDevicesActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:185
+-keep class cn.com.actia.smartdiag.activities.SelectEcu { <init>(...); }
+
+# view AndroidManifest.xml #generated:179
+-keep class cn.com.actia.smartdiag.activities.SelectEcuFamily { <init>(...); }
+
+# view AndroidManifest.xml #generated:149
+-keep class cn.com.actia.smartdiag.activities.SelectMake { <init>(...); }
+
+# view AndroidManifest.xml #generated:161
+-keep class cn.com.actia.smartdiag.activities.SelectModel { <init>(...); }
+
+# view AndroidManifest.xml #generated:155
+-keep class cn.com.actia.smartdiag.activities.SelectSuccess { <init>(...); }
+
+# view AndroidManifest.xml #generated:173
+-keep class cn.com.actia.smartdiag.activities.Setting { <init>(...); }
+
+# view AndroidManifest.xml #generated:191
+-keep class cn.com.actia.smartdiag.activities.SettingVciSetting { <init>(...); }
+
+# view AndroidManifest.xml #generated:63
+-keep class cn.com.actia.smartdiag.activities.StatusEngine { <init>(...); }
+
+# view AndroidManifest.xml #generated:70
+-keep class cn.com.actia.smartdiag.activities.StatusLight { <init>(...); }
+
+# view AndroidManifest.xml #generated:77
+-keep class cn.com.actia.smartdiag.activities.StatusOil { <init>(...); }
+
+# view AndroidManifest.xml #generated:84
+-keep class cn.com.actia.smartdiag.activities.StatusStop { <init>(...); }
+
+# view AndroidManifest.xml #generated:91
+-keep class cn.com.actia.smartdiag.activities.StatusWater { <init>(...); }
+
+# view AndroidManifest.xml #generated:103
+-keep class cn.com.actia.smartdiag.activities.TipsFirstActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:109
+-keep class cn.com.actia.smartdiag.activities.TipsSecondActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:115
+-keep class cn.com.actia.smartdiag.activities.TipsThirdActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:54
+-keep class cn.com.actia.smartdiag.activities.VCISettingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:39
+-keep class cn.com.actia.smartdiag.activities.VehicleStateActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:198
+-keep class cn.com.actia.smartdiag.services.FlashDrivingManagerService { <init>(...); }
+
+# view AndroidManifest.xml #generated:197
+-keep class cn.com.actia.smartdiag.services.FlashService { <init>(...); }
+
+# view res/layout/widget_view_disk.xml #generated:14
+# view res/layout/widget_view_switch_4.xml #generated:14
+# view res/layout/widget_view_switch_5.xml #generated:14
+-keep class cn.com.actia.smartdiag.widget.Disk { <init>(...); }
+
+# view res/layout/widget_view_disk.xml #generated:20
+# view res/layout/widget_view_switch_4.xml #generated:20
+# view res/layout/widget_view_switch_5.xml #generated:20
+-keep class cn.com.actia.smartdiag.widget.DiskBack { <init>(...); }
+
+# view res/layout/widget_view_disk_e.xml #generated:14
+-keep class cn.com.actia.smartdiag.widget.E_Disk { <init>(...); }
+
+# view res/layout/widget_view_odometer_e.xml #generated:13
+-keep class cn.com.actia.smartdiag.widget.E_Odometer { <init>(...); }
+
+# view res/layout/widget_view_piezometer_e.xml #generated:13
+-keep class cn.com.actia.smartdiag.widget.E_Piezometer { <init>(...); }
+
+# view res/layout/widget_view_thermograph_e.xml #generated:14
+-keep class cn.com.actia.smartdiag.widget.E_Thermograph { <init>(...); }
+
+# view res/layout/big_histogram.xml #generated:2
+# view res/layout/data_histogram_item.xml #generated:7
+# view res/layout/widget_view_histogram.xml #generated:12
+-keep class cn.com.actia.smartdiag.widget.Histogram { <init>(...); }
+
+# view res/layout/widget_view_switch_1.xml #generated:15
+-keep class cn.com.actia.smartdiag.widget.MyRadioButton { <init>(...); }
+
+# view res/layout/widget_view_piezometer.xml #generated:19
+-keep class cn.com.actia.smartdiag.widget.PiezometerBack { <init>(...); }
+
+# view res/layout/widget_view_piezometer.xml #generated:13
+-keep class cn.com.actia.smartdiag.widget.PiezometerDisk { <init>(...); }
+
+# view res/layout/widget_view_switch_3.xml #generated:15
+-keep class cn.com.actia.smartdiag.widget.SwitchBack { <init>(...); }
+
+# view res/layout/widget_view_thermograph.xml #generated:19
+-keep class cn.com.actia.smartdiag.widget.ThermographBack { <init>(...); }
+
+# view res/layout/widget_view_thermograph.xml #generated:13
+-keep class cn.com.actia.smartdiag.widget.ThermographDisk { <init>(...); }
+
+# view res/layout/widget_view_stopwatch_e.xml #generated:13
+-keep class cn.com.actia.smartdiag.widget.TimeNum { <init>(...); }
+
+# view res/layout/widget_view_switch_2.xml #generated:14
+-keep class cn.com.actia.smartdiag.widget.TwoSwitch { <init>(...); }
+

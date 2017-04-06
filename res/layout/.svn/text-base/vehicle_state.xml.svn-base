@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    tools:context="cn.com.actia.smartdiag.activities.VehicleStateActivity" >
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/vehicle_status_iv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transparent"
+            android:drawableTop="@drawable/vehicle_status_iv1"
+            android:gravity="center"
+            android:text="@string/vehicle_state_engine"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_size" />
+
+        <Button
+            android:id="@+id/vehicle_status_iv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transparent"
+            android:drawableTop="@drawable/vehicle_status_iv2"
+            android:gravity="center"
+            android:text="@string/vehicle_state_oil_pressure"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_size" />
+
+        <Button
+            android:id="@+id/vehicle_status_iv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transparent"
+            android:drawableTop="@drawable/vehicle_status_iv3"
+            android:gravity="center"
+            android:text="@string/vehicle_state_stop_vehicle"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_size" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/vehicle_status_iv4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transparent"
+            android:drawableTop="@drawable/vehicle_status_iv4"
+            android:gravity="center"
+            android:text="@string/vehicle_state_water"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_size" />
+
+        <Button
+            android:id="@+id/vehicle_status_iv5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transparent"
+            android:drawableTop="@drawable/vehicle_status_iv5"
+            android:gravity="center"
+            android:text="@string/vehicle_state_lighting"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_size" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transparent"
+            android:drawableTop="@drawable/vehicle_status_iv1"
+            android:visibility="invisible" />
+    </TableRow>
+
+</TableLayout>

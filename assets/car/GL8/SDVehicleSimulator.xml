@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SDVehicleSimulator version="0.1">
+
+	<!-- Vehicle Name -->
+	<Vehicle>GL8</Vehicle>
+	<!-- <Vehicle>GL8</Vehicle> -->
+	<!-- <Vehicle>508</Vehicle>	-->
+	
+	<!-- List of ECU(s) in the vehicle -->
+	<ECUList>
+		<Family name="BCM">
+			<!-- 2 ECUs for OBD CAN with IDs like 7E8, 7E9, 7EA, 7EB, 7EC, 7ED, 7EE, 7EF -->
+			<ECU name="BSI_001000013" ecuid="1" address="7EA" ecuname="GL8 - BCM" commOK="true"/>
+			<!-- Example of single ECU for K-Line or J1850 -->
+			<!-- <ECU id="3" address="11" /> -->
+		</Family>
+	</ECUList>
+	
+	
+</SDVehicleSimulator>

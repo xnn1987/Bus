@@ -1,0 +1,55 @@
+8
+
+dir
+1046
+svn://140.206.48.34/smartdiag/android/trunk/SmartDiag2013_1_14/assets/Tips
+svn://140.206.48.34/smartdiag/android
+
+
+
+2013-04-12T05:15:39.906184Z
+982
+xuting
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5e3c7544-347f-4a0c-9ad2-b5e9bfc61147
+
+General_Maintenance
+dir
+
+SmartDiag_Usage
+dir
+
+Exterior_Maintenance
+dir
+
+Categories.xml
+file
+
+
+
+
+2013-05-20T00:42:34.090992Z
+0daee0493074a3940b0ba879ef315d44
+2013-04-02T07:28:05.640655Z
+940
+xuting
+
+Purchase_Advices
+dir
+
+OBD_Location
+dir
+

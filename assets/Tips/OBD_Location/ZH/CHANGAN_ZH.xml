@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>长安汽车</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>长安汽车
+	
+	羚羊：仪表板下方，转向柱附近；16PIN.
+	
+	卡德尔福系统：仪表板下方；16PIN.
+	
+	联合电子系统：驾驶员座位下方
+	
+	日本电装诊断座：仪表板下方；16PIN.
+	
+	长安之星：中控台下；16 PIN.发动机罩下电瓶旁；16PIN.
+	
+	长安欧雅：三孔诊断头；联电系统；诊断头在驾驶员座下中间横梁左侧.
+	
+	长安镭蒙：联电二代系统；诊断头在驾驶员左侧保险盒附近.
+	
+	长安奥托：联电系统；诊断头在驾驶员左侧保险盒附近.
+	
+	长安福特：诊断头在驾驶员左护板侧.
+	
+	哈飞民意：德尔福系统；诊断头在保险盒附近或在油门踏板上方。
+	
+	哈飞中意：德尔福系统；诊断头在保险盒附近或在油门踏板上方。
+	
+	哈飞路宝7100：诊断头在前右座下面。
+	
+	哈飞路宝7110：五菱N1电脑；诊断头在前右座下电脑处。
+	
+	哈飞7160：五菱N1电脑；诊断头在刹车踏板上方。
+	
+	昌河汽车：德尔福系统；诊断头在保险盒附近或在油门踏板上方。
+	
+	昌河海豚：德尔福系统；诊断头在保险盒附近或在油门踏板上方。
+	
+	昌河北斗星：不同电脑用不同系统；诊断头在油门踏板上方。
+	</BodyContent>
+</Article>
+	

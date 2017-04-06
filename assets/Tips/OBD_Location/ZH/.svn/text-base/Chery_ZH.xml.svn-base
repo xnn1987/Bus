@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>奇瑞汽车</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>奇瑞汽车
+	
+	奇瑞QQ三缸：用OBD接头；西门子系统；诊断头在右侧储物箱下方。
+	
+	奇瑞QQ四缸：三孔诊断头；检测线颜色是棕白；联电系统或大众系统；诊断头在驾驶员左侧保险盒附近。
+	
+	奇瑞风云7160EX：三孔诊断头；玛瑞利系统；诊断头在发动机舱内中间的刹车泵附近。
+	
+	奇瑞风云7160ES：三孔诊断头；玛瑞利系统；诊断头在发动机舱内中间刹车泵附近。
+	
+	</BodyContent>
+</Article>
+	

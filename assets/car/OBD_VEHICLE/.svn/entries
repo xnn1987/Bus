@@ -1,0 +1,52 @@
+8
+
+dir
+1046
+svn://140.206.48.34/smartdiag/android/trunk/SmartDiag2013_1_14/assets/car/OBD_VEHICLE
+svn://140.206.48.34/smartdiag/android
+
+
+
+2013-04-02T07:28:05.640655Z
+940
+xuting
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5e3c7544-347f-4a0c-9ad2-b5e9bfc61147
+
+SDDataSimulator.xml
+file
+
+
+
+
+2013-05-20T00:42:49.113851Z
+1f2df9e1fd21e44e6951e1940750627c
+2013-04-02T07:28:05.640655Z
+940
+xuting
+
+SDVehicleSimulator.xml
+file
+
+
+
+
+2013-05-20T00:42:49.128852Z
+493cd822e10201bd8ba6111c393fbb9d
+2013-04-02T07:28:05.640655Z
+940
+xuting
+

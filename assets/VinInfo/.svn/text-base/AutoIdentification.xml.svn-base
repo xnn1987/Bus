@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<AutoIdentification dataModelVersion="1.0">
+	<Makes>
+		<!-- Make name should be unique throughout the file -->
+		<!-- Also, Make name should match the DataMapping.xml Make definition name ! (manually hard to do), authoring tool is really 
+required -->
+		<!-- Also Model shoud match the one found in DataMapping.xml ! -->
+		<Make name="DPCA_Peugeot" displayName="@P1-VEHMAP" >
+
+			<VINPatterns>
+				<VINPattern value="LSA9*************" />
+			</VINPatterns>
+
+			<Models>
+				<!--  DEFINE Peugeot 408 MODEL -->
+				<Model name="408" displayName="@P2-VEHMAP">
+					<VINPatterns>
+						<VINPattern value="LSA91************" />
+					</VINPatterns>
+				</Model> 
+
+				<!--  DEFINE Peugeot 508 MODEL -->
+				<Model name="508" displayName="@P5-VEHMAP">
+					<VINPatterns>
+						<VINPattern value="LSA92************" />
+						<VINPattern value="LSA93************" />
+					</VINPatterns>                  
+				</Model>                
+			</Models>            
+		</Make>
+
+		<Make name="Buick" displayName="@P28-VIN" >
+			<Models>
+				<!--  DEFINE Buick Excelle MODEL -->
+				<Model name="Excelle" displayName="@P12-VEHMAP">
+
+				</Model>
+				<!--  DEFINE Buick GL8 MODEL -->
+				<Model name="GL8" displayName="@P25-VEHMAP">
+					<VINPatterns>
+						<VINPattern value="LSGUA84X7BE016999" />
+					</VINPatterns>
+				</Model> 				
+			</Models>            
+		</Make>
+
+	 
+
+	</Makes>
+</AutoIdentification>

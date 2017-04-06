@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>天津夏利</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>天津夏利
+	
+	天津夏利2000：发动机室电瓶后侧减振器支座旁；17 PIN.
+	
+	天津威驰位置：仪表板下方；16PIN.
+	
+	</BodyContent>
+</Article>
+	

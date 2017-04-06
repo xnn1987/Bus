@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnvUtilConf version="0.1">
+
+	<!-- Node defining the logging levels for tags -->
+	<LogConf>
+
+		<!-- Default level for a tag is the tag to log hasnot been definied in this file -->
+		<!-- Possible values are ERROR, WARN, DEBUG, INFO, VERBOSE -->
+		<DefaultLevels>
+			<Level name="ERROR" />
+			<Level name="WARN" />
+		</DefaultLevels>
+
+	</LogConf>
+
+	
+</EnvUtilConf>

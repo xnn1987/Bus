@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SDCenterDataSource businessLogicVersion="v0.3.0.5-Alpha">
+
+	<!-- Vehicle status feature parameter definition by group -->
+	<Feature name="VehicleStatus">
+		<Group name="Engine">
+			<Parameter name="engineRPM" type="OBD2" />
+			<Parameter name="timeSinceEngineStart" type="OBD2" />
+			<Parameter name="fuelSystem1Status" type="OBD2" />
+			<Parameter name="fuelRailPressuregauge" type="OBD2" />
+			<Parameter name="fuelLevelInput" type="OBD2" />
+			<Parameter name="fuelTypeUsed" type="OBD2" />
+			<Parameter name="engineOilTemperature" type="OBD2" />
+		</Group>
+		<Group name="Oil">
+			<Parameter name="engineOilTemperature" type="OBD2" />
+			<Parameter name="fuelPressureSensor" type="GL8__BCM__BCM" /> <!-- actually diag pro GL8 TCU -->	
+		</Group>
+		<Group name="Security">
+			<Parameter name="airbagStatus" type="GL8__BCM__BCM" /> <!-- actually MADE UP ENTIRELY -->
+			<Parameter name="evfl" type="GL8__BCM__BCM" /> <!-- actually from Luan Chao ABS spec of another vehicle -->
+			<Parameter name="avfl" type="GL8__BCM__BCM" /> <!-- actually from Luan Chao ABS spec of another vehicle -->
+		</Group>
+		<Group name="WaterTemperature">
+			<Parameter name="engineCoolantTemperature" type="OBD2" />
+			<Parameter name="intakeAirTemperatureSensor1" type="OBD2" />
+			<Parameter name="ambientAirTemperature" type="OBD2" />
+		</Group>
+		<Group name="Lights">
+			<Parameter name="mILStatus" type="OBD2" />
+			<Parameter name="airbagLight" type="OBD2" /> <!-- actually MADE UP ENTIRELY -->
+		</Group>
+	</Feature>
+	
+	<!-- Fuel management feature parameter definition-->
+	<Feature name="FuelManagement">
+		<Family name="EMS">
+		    <Category name="FUEL" />
+		</Family>
+	</Feature>
+	
+		<!-- Fuel management feature parameter definition-->
+	<Feature name="Maintenance">
+		<Family name="BCM">
+		    <Category name="MAINTENANCE" />
+		</Family>
+	</Feature>
+	
+		<!-- Fuel management feature parameter definition-->
+	<Feature name="DepthDiagnosis">
+		<Family name="">
+		   <!--  <Category name="ENGINE_DATA" />
+		    <Category name="AUTOMATIC_TRANSMISSION_DATA" /> -->
+		    <Category name="FUEL" />
+		    <Category name="MAINTENANCE" />
+			<Category name="DEFAULT" />
+		    
+		</Family>
+	</Feature>
+
+	<!-- Driving management feature parameter definition-->
+	<Feature name="DrivingManagement">
+		<Group name="DrivingManagementGroup">
+			<Parameter name="engineRPM" type="OBD2" />
+			<Parameter name="fuelEconomy" type="GL8__BCM__BCM" /> <!-- actually diag pro GL8 TCU -->
+			<Parameter name="fuelLevelInput" type="OBD2" />
+		</Group>
+	</Feature>
+	
+	<CustomRanges>
+	    <OBDRange>
+	        <Parameter name="engineRPM" type="OBD2">
+	            <UIRange min="1" max="8000" />
+	        </Parameter>
+	        <Parameter name="bb" type="OBD2">
+	            <UIRange min="1" max="100" />
+	        </Parameter>
+	        <Parameter name="cc" type="OBD2">
+	            <UIRange min="1" max="100" />
+	        </Parameter>
+	    </OBDRange>
+	   	<NotOBDRange>
+	        <Category name="FUEL" >
+	            <UIRange min="1" max="40" />
+	        </Category>
+	         <Category name="ee" >
+	            <UIRange min="1" max="10" />
+	        </Category>
+	         <Category name="ff" >
+	            <UIRange min="1" max="10" />
+	        </Category>
+	    </NotOBDRange>
+	</CustomRanges>
+
+</SDCenterDataSource>

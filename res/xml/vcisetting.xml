@@ -1,0 +1,22 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/vci_setting_category_title" >
+        <Preference
+            android:key="@string/vci_key_1"
+            android:title="@string/vci_setting_title1" />
+        <Preference
+            android:key="@string/vci_key_2"
+            android:title="@string/vci_setting_title2" />
+        <Preference
+            android:key="@string/vci_key_3"
+            android:title="@string/vci_setting_title3" />
+        <Preference
+            android:key="@string/vci_key_4"
+            android:title="@string/vci_setting_title4" />
+
+        <CheckBoxPreference
+            android:key="@string/vci_key_5"
+            android:title="@string/vci_setting_title5" android:defaultValue="true" android:shouldDisableView="true"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

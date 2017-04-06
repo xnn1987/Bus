@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/select_menu_group"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/select_menu_1"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/select_menu_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/select_radio_select_btn"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/select_china"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/select_menu_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/select_radio_select_btn"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/select_asia"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/select_menu_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/select_radio_select_btn"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/select_us"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/select_menu_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/select_radio_select_btn"
+            android:button="@null"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/select_europe"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/select_checked"
+        android:contentDescription="@string/content_smart" />
+
+    <LinearLayout
+        android:id="@+id/select_make_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/content_smart"
+            android:src="@drawable/model_search" />
+
+        <EditText
+            android:id="@+id/select_make_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/app_search_3_car_name" />
+    </LinearLayout>
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        layout="@layout/flipper_item_layout" />
+
+</LinearLayout>

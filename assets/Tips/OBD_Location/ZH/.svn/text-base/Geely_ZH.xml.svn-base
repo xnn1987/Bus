@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>吉利汽车</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>吉利
+	
+	美日：仪表板左下方；16PIN.
+	
+	单点系统：左边减振器的固定螺丝上
+	
+	</BodyContent>
+</Article>
+	

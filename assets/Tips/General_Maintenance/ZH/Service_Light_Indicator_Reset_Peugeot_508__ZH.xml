@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>保养灯归零 - 标致508</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/05</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>标致508保养灯归零操作
+
+1) 关闭点火开关
+2) 按下里程表按钮（里程重置），并使按钮保持被按下的状态。
+3) 打开点火开关，但不要启动发动机。
+4) 保持里程碑被按下10秒钟。
+5) 里程表显示屏开始倒计数（显示10S倒计时）。当显示屏显示0000.0时，松开按钮，此时组合仪表显示屏中表示保养操作的扳手指示灯已经复位，重新进行计数显示值。
+6) 松开里程表按钮
+7) 重新关闭打开点火开关，检查是否归零成功。
+	</BodyContent>
+</Article>
+	

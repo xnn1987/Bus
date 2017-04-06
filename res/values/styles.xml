@@ -1,0 +1,28 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="android:Theme.Light" />
+
+    <style name="TextMarqueeStyle">
+        <item name="android:textColorHighlight">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColorLink">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="RadioButton">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/radio_btn</item>
+    </style>
+
+    <style name="SettingTextStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/big_size</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+</resources>

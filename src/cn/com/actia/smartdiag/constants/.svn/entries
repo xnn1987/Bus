@@ -1,0 +1,52 @@
+8
+
+dir
+1046
+svn://140.206.48.34/smartdiag/android/trunk/SmartDiag2013_1_14/src/cn/com/actia/smartdiag/constants
+svn://140.206.48.34/smartdiag/android
+
+
+
+2013-05-10T08:55:52.864882Z
+1045
+xuting
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5e3c7544-347f-4a0c-9ad2-b5e9bfc61147
+
+FlashConstants.java
+file
+
+
+
+
+2013-05-20T00:43:37.283606Z
+0559ea83a3cdf3ab70ebfdd816d22f88
+2013-01-14T05:48:08.225039Z
+486
+xuting
+
+Constants.java
+file
+
+
+
+
+2013-05-20T00:43:37.294607Z
+97f3bbf805e49f0e9d7885f5a849a2d4
+2013-05-10T08:55:52.864882Z
+1045
+xuting
+

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>海南马自达</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>海南马自达
+	
+	普利马：发动机室左前侧；17PIN.
+	
+	福美来：发动机室左后侧防火墙附近；17PIN.
+	
+	323: 发动机室左后侧防火墙附近；17PIN.
+	
+	</BodyContent>
+</Article>
+	

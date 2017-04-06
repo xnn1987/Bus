@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#f00</color>
+    <color name="green">#0f0</color>
+    <color name="lightblue">#00ffff</color>
+    <color name="clocktextNum">#29B4FD</color>
+    <color name="diviceline">#66ffffff</color>
+    <color name="grey">#66ffffff</color>
+    <color name="clock_red">#f20e0e</color>
+    <color name="clock_green">#ffffff</color>
+    <color name="clock_textcolor">#b3b3b3</color>
+    <color name="select_checked">#bbbbbb</color>
+    <color name="select_normal">#555555</color>
+    <color name="graph_color">#00ff20</color>
+
+</resources>

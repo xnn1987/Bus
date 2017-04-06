@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="large_size">54sp</dimen>
+    <dimen name="big_size">20sp</dimen>
+    <dimen name="normal_size">16sp</dimen>
+    <dimen name="title_text_size">28sp</dimen>
+    <dimen name="title_text_size_small">24sp</dimen>
+    <dimen name="small_num_size">12sp</dimen>
+    <dimen name="histogram_size">200px</dimen>
+    <dimen name="pop_item_height">40dp</dimen>
+    <dimen name="radio_size">20dp</dimen>
+
+</resources>

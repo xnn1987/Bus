@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnvUtilConf version="0.1">
+
+	<!-- Node defining the logging levels for tags -->
+	<LogConf>
+
+		<!-- Default level for a tag is the tag to log hasnot been definied in this file -->
+		<!-- Possible values are ERROR, WARN, DEBUG, INFO, VERBOSE -->
+		<DefaultLevels>
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</DefaultLevels>
+		
+		<!-- Override default for SmartDiag-UI TAG -->
+		<Tag name="SmartDiag-UI">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</Tag>
+		
+		<Tag name="SmartDiag-thread">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</Tag>
+		
+		<Tag name="readParam">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</Tag>
+		<Tag name="graph">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</Tag>
+		
+		<!-- Override default for SmartDiag-BL TAG -->
+		<Tag name="SmartDiag-BL">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="DEBUG"/>
+			<Level name="INFO" />
+		</Tag>
+		
+		<!-- Override default for SmartDiag-CM TAG -->
+		<Tag name="SmartDiag-CM">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</Tag>
+
+		<!-- Override default for SmartDiag-VCM TAG -->
+		<Tag name="SmartDiag-VCM">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</Tag>
+		
+		<Tag name="SmartDiag-WI">
+			<Level name="ERROR" />
+			<Level name="WARN" />
+			<Level name="INFO" />
+			<Level name="DEBUG" />
+		</Tag>
+	</LogConf>
+
+	
+</EnvUtilConf>

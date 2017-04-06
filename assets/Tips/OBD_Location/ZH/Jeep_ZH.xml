@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>吉普</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>吉普
+	
+	福特翼虎吉普（ESCAPE XLT）：OBD诊断头在驾驶员左护板侧。
+	
+	北京吉普2500：OBD诊断头在驾驶员左护板侧。
+	
+	北京吉普2033：OBD诊断头在发动机舱内左侧。
+	
+	</BodyContent>
+</Article>
+	

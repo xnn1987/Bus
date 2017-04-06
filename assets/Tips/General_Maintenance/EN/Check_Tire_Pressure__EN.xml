@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>Check Tire Pressure</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/01/14</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>This maintenance operation is not available !
+
+	</BodyContent>
+</Article>
+	

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File used to define VIN Manufacturer/Make list -->
+<Manufacturers version="1.1">
+
+    <!-- Section used to describe a manufacturer -->
+    <Manufacturer name="DPCA" displayName="@P30-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>
+            <WMISingleEntry id="1" value="LBF" name="DPCA_Branch_1" displayName="@P30-VIN" />
+			<WMIRanges>
+                <WMIRangeEntry id="2" rangeStart="LAB" rangeEnd="LAD" name="DPCA_Branch_2" displayName="@P20-VIN" />
+                <WMIRangeEntry id="3" rangeStart="LAF" rangeEnd="LAZ" name="DPCA_Branch_3" displayName="@P20-VIN" />
+            </WMIRanges>
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+	        <Make name="DPCA_Peugeot" displayName="@P31-VIN">
+	           <WMIRefs>
+	               <WMIRef refid="1" />
+	           </WMIRefs>
+	        </Make>
+			<Make name="DPCA_Citroen" displayName="@P32-VIN">
+			 <WMIRefs>
+	         </WMIRefs>
+	        </Make>
+       </Makes>
+    </Manufacturer>
+    
+    <!-- Section used to describe a manufacturer -->
+    <Manufacturer name="SAIC" displayName="@P20-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>
+
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+			<Make name="MG" displayName="@P42-VIN">
+	           <WMIRefs>
+	           </WMIRefs>
+	        </Make>
+			
+	        <Make name="ROEWE" displayName="@P43-VIN">
+	           <WMIRefs>
+	           </WMIRefs>
+	        </Make>
+			
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="Geely" displayName="@P23-VIN" relatedCountryCode="L0">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>
+            <WMISingleEntry id="1" value="LBB" name="Geely_main_Branch" displayName="@P23-VIN" />
+            <WMIRanges>
+                <WMIRangeEntry id="2" rangeStart="LBC" rangeEnd="LBE" name="Geely_Sub_Branch" displayName="@P23-VIN" />
+            </WMIRanges>
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+			<Make name="Gleagle" displayName="@P34-VIN">
+				<WMIRefs>
+				</WMIRefs>
+	        </Make>
+			<Make name="Emgrand" displayName="@P33-VIN">
+				<WMIRefs>
+				</WMIRefs>
+	        </Make>
+			<Make name="Englon" displayName="@P24-VIN">
+				<WMIRefs>
+				</WMIRefs>
+	        </Make>
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="GM" displayName="@P27-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+	        <Make name="Buick" displayName="@P28-VIN">
+				<WMIRefs>
+				</WMIRefs>
+	        </Make>
+			<Make name="Chevrolet" displayName="@P40-VIN">
+				<WMIRefs>
+				</WMIRefs>
+	        </Make>
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="BYD" displayName="@P29-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>            
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+		 <Make name="BYD" displayName="@P29-VIN">
+			<WMIRefs>
+			</WMIRefs>
+	     </Make>
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="CHANGAN" displayName="@P35-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>            
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+		 <Make name="ChangAn" displayName="@P35-VIN">
+			<WMIRefs>
+			</WMIRefs>
+	     </Make>
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="FORD" displayName="@P36-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>            
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+		 <Make name="Ford" displayName="@P36-VIN">
+			<WMIRefs>
+			</WMIRefs>
+	     </Make>
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="MAZDA" displayName="@P37-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>            
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+		 <Make name="MAZDA" displayName="@P37-VIN">
+			<WMIRefs>
+			</WMIRefs>
+	     </Make>
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="VW" displayName="@P38-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>            
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+		 <Make name="VW" displayName="@P38-VIN">
+			<WMIRefs>
+			</WMIRefs>
+	     </Make>
+       </Makes>
+    </Manufacturer>
+	
+	<Manufacturer name="FAW" displayName="@P39-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>            
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+		 <Make name="FAW" displayName="@P39-VIN">
+			<WMIRefs>
+			</WMIRefs>
+	     </Make>
+       </Makes>
+    </Manufacturer>
+	
+	
+	<Manufacturer name="SOUEAST" displayName="@P41-VIN" relatedCountryCode="LA">
+        
+        <!-- Section used to describe assigned WMI for a manufacturer -->
+        <AssignedWMIs>            
+        </AssignedWMIs>
+        
+        <!-- Makes definition for this manufacturer -->
+        <Makes>
+		 <Make name="SOUEAST" displayName="@P41-VIN">
+			<WMIRefs>
+			</WMIRefs>
+	     </Make>
+       </Makes>
+    </Manufacturer>
+</Manufacturers>

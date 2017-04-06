@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- <cn.com.actia.smartdiag.widget.RollLinearLayout -->
+
+    <LinearLayout
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <cn.com.actia.smartdiag.widget.TwoSwitch
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/switch_2_button"
+            android:checked="false"
+            android:maxHeight="@dimen/histogram_size"
+            android:maxWidth="@dimen/histogram_size"
+            android:minHeight="@dimen/histogram_size"
+            android:minWidth="@dimen/histogram_size" />
+    </LinearLayout>
+    <!-- </cn.com.actia.smartdiag.widget.RollLinearLayout> -->
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextMarqueeStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" />
+
+</LinearLayout>

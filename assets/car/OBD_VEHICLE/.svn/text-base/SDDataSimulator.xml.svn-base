@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SDDataSimulator version="0.1">
+	<DataList>
+		<!-- defines all DTCs possible, even if not used -->
+		<DTCs>
+			<DTC dtcid="1" dtcCode="P0123" />
+			<DTC dtcid="2" dtcCode="P0124" />
+			<DTC dtcid="3" dtcCode="P0125" />
+			<DTC dtcid="4" dtcCode="B0001" />
+			<!-- continue DTC description -->
+			<!-- ... -->
+			<DTCStatuss>
+			    <DTCStatus dtcStatusId="1" dtcStatus="Confirmed" label="@P9999-DATA"/>
+			    <DTCStatus dtcStatusId="2" dtcStatus="Pending" label="@P9998-DATA"/>
+				<DTCStatus dtcStatusId="3" dtcStatus="Permanent" label="@P9997-DATA"/>
+				<DTCStatus dtcStatusId="4" dtcStatus="Unknown" label="@P9996-DATA"/>
+			</DTCStatuss>
+		</DTCs>
+
+		<!-- defines all Parameter possible, even if not used -->
+		<!-- Parameter in this section can be overriden by the specific one re-defined in the ECU list below -->
+		<Parameters>
+			
+			<!-- 01 -->
+			<!-- This PID data do not change with time, so "seq" attribute is set to false -->
+			<Parameter paramid="1" seq="false" name="numberOfDTCSStoredInThisECU" 
+				displayname="@P1-DATA" value="3">
+			</Parameter>
+		
+			<!-- 01 -->
+			<!-- This PID data change with time, so "seq" attribute is set to true -->
+			<!-- minsqid and maxseqid are set in the PID details, but maxseqid is only of 2, this means only the first two PIDSequence will be used -->
+			<!-- minsqid and maxseqid are set in the PID details -->
+			<Parameter paramid="2" seq="true" name="fuelSystemConponentMonitoringReady" 
+				displayname="@P7-DATA" minseqid="1" maxseqid="2">
+				<ParameterSequence seqid="1" value="true"></ParameterSequence>
+				<ParameterSequence seqid="2" value="false"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 01 -->
+			<Parameter paramid="3" seq="true" name="mILStatus" 
+				displayname="@P2-DATA" minseqid="1" value="1" maxseqid="2">
+				<ParameterSequence seqid="1" value="true"></ParameterSequence>
+				<ParameterSequence seqid="2" value="false"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 02 -->
+			<Parameter paramid="4" seq="true" name="DTCCausedRequiredFreezeFrameDataStorage" 
+				displayname="@P24-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="AABB"></ParameterSequence>
+				<ParameterSequence seqid="2" value="CCDD"></ParameterSequence>
+				<ParameterSequence seqid="3" value="1111"></ParameterSequence>
+				<ParameterSequence seqid="4" value="2222"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 03 -->
+			<Parameter paramid="5" seq="true" name="fuelSystem1Status" 
+				displayname="@P25-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="OL"></ParameterSequence>
+				<ParameterSequence seqid="2" value="CL"></ParameterSequence>
+				<ParameterSequence seqid="3" value="OL-Drive"></ParameterSequence>
+				<ParameterSequence seqid="4" value="OL-Fault"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 03 -->
+			<Parameter paramid="6" seq="true" name="fuelSystem2Status" 
+				displayname="@P26-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="OL"></ParameterSequence>
+				<ParameterSequence seqid="2" value="CL"></ParameterSequence>
+				<ParameterSequence seqid="3" value="OL-Drive"></ParameterSequence>
+				<ParameterSequence seqid="4" value="OL-Fault"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 05 -->
+			<Parameter paramid="7" seq="true" name="engineCoolantTemperature" 
+				displayname="@P28-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="37"></ParameterSequence>
+				<ParameterSequence seqid="2" value="40"></ParameterSequence>
+				<ParameterSequence seqid="3" value="43"></ParameterSequence>
+				<ParameterSequence seqid="4" value="46"></ParameterSequence>
+			</Parameter>
+			
+			<!-- OA -->
+			<Parameter paramid="8" seq="true" name="fuelRailPressuregauge" 
+				displayname="@P33-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="100"></ParameterSequence>
+				<ParameterSequence seqid="2" value="200"></ParameterSequence>
+				<ParameterSequence seqid="3" value="300"></ParameterSequence>
+				<ParameterSequence seqid="4" value="400"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 0C -->
+			<Parameter paramid="9" seq="true" name="engineRPM" 
+				displayname="@P35-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="1000"></ParameterSequence>
+				<ParameterSequence seqid="2" value="1200"></ParameterSequence>
+				<ParameterSequence seqid="3" value="1300"></ParameterSequence>
+				<ParameterSequence seqid="4" value="1100"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 0D -->
+			<!-- HIGHWAY SIMULATION DATA -->
+			<Parameter paramid="10" seq="true" name="vehicleSpeed" 
+				displayname="@P36-DATA" minseqid="1" maxseqid="70">
+				<ParameterSequence seqid="1" value="100"></ParameterSequence>
+				<ParameterSequence seqid="2" value="100"></ParameterSequence>
+				<ParameterSequence seqid="3" value="100"></ParameterSequence>
+				<ParameterSequence seqid="4" value="100"></ParameterSequence>
+				<ParameterSequence seqid="5" value="100"></ParameterSequence>
+				<ParameterSequence seqid="6" value="100"></ParameterSequence>
+				<ParameterSequence seqid="7" value="100"></ParameterSequence>
+				<ParameterSequence seqid="8" value="100"></ParameterSequence>
+				<ParameterSequence seqid="9" value="100"></ParameterSequence>
+				<ParameterSequence seqid="10" value="110"></ParameterSequence>
+				<ParameterSequence seqid="11" value="130"></ParameterSequence>
+				<ParameterSequence seqid="12" value="150"></ParameterSequence>
+				<ParameterSequence seqid="13" value="140"></ParameterSequence>
+				<ParameterSequence seqid="14" value="130"></ParameterSequence>
+				<ParameterSequence seqid="15" value="100"></ParameterSequence>
+				<ParameterSequence seqid="16" value="0"></ParameterSequence>
+				<ParameterSequence seqid="17" value="0"></ParameterSequence>
+				<ParameterSequence seqid="18" value="25"></ParameterSequence>
+				<ParameterSequence seqid="19" value="50"></ParameterSequence>
+				<ParameterSequence seqid="20" value="75"></ParameterSequence>
+				<ParameterSequence seqid="21" value="100"></ParameterSequence>
+				<ParameterSequence seqid="22" value="100"></ParameterSequence>
+				<ParameterSequence seqid="23" value="100"></ParameterSequence>
+				<ParameterSequence seqid="24" value="100"></ParameterSequence>
+				<ParameterSequence seqid="25" value="100"></ParameterSequence>
+				<ParameterSequence seqid="26" value="100"></ParameterSequence>
+				<ParameterSequence seqid="27" value="110"></ParameterSequence>
+				<ParameterSequence seqid="28" value="120"></ParameterSequence>
+				<ParameterSequence seqid="29" value="125"></ParameterSequence>
+				<ParameterSequence seqid="30" value="125"></ParameterSequence>
+				<ParameterSequence seqid="31" value="125"></ParameterSequence>
+				<ParameterSequence seqid="32" value="117"></ParameterSequence>
+				<ParameterSequence seqid="33" value="110"></ParameterSequence>
+				<ParameterSequence seqid="34" value="111"></ParameterSequence>
+				<ParameterSequence seqid="35" value="112"></ParameterSequence>
+				<ParameterSequence seqid="36" value="100"></ParameterSequence>
+				<ParameterSequence seqid="37" value="100"></ParameterSequence>
+				<ParameterSequence seqid="38" value="100"></ParameterSequence>
+				<ParameterSequence seqid="39" value="100"></ParameterSequence>
+				<ParameterSequence seqid="40" value="100"></ParameterSequence>
+				<ParameterSequence seqid="41" value="100"></ParameterSequence>
+				<ParameterSequence seqid="42" value="100"></ParameterSequence>
+				<ParameterSequence seqid="43" value="100"></ParameterSequence>
+				<ParameterSequence seqid="44" value="100"></ParameterSequence>
+				<ParameterSequence seqid="45" value="100"></ParameterSequence>
+				<ParameterSequence seqid="46" value="100"></ParameterSequence>
+				<ParameterSequence seqid="47" value="100"></ParameterSequence>
+				<ParameterSequence seqid="48" value="100"></ParameterSequence>
+				<ParameterSequence seqid="49" value="100"></ParameterSequence>
+				<ParameterSequence seqid="50" value="100"></ParameterSequence>
+				<ParameterSequence seqid="51" value="100"></ParameterSequence>
+				<ParameterSequence seqid="52" value="100"></ParameterSequence>
+				<ParameterSequence seqid="53" value="100"></ParameterSequence>
+				<ParameterSequence seqid="54" value="90"></ParameterSequence>
+				<ParameterSequence seqid="55" value="70"></ParameterSequence>
+				<ParameterSequence seqid="56" value="70"></ParameterSequence>
+				<ParameterSequence seqid="57" value="65"></ParameterSequence>
+				<ParameterSequence seqid="58" value="65"></ParameterSequence>
+				<ParameterSequence seqid="59" value="63"></ParameterSequence>
+				<ParameterSequence seqid="60" value="75"></ParameterSequence>
+				<ParameterSequence seqid="61" value="86"></ParameterSequence>
+				<ParameterSequence seqid="62" value="100"></ParameterSequence>
+				<ParameterSequence seqid="63" value="100"></ParameterSequence>
+				<ParameterSequence seqid="64" value="100"></ParameterSequence>
+				<ParameterSequence seqid="65" value="100"></ParameterSequence>
+				<ParameterSequence seqid="66" value="100"></ParameterSequence>
+				<ParameterSequence seqid="67" value="100"></ParameterSequence>
+				<ParameterSequence seqid="68" value="100"></ParameterSequence>
+				<ParameterSequence seqid="69" value="100"></ParameterSequence>
+				<ParameterSequence seqid="70" value="100"></ParameterSequence>
+			</Parameter>
+			
+			<!-- Uncomment this one, and comment previous (paramid=10) one to use -->
+			<!-- Scenario 1 -->
+			<!--
+			<Parameter paramid="10" seq="true" name="vehicleSpeed" 
+				displayname="@P36-DATA" minseqid="1" maxseqid="70">
+				<ParameterSequence seqid="1" value="100"></ParameterSequence>
+				<ParameterSequence seqid="2" value="100"></ParameterSequence>
+				<ParameterSequence seqid="3" value="100"></ParameterSequence>
+				<ParameterSequence seqid="4" value="100"></ParameterSequence>
+				<ParameterSequence seqid="5" value="100"></ParameterSequence>
+				<ParameterSequence seqid="6" value="100"></ParameterSequence>
+				<ParameterSequence seqid="7" value="100"></ParameterSequence>
+				<ParameterSequence seqid="8" value="100"></ParameterSequence>
+				<ParameterSequence seqid="9" value="100"></ParameterSequence>
+				<ParameterSequence seqid="10" value="110"></ParameterSequence>
+				<ParameterSequence seqid="11" value="130"></ParameterSequence>
+				<ParameterSequence seqid="12" value="150"></ParameterSequence>
+				<ParameterSequence seqid="13" value="140"></ParameterSequence>
+				<ParameterSequence seqid="14" value="130"></ParameterSequence>
+				<ParameterSequence seqid="15" value="100"></ParameterSequence>
+				<ParameterSequence seqid="16" value="0"></ParameterSequence>
+				<ParameterSequence seqid="17" value="0"></ParameterSequence>
+				<ParameterSequence seqid="18" value="25"></ParameterSequence>
+				<ParameterSequence seqid="19" value="50"></ParameterSequence>
+				<ParameterSequence seqid="20" value="75"></ParameterSequence>
+				<ParameterSequence seqid="21" value="100"></ParameterSequence>
+				<ParameterSequence seqid="22" value="100"></ParameterSequence>
+				<ParameterSequence seqid="23" value="100"></ParameterSequence>
+				<ParameterSequence seqid="24" value="50"></ParameterSequence>
+				<ParameterSequence seqid="25" value="25"></ParameterSequence>
+				<ParameterSequence seqid="26" value="56"></ParameterSequence>
+				<ParameterSequence seqid="27" value="75"></ParameterSequence>
+				<ParameterSequence seqid="28" value="100"></ParameterSequence>
+				<ParameterSequence seqid="29" value="130"></ParameterSequence>
+				<ParameterSequence seqid="30" value="150"></ParameterSequence>
+				<ParameterSequence seqid="31" value="175"></ParameterSequence>
+				<ParameterSequence seqid="32" value="174"></ParameterSequence>
+				<ParameterSequence seqid="33" value="173"></ParameterSequence>
+				<ParameterSequence seqid="34" value="170"></ParameterSequence>
+				<ParameterSequence seqid="35" value="130"></ParameterSequence>
+				<ParameterSequence seqid="36" value="150"></ParameterSequence>
+				<ParameterSequence seqid="37" value="130"></ParameterSequence>
+				<ParameterSequence seqid="38" value="100"></ParameterSequence>
+				<ParameterSequence seqid="39" value="80"></ParameterSequence>
+				<ParameterSequence seqid="40" value="50"></ParameterSequence>
+				<ParameterSequence seqid="41" value="50"></ParameterSequence>
+				<ParameterSequence seqid="42" value="50"></ParameterSequence>
+				<ParameterSequence seqid="43" value="38"></ParameterSequence>
+				<ParameterSequence seqid="44" value="0"></ParameterSequence>
+				<ParameterSequence seqid="45" value="0"></ParameterSequence>
+				<ParameterSequence seqid="46" value="0"></ParameterSequence>
+				<ParameterSequence seqid="47" value="0"></ParameterSequence>
+				<ParameterSequence seqid="48" value="0"></ParameterSequence>
+				<ParameterSequence seqid="49" value="0"></ParameterSequence>
+				<ParameterSequence seqid="50" value="5"></ParameterSequence>
+				<ParameterSequence seqid="51" value="7"></ParameterSequence>
+				<ParameterSequence seqid="52" value="6"></ParameterSequence>
+				<ParameterSequence seqid="53" value="9"></ParameterSequence>
+				<ParameterSequence seqid="54" value="13"></ParameterSequence>
+				<ParameterSequence seqid="55" value="18"></ParameterSequence>
+				<ParameterSequence seqid="56" value="17"></ParameterSequence>
+				<ParameterSequence seqid="57" value="20"></ParameterSequence>
+				<ParameterSequence seqid="58" value="25"></ParameterSequence>
+				<ParameterSequence seqid="59" value="50"></ParameterSequence>
+				<ParameterSequence seqid="60" value="70"></ParameterSequence>
+				<ParameterSequence seqid="61" value="100"></ParameterSequence>
+				<ParameterSequence seqid="62" value="100"></ParameterSequence>
+				<ParameterSequence seqid="63" value="100"></ParameterSequence>
+				<ParameterSequence seqid="64" value="100"></ParameterSequence>
+				<ParameterSequence seqid="65" value="100"></ParameterSequence>
+				<ParameterSequence seqid="66" value="100"></ParameterSequence>
+				<ParameterSequence seqid="67" value="100"></ParameterSequence>
+				<ParameterSequence seqid="68" value="100"></ParameterSequence>
+				<ParameterSequence seqid="69" value="100"></ParameterSequence>
+				<ParameterSequence seqid="70" value="100"></ParameterSequence>
+			</Parameter>
+			-->
+			
+			<!-- 0E -->
+			<Parameter paramid="11" seq="true" name="ignitionTimingAdvance1Cylinder" 
+				displayname="@P37-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="10"></ParameterSequence>
+				<ParameterSequence seqid="2" value="20"></ParameterSequence>
+				<ParameterSequence seqid="3" value="30"></ParameterSequence>
+				<ParameterSequence seqid="4" value="40"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 10 -->
+			<Parameter paramid="12" seq="true" name="airFlowRateFromMassAirFliwSensor" 
+				displayname="@P39-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="100"></ParameterSequence>
+				<ParameterSequence seqid="2" value="200"></ParameterSequence>
+				<ParameterSequence seqid="3" value="300"></ParameterSequence>
+				<ParameterSequence seqid="4" value="400"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 13 -->
+			<Parameter paramid="13" seq="true" name="locationOfOxygenSensors" 
+				displayname="@P42-DATA" minseqid="1" maxseqid="5">
+				<ParameterSequence seqid="1" value="O2S11"></ParameterSequence>
+				<ParameterSequence seqid="2" value="02S11O2S12"></ParameterSequence>
+				<ParameterSequence seqid="3" value="02S11O2S12O2S13"></ParameterSequence>
+				<ParameterSequence seqid="4" value="02S11O2S12O2S1302S21"></ParameterSequence>
+				<ParameterSequence seqid="5" value="02S11O2S12O2S1302S1402S2102S2202S2302S24"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 14 -->
+			<Parameter paramid="14" seq="true" name="oxygenSensorOutputVoltageB1S1" 
+				displayname="@P43-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="1.003"></ParameterSequence>
+				<ParameterSequence seqid="2" value="1.013"></ParameterSequence>
+				<ParameterSequence seqid="3" value="1.103"></ParameterSequence>
+				<ParameterSequence seqid="4" value="1.203"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 17 -->
+			<Parameter paramid="15" seq="true" name="shortTermFuelTrimB1S4" 
+				displayname="@P141-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="23"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="87"></ParameterSequence>
+				<ParameterSequence seqid="4" value="34.6"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 1C -->
+			<Parameter paramid="16" seq="true" name="vehicleOBDRequirements" 
+				displayname="@P52-DATA" minseqid="1" maxseqid="9">
+				<ParameterSequence seqid="1" value="OBD II"></ParameterSequence>
+				<ParameterSequence seqid="2" value="OBD"></ParameterSequence>
+				<ParameterSequence seqid="3" value="OBD and OBD II"></ParameterSequence>
+				<ParameterSequence seqid="4" value="EOBD"></ParameterSequence>
+				<ParameterSequence seqid="5" value="EOBD and OBD"></ParameterSequence>
+				<ParameterSequence seqid="6" value="JOBD"></ParameterSequence>
+				<ParameterSequence seqid="7" value="JOBD and EOBD"></ParameterSequence>
+				<ParameterSequence seqid="8" value="EURO"></ParameterSequence>
+				<ParameterSequence seqid="9" value="EMD"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 1F -->
+			<Parameter paramid="17" seq="true" name="timeSinceEngineStart" 
+				displayname="@P55-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="50000"></ParameterSequence>
+				<ParameterSequence seqid="2" value="55000"></ParameterSequence>
+				<ParameterSequence seqid="3" value="40000"></ParameterSequence>
+				<ParameterSequence seqid="4" value="45000"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 21 -->
+			<Parameter paramid="18" seq="true" name="distanceMILActivated" 
+				displayname="@P56-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="2344"></ParameterSequence>
+				<ParameterSequence seqid="2" value="35565"></ParameterSequence>
+				<ParameterSequence seqid="3" value="4090"></ParameterSequence>
+				<ParameterSequence seqid="4" value="45000"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 23 -->
+			<Parameter paramid="19" seq="true" name="fuelRailPressure" 
+				displayname="@P58-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="50000"></ParameterSequence>
+				<ParameterSequence seqid="2" value="550000"></ParameterSequence>
+				<ParameterSequence seqid="3" value="40900"></ParameterSequence>
+				<ParameterSequence seqid="4" value="450000"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 26 -->
+			<Parameter paramid="20" seq="true" name="equivalenceRatiolambdaB1S3" 
+				displayname="@P61-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="1.223"></ParameterSequence>
+				<ParameterSequence seqid="2" value="1.455"></ParameterSequence>
+				<ParameterSequence seqid="3" value="1.009"></ParameterSequence>
+				<ParameterSequence seqid="4" value="1.676"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 2C -->
+			<Parameter paramid="21" seq="true" name="commandedEGR" 
+				displayname="@P67-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="40"></ParameterSequence>
+				<ParameterSequence seqid="2" value="50"></ParameterSequence>
+				<ParameterSequence seqid="3" value="60"></ParameterSequence>
+				<ParameterSequence seqid="4" value="70"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 2D -->
+			<Parameter paramid="22" seq="true" name="EGRError" 
+				displayname="@P68-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="-20"></ParameterSequence>
+				<ParameterSequence seqid="2" value="-10"></ParameterSequence>
+				<ParameterSequence seqid="3" value="68"></ParameterSequence>
+				<ParameterSequence seqid="4" value="30"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 2F -->
+			<Parameter paramid="23" seq="true" name="fuelLevelInput" 
+				displayname="@P70-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="40"></ParameterSequence>
+				<ParameterSequence seqid="2" value="50"></ParameterSequence>
+				<ParameterSequence seqid="3" value="60"></ParameterSequence>
+				<ParameterSequence seqid="4" value="70"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 30 -->
+			<Parameter paramid="24" seq="true" name="numberOfwarmupsSinceDiagnosticCodesCleared" 
+				displayname="@P71-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="40"></ParameterSequence>
+				<ParameterSequence seqid="2" value="80"></ParameterSequence>
+				<ParameterSequence seqid="3" value="100"></ParameterSequence>
+				<ParameterSequence seqid="4" value="200"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 32 -->
+			<Parameter paramid="25" seq="true" name="evapSystemVaporPressure" 
+				displayname="@P73-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="-1787"></ParameterSequence>
+				<ParameterSequence seqid="2" value="6799"></ParameterSequence>
+				<ParameterSequence seqid="3" value="5908"></ParameterSequence>
+				<ParameterSequence seqid="4" value="6678"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 34 -->
+			<Parameter paramid="26" seq="true" name="equivalenceRatiolambdaB1S12" 
+				displayname="@P75-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="1.111"></ParameterSequence>
+				<ParameterSequence seqid="2" value="1.222"></ParameterSequence>
+				<ParameterSequence seqid="3" value="1.333"></ParameterSequence>
+				<ParameterSequence seqid="4" value="1.444"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 34 -->
+			<Parameter paramid="27" seq="true" name="oxygenSensorCurrentB1S1" 
+				displayname="@P154-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="-60"></ParameterSequence>
+				<ParameterSequence seqid="2" value="60"></ParameterSequence>
+				<ParameterSequence seqid="3" value="40"></ParameterSequence>
+				<ParameterSequence seqid="4" value="80"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 38 -->
+			<Parameter paramid="28" seq="true" name="equivalenceRatiolambdaB2S12" 
+				displayname="@P79-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="1.101"></ParameterSequence>
+				<ParameterSequence seqid="2" value="1.202"></ParameterSequence>
+				<ParameterSequence seqid="3" value="1.033"></ParameterSequence>
+				<ParameterSequence seqid="4" value="1.440"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 38 -->
+			<Parameter paramid="29" seq="true" name="oxygenSensorCurrentB2S1" 
+				displayname="@P158-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="-65"></ParameterSequence>
+				<ParameterSequence seqid="2" value="67"></ParameterSequence>
+				<ParameterSequence seqid="3" value="48"></ParameterSequence>
+				<ParameterSequence seqid="4" value="81"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 3C -->
+			<Parameter paramid="30" seq="true" name="catalystTemperatureBank1Sensor1" 
+				displayname="@P84-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="123"></ParameterSequence>
+				<ParameterSequence seqid="2" value="443"></ParameterSequence>
+				<ParameterSequence seqid="3" value="545"></ParameterSequence>
+				<ParameterSequence seqid="4" value="345"></ParameterSequence>
+			</Parameter>
+
+			<!-- 3D -->
+			<Parameter paramid="31" seq="true" name="catalystTemperatureBank2Sensor1" 
+				displayname="@P85-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="123"></ParameterSequence>
+				<ParameterSequence seqid="2" value="443"></ParameterSequence>
+				<ParameterSequence seqid="3" value="545"></ParameterSequence>
+				<ParameterSequence seqid="4" value="345"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 3E -->
+			<Parameter paramid="32" seq="true" name="catalystTemperatureBank1Sensor2" 
+				displayname="@P86-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="45"></ParameterSequence>
+				<ParameterSequence seqid="2" value="443"></ParameterSequence>
+				<ParameterSequence seqid="3" value="5458"></ParameterSequence>
+				<ParameterSequence seqid="4" value="-3"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 3F -->
+			<Parameter paramid="33" seq="true" name="catalystTemperatureBank2Sensor2" 
+				displayname="@P87-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="8"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="550"></ParameterSequence>
+				<ParameterSequence seqid="4" value="3485.1"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 41 -->
+			<Parameter paramid="34" seq="true" name="misfireMonitoringEnabled" 
+				displayname="@P88-DATA" minseqid="1" maxseqid="2">
+				<ParameterSequence seqid="1" value="true"></ParameterSequence>
+				<ParameterSequence seqid="2" value="false"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 43 -->
+			<Parameter paramid="35" seq="true" name="absoluteLoadValue" 
+				displayname="@P111-DATA" minseqid="1" maxseqid="5">
+				<ParameterSequence seqid="1" value="8"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="550"></ParameterSequence>
+				<ParameterSequence seqid="4" value="2121"></ParameterSequence>
+				<ParameterSequence seqid="4" value="12345"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 45 -->
+			<Parameter paramid="36" seq="true" name="relativeThrottlePosition" 
+				displayname="@P113-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="8"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="65"></ParameterSequence>
+				<ParameterSequence seqid="4" value="90"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 4A -->
+			<Parameter paramid="37" seq="true" name="acceleratorPedalPositionE" 
+				displayname="@P118-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="81"></ParameterSequence>
+				<ParameterSequence seqid="2" value="3"></ParameterSequence>
+				<ParameterSequence seqid="3" value="95"></ParameterSequence>
+				<ParameterSequence seqid="4" value="30"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 4E -->
+			<Parameter paramid="38" seq="true" name="timeSinceDiagnosticTroubleCodesCleared" 
+				displayname="@P122-DATA" minseqid="1" maxseqid="5">
+				<ParameterSequence seqid="1" value="76"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="520"></ParameterSequence>
+				<ParameterSequence seqid="4" value="7421"></ParameterSequence>
+				<ParameterSequence seqid="4" value="13345"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 4F -->
+			<Parameter paramid="39" seq="true" name="maximumValueForEquivalenceRatio" 
+				displayname="@P123-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="8"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="12"></ParameterSequence>
+				<ParameterSequence seqid="4" value="123"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 4F -->
+			<Parameter paramid="40" seq="true" name="maximumValueForOxygenSensorCurrent" 
+				displayname="@P124-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="18"></ParameterSequence>
+				<ParameterSequence seqid="2" value="63"></ParameterSequence>
+				<ParameterSequence seqid="3" value="18"></ParameterSequence>
+				<ParameterSequence seqid="4" value="100"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 50 -->
+			<Parameter paramid="41" seq="true" name="maximumValueForAirFlowRateFromMassAirFlowSenstor" 
+				displayname="@P127-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="145"></ParameterSequence>
+				<ParameterSequence seqid="2" value="62"></ParameterSequence>
+				<ParameterSequence seqid="3" value="182"></ParameterSequence>
+				<ParameterSequence seqid="4" value="10"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 54 -->
+			<Parameter paramid="42" seq="true" name="evapSystemVaporPressure" 
+				displayname="@P131-DATA" minseqid="1" maxseqid="6">
+				<ParameterSequence seqid="1" value="-11245"></ParameterSequence>
+				<ParameterSequence seqid="2" value="-245"></ParameterSequence>
+				<ParameterSequence seqid="3" value="-62"></ParameterSequence>
+				<ParameterSequence seqid="4" value="182"></ParameterSequence>
+				<ParameterSequence seqid="5" value="3182"></ParameterSequence>
+				<ParameterSequence seqid="6" value="12220"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 57 -->
+			<Parameter paramid="43" seq="true" name="shortTermSecondaryO2SensorFuelTrimBank2" 
+				displayname="@P134-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="-62"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="76"></ParameterSequence>
+				<ParameterSequence seqid="4" value="10"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 5C -->
+			<Parameter paramid="44" seq="true" name="engineOilTemperature" 
+				displayname="@P5698-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="-20"></ParameterSequence>
+				<ParameterSequence seqid="2" value="43"></ParameterSequence>
+				<ParameterSequence seqid="3" value="215"></ParameterSequence>
+				<ParameterSequence seqid="4" value="16"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 46 -->
+			<Parameter paramid="45" seq="true" name="ambientAirTemperature" 
+				displayname="@P114-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="17"></ParameterSequence>
+				<ParameterSequence seqid="2" value="22"></ParameterSequence>
+				<ParameterSequence seqid="3" value="23"></ParameterSequence>
+				<ParameterSequence seqid="4" value="12"></ParameterSequence>
+			</Parameter>
+			
+			<!-- 51 -->
+			<Parameter paramid="46" seq="true" name="fuelTypeUsed" 
+				displayname="@P128-DATA" minseqid="1" maxseqid="4">
+				<ParameterSequence seqid="1" value="GAS"></ParameterSequence>
+				<ParameterSequence seqid="2" value="BI_GAS"></ParameterSequence>
+				<ParameterSequence seqid="3" value="BI_METH"></ParameterSequence>
+				<ParameterSequence seqid="4" value="ELEC"></ParameterSequence>
+			</Parameter>
+			
+		</Parameters>
+	</DataList>
+	
+	<ECUList>
+		<ECU ecuidref="1">
+			<DTCLinks>
+				<DTCDREF dtcidref="1" statusIdref="1"/>
+				<DTCDREF dtcidref="4" statusIdref="2"/>
+			</DTCLinks>
+
+			<ParameterLinks>
+				<ParameterDREF paramidref="1" />
+				<ParameterDREF paramidref="2" />
+				<ParameterDREF paramidref="5" />
+				<ParameterDREF paramidref="6" />
+				<Parameter paramid="7" seq="true" name="engineCoolantTemperature" 
+					displayname="@P28-DATA" minseqid="1" maxseqid="4">
+					<ParameterSequence seqid="1" value="50"></ParameterSequence>
+					<ParameterSequence seqid="2" value="60"></ParameterSequence>
+					<ParameterSequence seqid="3" value="70"></ParameterSequence>
+					<ParameterSequence seqid="4" value="80"></ParameterSequence>
+				</Parameter>
+				<ParameterDREF paramidref="8" />
+				<ParameterDREF paramidref="9" />
+				<ParameterDREF paramidref="10" />
+				<ParameterDREF paramidref="17" />
+				<ParameterDREF paramidref="13" />
+				<ParameterDREF paramidref="15" />
+				<ParameterDREF paramidref="18" />
+				<ParameterDREF paramidref="22" />
+				<ParameterDREF paramidref="23" />
+				<ParameterDREF paramidref="25" />
+				<ParameterDREF paramidref="28" />
+				<ParameterDREF paramidref="32" />
+				<ParameterDREF paramidref="39" />
+				<ParameterDREF paramidref="40" />
+				<ParameterDREF paramidref="43" />
+				<ParameterDREF paramidref="46" />
+			</ParameterLinks>
+		</ECU>
+		<ECU ecuidref="2">
+			<DTCLinks>
+				<DTCDREF dtcidref="2" statusIdref="1"/>
+				<DTCDREF dtcidref="3" statusIdref="2"/>
+			</DTCLinks>
+
+			<ParameterLinks>
+				<ParameterDREF paramidref="2" />
+				<ParameterDREF paramidref="5" />
+				<ParameterDREF paramidref="7" />
+				<ParameterDREF paramidref="14" />
+				<ParameterDREF paramidref="18" />
+				<ParameterDREF paramidref="19" />
+				<ParameterDREF paramidref="22" />
+				<ParameterDREF paramidref="24" />
+				<ParameterDREF paramidref="26" />
+				<Parameter paramid="27" seq="true" name="oxygenSensorCurrentB1S1" 
+					displayname="@P154-DATA" minseqid="1" maxseqid="4">
+					<ParameterSequence seqid="1" value="-40"></ParameterSequence>
+					<ParameterSequence seqid="2" value="30"></ParameterSequence>
+					<ParameterSequence seqid="3" value="70"></ParameterSequence>
+					<ParameterSequence seqid="4" value="87"></ParameterSequence>
+				</Parameter>
+				<ParameterDREF paramidref="30" />
+				<ParameterDREF paramidref="35" />
+				<ParameterDREF paramidref="37" />
+				<ParameterDREF paramidref="39" />
+				<ParameterDREF paramidref="40" />
+				<ParameterDREF paramidref="41" />
+				<ParameterDREF paramidref="43" />
+			</ParameterLinks>
+		</ECU>
+	</ECUList>
+</SDDataSimulator>

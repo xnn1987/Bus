@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>Service Light Indicator Reset - Peugeot 508</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/01/14</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>How to reset the service light indicator on a Peugeot 508.
+
+1) Turn the ignition OFF.
+2) Depress and hold the odometer (mileage reset) button.
+3) Switch ON the ignition, do not start the car.
+4) Keep the odometer button pressed down for 10 seconds.
+5) After 10 seconds the display will read “= O″.
+6) Release the odometer button.
+7) Switch OFF the ignition and then ON to check if it was reset.
+	</BodyContent>
+</Article>
+	

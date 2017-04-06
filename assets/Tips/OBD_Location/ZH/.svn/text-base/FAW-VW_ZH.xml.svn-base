@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>一汽大众</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>一汽大众
+	
+	捷达位置：仪表板保险丝盒右后；16PIN.
+	
+	宝来位置：中控台音响下方；16PIN.
+	
+	AUDI A6位置：仪表板左下方；16PIN.
+	
+	AUDI 100 2.6E位置：发动机室左后侧；4PIN.
+	
+	高尔夫：驾驶室方向盘下方；16PIN.
+	
+	7180、7220：发动机室内
+	
+	一汽红旗：诊断头在驾驶员左护板侧。
+	
+	一汽佳宝：德尔福系统；诊断头在保险盒附近或前右门附近。
+	
+	</BodyContent>
+</Article>
+	

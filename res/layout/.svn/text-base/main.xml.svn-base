@@ -1,0 +1,236 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.com.actia.smartdiag.activities.MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/top_guide"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/main_top_guide_smartdiag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/content_smart"
+            android:padding="5dp"
+            android:src="@drawable/top_guide_left" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:visibility="invisible"
+                android:id="@+id/main_top_guide_right1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent"
+                android:contentDescription="@string/content_smart"
+                android:padding="5dp"
+                android:src="@drawable/top_guide_right1" />
+
+            <ImageButton
+                android:id="@+id/main_top_guide_right2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent"
+                android:contentDescription="@string/content_smart"
+                android:padding="5dp"
+                android:src="@drawable/top_guide_right2" />
+
+            <ImageButton
+                android:id="@+id/main_top_guide_right3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent"
+                android:contentDescription="@string/content_smart"
+                android:padding="5dp"
+                android:src="@drawable/top_guide_right3" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        tools:context=".MainActivity" >
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/main_iv1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv1"
+                android:gravity="center"
+                android:text="@string/main_vehicle_state"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size" />
+
+            <Button
+                android:id="@+id/main_iv6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv6"
+                android:gravity="center"
+                android:text="@string/main_fast_scan"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size" />
+
+            <Button
+                android:id="@+id/main_iv5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv5"
+                android:gravity="center"
+                android:text="@string/main_fuel_management"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/main_iv4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv4"
+                android:gravity="center"
+                android:text="@string/main_traffic_management"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size" />
+
+            <Button
+                android:id="@+id/main_iv3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv3"
+                android:gravity="center"
+                android:text="@string/main_maintenance"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size" />
+
+            <Button
+                android:id="@+id/main_iv7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv7"
+                android:gravity="center"
+                android:text="@string/main_car_tips"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/main_iv2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv2"
+                android:gravity="center"
+                android:text="@string/main_depth_diag"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv1"
+                android:visibility="invisible" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv1"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/main_iv10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv4"
+                android:gravity="center"
+                android:text="@string/main_traffic_management"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/main_iv11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv5"
+                android:gravity="center"
+                android:text="@string/main_fuel_management"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/main_iv12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/transparent"
+                android:drawableTop="@drawable/main_iv6"
+                android:gravity="center"
+                android:text="@string/main_fast_scan"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_size"
+                android:visibility="gone" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -1,0 +1,201 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.com.actia.smartdiag"
+    android:versionCode="23"
+    android:versionName="1.1.5-Beta" >
+
+    <uses-sdk
+        android:maxSdkVersion="15"
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="cn.com.actia.smartdiag.activities.MyApplication"
+        android:icon="@drawable/app_icon_1"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black" >
+        <activity android:name="cn.com.actia.smartdiag.activities.APPBaseActivity" />
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.LoadingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.VehicleStateActivity"
+            android:configChanges="keyboard|keyboardHidden"
+            android:label="@string/vehicle_state_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.FastScanActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/fast_scan_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.DrivingManagerActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/drivermanager_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.VCISettingActivity"
+            android:configChanges="keyboard|keyboardHidden"
+            android:label="@string/vci_setting_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.APPViewPageActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.StatusEngine"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:label="@string/status_Engine_title"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.StatusLight"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:label="@string/status_Lighting_title"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.StatusOil"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:label="@string/status_oil_title"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.StatusStop"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:label="@string/status_Stop_title"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.StatusWater"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:label="@string/status_Water_title"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.DeepDiagActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.TipsFirstActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/tips_title"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.TipsSecondActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/tips_title_second"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.TipsThirdActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/tips_title_second"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.DataTextActivity"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.DataClockActivity"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.DataHistogramActivity"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.FastScanListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/fast_scan_list_title"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.SelectMake"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_title_fuel"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.SelectSuccess"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_title_fuel"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.SelectModel"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_title_fuel"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.RegistDevicesActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/regist_devices_title"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.Setting"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.SelectEcuFamily"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.SelectEcu"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.com.actia.smartdiag.activities.SettingVciSetting"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name="cn.com.actia.smartdiag.services.FlashService" />
+        <service android:name="cn.com.actia.smartdiag.services.FlashDrivingManagerService" />
+    </application>
+
+</manifest>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File used to define VIN WMI Country Code list -->
+<WMICountryCodes version="1.0">
+
+	<Continent name="AFRICA" displayName="@P9-VIN">
+		<Country name="SOUTH_AFRICA" displayName="@P10-VIN">
+			<Ranges>
+		   		<Range rangeStart="AA" rangeEnd="AH" />
+			</Ranges>
+		</Country>
+		<Country name="IVORY_COAST" displayName="@P11-VIN">
+		    <Ranges>
+		   		<Range rangeStart="AJ" rangeEnd="AN" />
+			</Ranges>
+		</Country>
+		<!--  ADD Others countries -->
+	</Continent>
+
+	<Continent name="ASIA" displayName="@P12-VIN">
+		<Country name="JAPAN" displayName="@P13-VIN">
+		   	<Ranges>
+		   		<Range rangeStart="JA" rangeEnd="JT" />
+			</Ranges>
+		</Country>
+		<Country name="CHINA" displayName="@P14-VIN">
+		    <Ranges>
+		   		<Range rangeStart="LA" rangeEnd="L0" />
+			</Ranges>
+		</Country>
+		<!--  ADD Others countries -->
+	</Continent>
+	
+	<Continent name="EUROPE" displayName="@P15-VIN">
+		<!--  ADD Others countries -->
+	</Continent>
+	
+	<Continent name="NORTH_AMERICA" displayName="@P16-VIN">
+
+		<!--  ADD Others countries -->
+	</Continent>
+	
+	<Continent name="OCEANIA" displayName="@P17-VIN">
+
+		<!--  ADD Others countries -->
+	</Continent>
+	
+	<Continent name="SOUTH_AMERICA" displayName="@P18-VIN">
+		<Country name="BRAZIL" displayName="@P19-VIN">
+			<Ranges>
+		   		<Range rangeStart="9A" rangeEnd="9E" />
+		    	<Range rangeStart="93" rangeEnd="99" />
+			</Ranges>
+		</Country>
+		<!--  ADD Others countries -->
+	</Continent>
+
+</WMICountryCodes>

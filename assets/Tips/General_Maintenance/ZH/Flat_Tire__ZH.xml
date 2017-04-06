@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>汽车轮胎漏气怎么办</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/05</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>轮胎作为汽车的四只大脚上的鞋，总是与各种复杂的东西进行着亲密的接触，所以轮胎总会出现各种各样的问题，漏气就是其中一种，下面就来说说轮胎漏气时怎么处理：
+
+	若由尖锐器刺入而导致汽车漏气的，可采取全面检车轮胎的方法。当方向盘偏向不稳时，先将车子停在安全的场所，然后再全面检视轮胎空气减失的情况。
+
+	1．将车子置于平坦的路面上，比较一下前轮及后轮左右的轮胎气压是否均等。
+	
+    2．如果发现轮胎的空气减少了，要仔细检查轮胎的四周，特别是胎面的部分要认真检查。
+	
+    3．有铁钉等锐利物刺入时，不可将铁钉拔除，只要更换备胎即可。若拔掉铁钉，空气会跑掉，而且千斤顶也会很难顶起来，在修补爆胎时会找不到漏点而耗费时间。
+	
+    4．如果没有备胎或者无换胎时，要控制速度，以低速行驶到最近的加油站或修理厂请求援助。
+	
+	若由开车方式错误而导致汽车漏气的，可采取注意正确操作的开车方法。
+	
+    1．掌握好时速，在路面遇到石头等尖硬的东西要及时躲避。
+	
+    2．停车的时候，尽量离马路牙子远一点，避免蹭痕。
+	
+    3．无法整修时应及时更换轮胎。
+	</BodyContent>
+</Article>
+	

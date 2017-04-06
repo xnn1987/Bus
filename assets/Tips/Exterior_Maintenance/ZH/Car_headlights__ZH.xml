@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>汽车灯光如何操作</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/05</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>
+	汽车灯光的操作一般是通过灯光操作杆来调节的。
+	
+	灯光操作杆通常在方向盘左侧下方，其长度与方向盘半径相当，便于在手握方向盘时操作，可控制远近光切换，左右转向灯和灯光开启和前后雾灯的开启与关闭（多数车辆）。其使用方法是：
+	
+	开关：在控制杆上，有转动开关，一般有两个，靠外侧的是灯光开启开关，有三个档，分别为关-（示宽灯）小灯-大灯（远、近光灯）；内侧的转动开关可控制前后雾灯的开启和关闭。
+	
+	转向：三个档位，左-关-右，以方向盘为表盘，顺时针方推控制杆，为开启左转向灯，转向结束后可随方向盘回位，也可手动拔回，逆时针拔动，为开启右转向灯。
+	
+	远近光切换：两个档位，通常放在近光位置，以方向盘为参照，打开大灯开关后，向下推动，为开启远光灯，此时，开启远光，仪表盘上蓝色灯图标常亮。向上提动，开启近光，仪表盘上，蓝色图标灭，在近光位置，向上提动，为会车提醒灯（远光灯亮）起到提醒作用。手松开后，自动回到近光位置，（若灯光开关未开启，灯光关闭）。
+	</BodyContent>
+</Article>
+	

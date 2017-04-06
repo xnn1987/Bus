@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>汽车换挡抖动</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/05</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>
+	汽车换挡是“变速杆操作方法”的简称。在长期的驾车过程中，因其名称简洁、直接而被人们流传起来。使用频次非常高。而且操作熟练如何（尤其是手动挡汽车），直接影响着人们驾车的安全。而汽车换挡抖动则是汽车出现了问题，此时应该从多方面去分析发生汽车换挡抖动的原因以及所带来的影响。
+	
+	导致这种原因的可能性很多，具体为：
+	
+     1、驾驶习惯方面：离合与油门的配合不好；
+	 
+     2、传动机构存在问题：离合器片、压盘、导向轴承或一轴轴承老化等；
+	 
+     带来的影响有：
+	 
+     1、加剧传动机构零配件的磨损，缩短其使用寿命，增加养护成本。
+	 
+     2、发动机不平顺工作，久而久之影响发动机其他减振零配件的寿命缩短；
+	 
+     3、增加油耗与尾气排放超标等。
+	</BodyContent>
+</Article>
+	

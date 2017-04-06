@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Categories version="1.0">
+
+    <Category name="General_Maintenance" folderPath="/General_Maintenance" relative="yes">
+		<DisplayNames defaultLocale="zh-CN">
+			<DisplayName locale="en-US">General Maintenance</DisplayName>
+			<DisplayName locale="zh-CN">保养</DisplayName>
+			<DisplayName locale="fr-FR">Maintenance Generale</DisplayName>
+		</DisplayNames>
+	</Category>
+    
+	<Category name="Exterior_Maintenance" folderPath="/Exterior_Maintenance" relative="yes">
+		<DisplayNames defaultLocale="zh-CN">
+			<DisplayName locale="en-US">Exterior Maintenance</DisplayName>
+			<DisplayName locale="zh-CN">外部保养</DisplayName>
+			<DisplayName locale="fr-FR">Maintenance Exterieure</DisplayName>
+		</DisplayNames>
+	</Category>
+	
+	<Category name="Purchase_Advices" folderPath="/Purchase_Advices" relative="yes">
+		<DisplayNames defaultLocale="zh-CN">
+			<DisplayName locale="en-US">Purchase Advices</DisplayName>
+			<DisplayName locale="zh-CN">买车信息</DisplayName>
+			<DisplayName locale="fr-FR">Conseils d&apos; achat</DisplayName>
+		</DisplayNames>
+	</Category>
+	
+	<Category name="SmartDiag_Usage" folderPath="/SmartDiag_Usage" relative="yes">
+		<DisplayNames defaultLocale="zh-CN">
+			<DisplayName locale="en-US">SmartDiag Usage</DisplayName>
+			<DisplayName locale="zh-CN">SmartDiag说明</DisplayName>
+			<!-- Missing displayname for French systems, Chinese will be used as default -->
+		</DisplayNames>
+	</Category>
+  
+	<Category name="OBD_Location" folderPath="/OBD_Location" relative="yes">
+		<DisplayNames defaultLocale="zh-CN">
+			<DisplayName locale="en-US">OBD port location</DisplayName>
+			<DisplayName locale="zh-CN">OBD诊断接头位置</DisplayName>
+		</DisplayNames>
+	</Category>
+  
+  
+</Categories>
+	

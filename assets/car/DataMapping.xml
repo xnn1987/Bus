@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DataMapping dataModelVersion="1.0">
+    <Makes>
+        <!-- Make name should be unique throughout the file -->
+        <!-- Also, Make name should match the "WMIManufacturer" Make definition name ! (manually hard to do), authoring tool is really required -->
+        <Make name="DPCA_Peugeot" displayName="@P31-VIN" picture="logos/DPCA_Peugeot_logo.png">
+            <Models>
+                <!--  DEFINE Peugeot 408 MODEL -->
+                <Model name="408" displayName="@P2-VEHMAP">
+                    <ModelYears>
+                        <!-- 2011 -> 2012 408 Model -->
+                        <ModelYearRange begin="2010" end="2013" picture="pictures/408_2010_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="BCM" displayName="@P3-VEHMAP">
+											    <ECUs>
+													<ECU name="BSI_001000001" displayName="@P3-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="AAS" displayName="@P73-VEHMAP">
+											    <ECUs>
+													<ECU name="AAS_026000123" displayName="@P73-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="AIRBAG_SAC_AUTOLIV_008000124" displayName="@P87-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+											    <ECUs>
+													<ECU name="BVA_AL4_SIEMENS_003000127" displayName="@P107-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="HVAC" displayName="@P42-VEHMAP">
+											    <ECUs>
+													<ECU name="CLIM_009000128" displayName="@P78-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+											    <ECUs>
+													<ECU name="COMBINE_004000129" displayName="@P108-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="INJ_ME745_002000130" displayName="@P109-VEHMAP" />
+													<ECU name="INJ_MM6KP_002000131" displayName="@P80-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>                 
+                 <!--  DEFINE Peugeot 508 MODEL -->
+                <Model name="508" displayName="@P5-VEHMAP">
+                    <ModelYears>
+                      
+                        <!-- 2010 to 2013 508 Model -->
+                        <ModelYearRange begin="2010" end="2013" picture="pictures/508_2010_2013.png">
+                            <Configurations>
+								<AllConfiguration>
+		                            <ECUData>
+								        <Families>
+								            <Family name="BCM" displayName="@P3-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BSI_UAES_0001000003" displayName="@P6-VEHMAP" />
+								                	<ECU name="BSI_DELPHI_0001000004" displayName="@P7-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="BSM" displayName="@P72-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BSM_025000073" displayName="@P72-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="AAS" displayName="@P73-VEHMAP">
+								                <ECUs>
+								                	<ECU name="AAS_026000074" displayName="@P73-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="AIRBAG_RBG_008000075" displayName="@P74-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="BSR" displayName="@P64-VEHMAP">
+											    <ECUs>
+													<ECU name="BSG_2010_RQ_017000076" displayName="@P75-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+											    <ECUs>
+													<ECU name="CFC300P_003000077" displayName="@P76-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+											    <ECUs>
+													<ECU name="COMBINE_UDS_004000078" displayName="@P77-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="HVAC" displayName="@P42-VEHMAP">
+											    <ECUs>
+													<ECU name="CLIM_009000079" displayName="@P78-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="INJ_EDC17CP42_BOSCH_002000080" displayName="@P79-VEHMAP" />
+													<ECU name="INJ_MM6KP_002000081" displayName="@P80-VEHMAP" />
+												</ECUs>
+											</Family>
+								        </Families>
+		    						</ECUData>      
+                            	</AllConfiguration>
+                          		<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+				 <!--  DEFINE Peugeot 307 MODEL -->
+				<Model name="307" displayName="@P61-VEHMAP">
+                    <ModelYears>
+                      
+                        <!-- 2004 to 2013 307 Model -->
+                        <ModelYearRange begin="2004" end="2013" picture="pictures/307_2004_2013.png">
+                            <Configurations>
+								<AllConfiguration>
+		                            <ECUData>
+								        <Families>
+								            <Family name="ICM" displayName="@P58-VEHMAP">
+								                <ECUs>
+								                	<ECU name="ICM_004000049" displayName="@P58-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="BCM" displayName="@P3-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BSI_001000048" displayName="@P3-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="RADIO" displayName="@P63-VEHMAP">
+								                <ECUs>
+								                	<ECU name="RADIO_016000051" displayName="@P63-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="BSR" displayName="@P64-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BSR_017000052" displayName="@P64-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+								                <ECUs>
+								                	<ECU name="CMM_002000053" displayName="@P4-VEHMAP" />
+													<ECU name="INJ_002000055" displayName="@P4-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="EMF" displayName="@P65-VEHMAP">
+								                <ECUs>
+								                	<ECU name="EMF_018000054" displayName="@P65-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="ADDGO" displayName="@P66-VEHMAP">
+								                <ECUs>
+								                	<ECU name="ADDGO_019000056" displayName="@P66-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="TELEMAT" displayName="@P67-VEHMAP">
+								                <ECUs>
+								                	<ECU name="TELEMAT_020000057" displayName="@P67-VEHMAP" />
+								                </ECUs>
+								            </Family>
+								        </Families>
+		    						</ECUData>      
+                            	</AllConfiguration>
+                          		<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+				 <!--  DEFINE Peugeot 308 MODEL -->
+                <Model name="308" displayName="@P62-VEHMAP">
+                    <ModelYears>
+                      
+                        <!-- 2011 to 2013 308 Model -->
+                        <ModelYearRange begin="2011" end="2013" picture="pictures/308_2011_2013.png">
+                            <Configurations>
+								<AllConfiguration>
+		                            <ECUData>
+								        <Families>
+								            <Family name="ICM" displayName="@P58-VEHMAP">
+								                <ECUs>
+								                	<ECU name="ICM_004000050" displayName="@P58-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="ALARM" displayName="@P68-VEHMAP">
+								                <ECUs>
+								                	<ECU name="ALARM_021000058" displayName="@P68-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="RADIO" displayName="@P63-VEHMAP">
+								                <ECUs>
+								                	<ECU name="RADIO_308_016000059" displayName="@P63-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="BSR" displayName="@P64-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BSR_308_017000060" displayName="@P64-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BV_AISIN_003000061" displayName="@P27-VEHMAP" />
+													<ECU name="BOITEVIT_SIEMENS_003000062" displayName="@P27-VEHMAP" />
+													<ECU name="BOITEVIT_AISIN_003000063" displayName="@P27-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+								                <ECUs>
+								                	<ECU name="CMM_DEL_002000064" displayName="@P4-VEHMAP" />
+													<ECU name="INJ_DEL_002000065" displayName="@P4-VEHMAP" />
+													<ECU name="CMM_MAGNETI_002000068" displayName="@P4-VEHMAP" />
+													<ECU name="CMM_CONTI_002000072" displayName="@P4-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="DPM" displayName="@P69-VEHMAP">
+								                <ECUs>
+								                	<ECU name="DPM_022000066" displayName="@P69-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="EMF" displayName="@P65-VEHMAP">
+								                <ECUs>
+								                	<ECU name="EMF_308_018000067" displayName="@P65-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="PORTEC" displayName="@P70-VEHMAP">
+								                <ECUs>
+								                	<ECU name="PORTEC_023000069" displayName="@P70-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="ADDGO" displayName="@P66-VEHMAP">
+								                <ECUs>
+								                	<ECU name="ADDGO_308_019000070" displayName="@P66-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="BTEL" displayName="@P71-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BTEL_024000071" displayName="@P71-VEHMAP" />
+								                </ECUs>
+								            </Family>
+								        </Families>
+		    						</ECUData>      
+                            	</AllConfiguration>
+                          		<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+				 <Model name="206" displayName="@P129-VEHMAP">
+                    <ModelYears>
+                      
+                        <!-- 1998 to 2013 206 Model -->
+                        <ModelYearRange begin="1998" end="2013" picture="pictures/206_1998_2013.png">
+                            <Configurations>
+								<AllConfiguration>
+		                            <ECUData>
+								        <Families>
+								            <Family name="EMS" displayName="@P4-VEHMAP">
+								                <ECUs>
+								                	<ECU name="INJ_ME749_BOSCH_002000125" displayName="@P134-VEHMAP" />
+													<ECU name="INJ_EDC16C34_DV4_002000126" displayName="@P131-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+								                <ECUs>
+								                	<ECU name="BVA_AL4_SIEMENS_003000177" displayName="@P107-VEHMAP" />
+								                </ECUs>
+								            </Family>
+											<Family name="ABS_ESP" displayName="@P85-VEHMAP">
+								                <ECUs>
+								                	<ECU name="ABS_MK70_ESP_MK60_027000178" displayName="@P132-VEHMAP" />
+								                </ECUs>
+								            </Family>
+								        </Families>
+		    						</ECUData>      
+                            	</AllConfiguration>
+                          		<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+            </Models>            
+        </Make>
+		
+		 <Make name="DPCA_Citroen" displayName="@P32-VIN" picture="logos/DPCA_Citroen_logo.png">
+            <Models>
+                <!--  DEFINE Citroen C-Quartre MODEL -->
+                <Model name="C-Quatre" displayName="@P16-VEHMAP">
+                    <ModelYears>
+                        <!-- 2004 -> 2010 C-Quartre Model -->
+						<!-- IS IS SAME DATA THAN ONE DEVELOPPED RIGHT NOW FOR NEWER MODEL -->
+						<!--
+                        <ModelYearRange begin="2004" end="2010" picture="pictures/C-Quartre_2004_2010.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="BCM" displayName="@P3-VEHMAP">
+											    <ECUs>
+													<ECU name="BSI_001000005" displayName="@P17-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+						-->
+						<ModelYearRange begin="2011" end="2013" picture="pictures/C-Quatre_2011_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="BCM" displayName="@P3-VEHMAP">
+											    <ECUs>
+													<ECU name="BSI_001000005" displayName="@P17-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+					
+				 <Model name="C4" displayName="@P83-VEHMAP">
+                    <ModelYears>
+                        <!-- 2011 -> 2012 408 Model -->
+                        <ModelYearRange begin="2008" end="2013" picture="pictures/C4_2008_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="INJ_DCM35_002000088" displayName="@P84-VEHMAP" />
+													<ECU name="INJ_EDC16C34_DV6_002000097" displayName="@P93-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ABS_ESP" displayName="@P85-VEHMAP">
+											    <ECUs>
+													<ECU name="ABS81_ESP81_BOSCH_027000089" displayName="@P86-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="AIRBAG_SAC_AUTOLIV_008000090" displayName="@P87-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="RADIO" displayName="@P63-VEHMAP">
+											    <ECUs>
+													<ECU name="RADIO_RD4_016000092" displayName="@P90-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+											    <ECUs>
+													<ECU name="BVA_AT6_AM6_EURO5_003000093" displayName="@P91-VEHMAP" />
+													<ECU name="CFC300P_003000094" displayName="@P76-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMF" displayName="@P65-VEHMAP">
+											    <ECUs>
+													<ECU name="EMF_018000095" displayName="@P65-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+											    <ECUs>
+													<ECU name="COMBINE_JCAE_004000096" displayName="@P92-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="CORPRO" displayName="@P94-VEHMAP">
+											    <ECUs>
+													<ECU name="PROJECTEURS_028000098" displayName="@P95-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model> 
+				<Model name="C5" displayName="@P106-VEHMAP">
+                    <ModelYears>
+                        <!-- 2011 -> 2012 408 Model -->
+                        <ModelYearRange begin="2008" end="2013" picture="pictures/C5_2008_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>										
+											<Family name="ABS_ESP" displayName="@P85-VEHMAP">
+											    <ECUs>
+													<ECU name="ABS81_ESP81_BOSCH_027000113" displayName="@P86-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="AIRBAG_SAC_AUTOLIV_008000114" displayName="@P87-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+											    <ECUs>
+													<ECU name="BVA_AL4_SIEMENS_00300015" displayName="@P107-VEHMAP" />
+													<ECU name="BVA_AT6_AM6_EURO5_003000116" displayName="@P91-VEHMAP" />
+													<ECU name="CFC300P_003000117" displayName="@P76-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+											    <ECUs>
+													<ECU name="COMBINE_004000118" displayName="@P108-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMF" displayName="@P65-VEHMAP">
+											    <ECUs>
+													<ECU name="EMF_018000119" displayName="@P65-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="INJ_DCM35_002000122" displayName="@P84-VEHMAP" />
+													<ECU name="INJ_EDC16C34_DV6_002000120" displayName="@P93-VEHMAP" />
+													<ECU name="INJ_MM6KP_002000121" displayName="@P80-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model> 
+            </Models>            
+        </Make> 
+		
+		 <Make name="Buick" displayName="@P28-VIN" picture="logos/Buick_logo.png">
+            <Models>
+                <!--  DEFINE Buick Excelle MODEL -->
+                <Model name="Excelle" displayName="@P12-VEHMAP">
+                    <ModelYears>
+                        <!-- 2009 -> 2012 Excelle Model -->
+                        <ModelYearRange begin="2009" end="2013" picture="pictures/Excelle_2009_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+											    <ECUs>
+													<ECU name="AT_003000006" displayName="@P13-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="ENG_MT80_002000007" displayName="@P15-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+				<!--  DEFINE Buick GL8 MODEL -->
+				<Model name="GL8" displayName="@P25-VEHMAP">
+                    <ModelYears>
+                        <!-- 2010 -> 2013 GL8 Model -->
+                        <ModelYearRange begin="2010" end="2013" picture="pictures/GL8_2010_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+										<!-- Actually the family of this ECU is TCM, the BCM has not been reversed eng. yet -->
+											<Family name="BCM" displayName="@P3-VEHMAP">
+											    <ECUs>
+													<ECU name="BSI_001000013" displayName="@P17-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="EMS_002000179" displayName="@P4-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+
+ 				<!--  DEFINE Buick Lacrosse MODEL -->
+				<Model name="Lacrosse" displayName="@P120-VEHMAP">
+                    <ModelYears>
+                        <!-- 2006 -> 2013 Lacrosse Model -->
+                        <ModelYearRange begin="2006" end="2013" picture="pictures/Lacrosse_2006_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="ECM_002000157" displayName="@P4-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="HVAC" displayName="@P42-VEHMAP">
+											    <ECUs>
+													<ECU name="HVAC_009000158" displayName="@P42-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="IPC" displayName="@P114-VEHMAP">
+											    <ECUs>
+													<ECU name="IPC_004000159" displayName="@P114-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+            </Models>            
+        </Make>
+
+		<Make name="BYD" displayName="@P29-VIN" picture="logos/BYD_logo.png">
+            <Models>
+                <!--  DEFINE Buick F0 MODEL -->
+                <Model name="F0" displayName="@P18-VEHMAP">
+                    <ModelYears>
+                        <!-- 2011 -> 2013 F0 Model -->
+                        <ModelYearRange begin="2011" end="2013" picture="pictures/F0_2011_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="ENG_M78_002000008" displayName="@P19-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+				<!--  DEFINE Buick F3 MODEL -->
+				<Model name="F3" displayName="@P20-VEHMAP">
+                    <ModelYears>
+                        <!-- 2011 -> 2012 F3 Model -->
+                        <ModelYearRange begin="2010" end="2013" picture="pictures/F3_2010_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="ENG_MT20U_002000009" displayName="@P21-VEHMAP" />
+													<ECU name="ENG_MT20U2_002000010" displayName="@P22-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="SRS_008000011" displayName="@P23-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ABS" displayName="@P24-VEHMAP">
+											    <ECUs>
+													<ECU name="ABS_007000012" displayName="@P24-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model> 				
+            </Models>            
+        </Make>  
+		
+		<Make name="Gleagle" displayName="@P34-VIN" picture="logos/Gleagle_logo.png">
+            <Models>
+                <!--  DEFINE Geely CK-1-2 MODEL -->
+                <Model name="CK-1-2" displayName="@P8-VEHMAP">
+                    <ModelYears>
+                        <!-- 2005 -> 2013 CK-1-2 Model -->
+                        <ModelYearRange begin="2005" end="2013" picture="pictures/CK-1-2_2005_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="ACU_AB10a_008000014" displayName="@P10-VEHMAP" />
+													<ECU name="ACU_AB8_008000015" displayName="@P11-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="EMS_002000016" displayName="@P4-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+				
+				<!--  DEFINE Geely FC1 MODEL -->
+                <Model name="FC1" displayName="@P113-VEHMAP">
+                    <ModelYears>
+                        <!-- 2006 -> 2013 FC1 Model -->
+                        <ModelYearRange begin="2006" end="2013" picture="pictures/FC1_2006_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="EMS_UAES_CAN_002000139" displayName="@P37-VEHMAP"/>
+													<ECU name="EMS_DEL_CAN_22_002000140" displayName="@P38-VEHMAP"/>
+													<ECU name="EMS_DEL_CAN_80_002000141" displayName="@P39-VEHMAP"/>
+													<ECU name="EMS_DEL_K_22_002000142" displayName="@P40-VEHMAP"/>
+													<ECU name="EMS_DEL_K_80_002000143" displayName="@P41-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="TCU" displayName="@P47-VEHMAP">
+											    <ECUs>
+													<ECU name="TCU_DSI_003000144" displayName="@P48-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="ACU_JH_008000145" displayName="@P115-VEHMAP"/>
+													<ECU name="ACU_EJL_008000146" displayName="@P116-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ABS" displayName="@P24-VEHMAP">
+											    <ECUs>
+													<ECU name="ABS_Bosch_CAN_007000147" displayName="@P29-VEHMAP"/>
+													<ECU name="ABS_Bosch_K_007000148" displayName="@P30-VEHMAP"/>
+													<ECU name="ABS_Conti70_007000152" displayName="@P117-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICU" displayName="@P118-VEHMAP">
+											    <ECUs>
+													<ECU name="ICU_004000149" displayName="@P118-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="BMCS" displayName="@P119-VEHMAP">
+											    <ECUs>
+													<ECU name="BMCS_029000150" displayName="@P119-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="IMMO" displayName="@P44-VEHMAP">
+											    <ECUs>
+													<ECU name="IMMO_005000151" displayName="@P45-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+			</Models>            
+        </Make>
+		
+		<Make name="Emgrand" displayName="@P33-VIN" picture="logos/Emgrand_logo.png">
+            <Models>
+                <!--  DEFINE Geely EC7 MODEL -->
+                <Model name="EC7" displayName="@P28-VEHMAP">
+                    <ModelYears>
+                        <!-- 2009 -> 2013 EC7 Model -->
+                        <ModelYearRange begin="2009" end="2013" picture="pictures/EC7_2009_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+										    <Family name="ABS" displayName="@P24-VEHMAP">
+											    <ECUs>
+												    <ECU name="ABS_Bosch_CAN_007000017" displayName="@P29-VEHMAP"/>
+													<ECU name="ABS_Bosch_K_007000018" displayName="@P30-VEHMAP"/>
+													<ECU name="ABS_Conti_CAN_007000019" displayName="@P31-VEHMAP"/>
+													<ECU name="ABS_Conti_ESC_007000020" displayName="@P32-VEHMAP"/>
+											    </ECUs>
+											</Family>
+											<Family name="BCM" displayName="@P33-VEHMAP">
+											    <ECUs>
+      	                                            <ECU name="BCM_Conti_CAN_001000021" displayName="@P34-VEHMAP"/>
+											    </ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P26-VEHMAP">
+											    <ECUs>
+												    <ECU name="EMS_UAES_CAN_18N_002000022" displayName="@P35-VEHMAP"/>
+													<ECU name="EMS_UAES_K_002000023" displayName="@P36-VEHMAP"/>
+													<ECU name="EMS_UAES_CAN_18D_002000024" displayName="@P37-VEHMAP"/>
+													<ECU name="EMS_Del_CAN_22_002000025" displayName="@P38-VEHMAP"/>
+													<ECU name="EMS_Del_CAN_80_002000026" displayName="@P39-VEHMAP"/>
+													<ECU name="EMS_Del_K_22_002000027" displayName="@P40-VEHMAP"/>
+													<ECU name="EMS_Del_K_80_002000028" displayName="@P41-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="HVAC" displayName="@P42-VEHMAP">
+											    <ECUs>
+	                                                <ECU name="HVAC_009000029" displayName="@P43-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="IMMO" displayName="@P44-VEHMAP">
+											    <ECUs>
+	                                                <ECU name="IMMO_005000030" displayName="@P45-VEHMAP"/>
+										        </ECUs>
+											</Family>
+											<Family name="IRMCU" displayName="@P46-VEHMAP">
+											    <ECUs>
+	                                                <ECU name="IRMCU_010000031" displayName="@P46-VEHMAP"/>
+										        </ECUs>
+											</Family>
+											<Family name="TCU" displayName="@P47-VEHMAP">
+											    <ECUs>
+      	                                            <ECU name="TCU_DSI_003000032" displayName="@P48-VEHMAP"/>
+													<ECU name="TCU_CVT_003000033" displayName="@P49-VEHMAP"/>
+										        </ECUs>
+											</Family>
+											<Family name="TPMS" displayName="@P50-VEHMAP">
+											    <ECUs>
+													<ECU name="TPMS_Lear_006000034" displayName="@P51-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+			</Models>            
+        </Make>
+		
+		<Make name="Englon" displayName="@P24-VIN" picture="logos/Englon_logo.png">
+            <Models>
+                <!--  DEFINE Geely LG1 MODEL -->
+                <Model name="LG1" displayName="@P96-VEHMAP">
+                    <ModelYears>
+                        <!-- 2006 -> 2013 LG1 Model -->
+                        <ModelYearRange begin="2006" end="2013" picture="pictures/LG1_2006_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+										    <Family name="ABS" displayName="@P24-VEHMAP">
+											    <ECUs>
+													<ECU name="ABS_Bosch_007000099" displayName="@P30-VEHMAP" />
+													<ECU name="ABS_Conti70_007000100" displayName="@P31-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ACU" displayName="@P9-VEHMAP">
+											    <ECUs>
+													<ECU name="ACU_Bosch10_008000102" displayName="@P10-VEHMAP" />
+													<ECU name="ACU_Bosch8_008000101" displayName="@P11-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="EMS_DEL_002000103" displayName="@P97-VEHMAP" />
+													<ECU name="EMS_UAES_3G10_002000104" displayName="@P98-VEHMAP" />
+													<ECU name="EMS_UAES_479Q_002000105" displayName="@P99-VEHMAP" />
+													<ECU name="EMS_UAES_479QA_002000106" displayName="@P100-VEHMAP" />
+													<ECU name="EMS_UAES_479QN_002000107" displayName="@P101-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="IMMO" displayName="@P44-VEHMAP">
+											    <ECUs>
+													<ECU name="IMMO_DEL_005000108" displayName="@P102-VEHMAP" />
+													<ECU name="IMMO_UAES_005000109" displayName="@P103-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+			</Models>            
+        </Make>
+		
+		<Make name="VW" displayName="@P38-VIN" picture="logos/VW_logo.png">
+            <Models>
+                <!--  DEFINE VW SAGITAR MODEL -->
+                <Model name="SAGITAR" displayName="@P104-VEHMAP">
+                    <ModelYears>
+                        <!-- 2006 -> 2013 SAGITAR Model -->
+                        <ModelYearRange begin="2006" end="2013" picture="pictures/SAGITAR_2006_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+											    <ECUs>
+													<ECU name="EMS_002000110" displayName="@P4-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+				
+				<!--  DEFINE VW LAVIDA MODEL -->
+                <Model name="LAVIDA" displayName="@P105-VEHMAP">
+                    <ModelYears>
+                        <!-- 2012 -> 2013 LAVIDA Model -->
+                        <ModelYearRange begin="2012" end="2013" picture="pictures/LAVIDA_2012_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="BCM" displayName="@P3-VEHMAP">
+											    <ECUs>
+													<ECU name="BCM_001000111" displayName="@P3-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+											    <ECUs>
+													<ECU name="ICM_004000112" displayName="@P58-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>
+			</Models>            
+        </Make>
+		
+		
+		<Make name="ChangAn" displayName="@P35-VIN" picture="logos/ChangAn_logo.png">
+            <Models>
+                <!--  DEFINE ChangAn RAETON MODEL -->
+                <Model name="RAETON" displayName="@P53-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2012" end="2013" picture="pictures/RAETON_2012_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="ABS" displayName="@P24-VEHMAP">
+												<ECUs>
+													<ECU name="ABS_007000035" displayName="@P24-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="AC" displayName="@P54-VEHMAP">
+												<ECUs>
+													<ECU name="AC_009000036" displayName="@P54-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ALS" displayName="@P55-VEHMAP">
+												<ECUs>
+													<ECU name="ALS_011000037" displayName="@P55-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="BCM" displayName="@P33-VEHMAP">
+												<ECUs>
+													<ECU name="BCM_001000038" displayName="@P33-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+												<ECUs>
+													<ECU name="EMS_002000039" displayName="@P4-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="EPB" displayName="@P56-VEHMAP">
+												<ECUs>
+													<ECU name="EPB_012000040" displayName="@P56-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ESCL" displayName="@P57-VEHMAP">
+												<ECUs>
+													<ECU name="ESCL_013000041" displayName="@P57-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+												<ECUs>
+													<ECU name="ICM_004000042" displayName="@P58-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="RRS" displayName="@P59-VEHMAP">
+												<ECUs>
+													<ECU name="RRS_014000043" displayName="@P59-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="SRS" displayName="@P9-VEHMAP">
+												<ECUs>
+													<ECU name="SRS_008000044" displayName="@P9-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="TPMS" displayName="@P50-VEHMAP">
+												<ECUs>
+													<ECU name="TPMS_006000045" displayName="@P50-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="PEPS" displayName="@P60-VEHMAP">
+												<ECUs>
+													<ECU name="PEPS_015000046" displayName="@P60-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="TCU" displayName="@P13-VEHMAP">
+												<ECUs>
+													<ECU name="TCU_003000047" displayName="@P13-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make>
+		
+		
+		<Make name="Ford" displayName="@P36-VIN" picture="logos/Ford_logo.png">
+            <Models>
+                <!--  DEFINE Ford FOCUS MODEL -->
+                <Model name="Focus" displayName="@P81-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="1998" end="2013" picture="pictures/Focus_1998_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="ABS" displayName="@P24-VEHMAP">
+												<ECUs>
+													<ECU name="ABS_007000082" displayName="@P24-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+												<ECUs>
+													<ECU name="EMS_002000083" displayName="@P4-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+												<ECUs>
+													<ECU name="ICM_004000084" displayName="@P58-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make>
+		
+		
+		<Make name="MAZDA" displayName="@P37-VIN" picture="logos/Mazda_logo.png">
+            <Models>
+                <!--  DEFINE MAZDA MAZDA6 MODEL -->
+                <Model name="Mazda6" displayName="@P82-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2003" end="2013" picture="pictures/Mazda6_2003_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="AT" displayName="@P13-VEHMAP">
+												<ECUs>
+													<ECU name="AT_003000085" displayName="@P13-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+												<ECUs>
+													<ECU name="EMS_20L_002000086" displayName="@P88-VEHMAP"/>
+													<ECU name="EMS_23L_002000091" displayName="@P89-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+												<ECUs>
+													<ECU name="ICM_004000087" displayName="@P58-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make> 
+		
+		
+		<Make name="FAW" displayName="@P39-VIN" picture="logos/FAW_logo.png">
+            <Models>
+                <!--  DEFINE FAW BESTURN MODEL -->
+                <Model name="BESTURN" displayName="@P110-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2006" end="2013" picture="pictures/BESTURN_2006_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="AT" displayName="@P13-VEHMAP">
+												<ECUs>
+													<ECU name="AT_003000132" displayName="@P13-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+												<ECUs>
+													<ECU name="EMS_20L_002000133" displayName="@P88-VEHMAP"/>
+													<ECU name="EMS_23L_002000134" displayName="@P89-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P58-VEHMAP">
+												<ECUs>
+													<ECU name="ICM_004000135" displayName="@P58-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make> 
+		
+		
+		<Make name="Chevrolet" displayName="@P40-VIN" picture="logos/Chevrolet_logo.png">
+            <Models>
+                <!--  DEFINE Chevrolet LOVA MODEL -->
+                <Model name="LOVA" displayName="@P111-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2006" end="2013" picture="pictures/LOVA_2006_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P4-VEHMAP">
+												<ECUs>
+													<ECU name="ECM_002000136" displayName="@P4-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="SDM" displayName="@P112-VEHMAP">
+												<ECUs>
+													<ECU name="SDM_008000137" displayName="@P112-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P27-VEHMAP">
+												<ECUs>
+													<ECU name="TCM_003000138" displayName="@P27-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make>
+
+
+        <Make name="SOUEAST" displayName="@P41-VIN" picture="logos/SOUEAST_logo.png">
+            <Models>
+                <!--  DEFINE SOUEAST V3 MODEL -->
+                <Model name="V3" displayName="@P121-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2008" end="2013" picture="pictures/V3_2008_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="EMS" displayName="@P26-VEHMAP">
+												<ECUs>
+													<ECU name="EMS_4A91_002000153" displayName="@P122-VEHMAP"/>
+													<ECU name="EMS_4G15_002000154" displayName="@P123-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="SRS" displayName="@P23-VEHMAP">
+												<ECUs>
+													<ECU name="SRS_008000155" displayName="@P23-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ABS" displayName="@P24-VEHMAP">
+												<ECUs>
+													<ECU name="ABS_MK70_007000156" displayName="@P24-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make>		
+		<Make name="MG" displayName="@P42-VIN" picture="logos/MG_logo.png">
+            <Models>
+                <!--  DEFINE MG ZP11 MODEL -->
+                <Model name="ZP11" displayName="@P124-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2011" end="2013" picture="pictures/ZP11_2011_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="ECM" displayName="@P26-VEHMAP">
+												<ECUs>
+													<ECU name="ECM_002000160" displayName="@P26-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ABS" displayName="@P24-VEHMAP">
+												<ECUs>
+													<ECU name="ABS_007000161" displayName="@P24-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="BCM" displayName="@P33-VEHMAP">
+												<ECUs>
+													<ECU name="BCM_001000162" displayName="@P33-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P127-VEHMAP">
+											    <ECUs>
+													<ECU name="ICM_004000163" displayName="@P127-VEHMAP" />
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P47-VEHMAP">
+											    <ECUs>
+													<ECU name="TCM_003000164" displayName="@P47-VEHMAP" />
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make> 
+        
+		<Make name="ROEWE" displayName="@P43-VIN" picture="logos/ROEWE_logo.png">
+            <Models>
+                <!--  DEFINE ROEWE BP12 MODEL -->
+                <Model name="BP12" displayName="@P125-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2008" end="2013" picture="pictures/BP12_2009_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="BCM" displayName="@P26-VEHMAP">
+												<ECUs>
+													<ECU name="BCM_001000165" displayName="@P26-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P127-VEHMAP">
+												<ECUs>
+													<ECU name="ICM_004000166" displayName="@P127-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P47-VEHMAP">
+												<ECUs>
+													<ECU name="TCM_004000166" displayName="@P47-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ECM" displayName="@P26-VEHMAP">
+												<ECUs>
+													<ECU name="ECM_002000167" displayName="@P26-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+                <!--  DEFINE ROEWE BP13 MODEL -->
+                 <Model name="BP13" displayName="@P126-VEHMAP">
+                    <ModelYears>
+						<ModelYearRange begin="2011" end="2013" picture="pictures/BP13_2011_2013.png">
+							<Configurations>
+								<AllConfiguration>
+									<ECUData>
+										<Families>
+											<Family name="BCM" displayName="@P26-VEHMAP">
+												<ECUs>
+													<ECU name="BCM_001000168" displayName="@P26-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ICM" displayName="@P127-VEHMAP">
+												<ECUs>
+													<ECU name="ICM_004000169" displayName="@P127-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="TCM" displayName="@P47-VEHMAP">
+												<ECUs>
+													<ECU name="TCM_004000170" displayName="@P47-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="ECM" displayName="@P26-VEHMAP">
+												<ECUs>
+													<ECU name="ECM_002000171" displayName="@P26-VEHMAP"/>
+												</ECUs>
+											</Family>
+											<Family name="HCU" displayName="@P128-VEHMAP">
+												<ECUs>
+													<ECU name="HCU_030000172" displayName="@P128-VEHMAP"/>
+												</ECUs>
+											</Family>
+										</Families>
+									</ECUData>
+								</AllConfiguration>
+								<Configuration>
+								</Configuration>
+                            </Configurations>
+                        </ModelYearRange>
+                    </ModelYears>
+                </Model>             
+            </Models>            
+        </Make> 
+    </Makes>
+</DataMapping>

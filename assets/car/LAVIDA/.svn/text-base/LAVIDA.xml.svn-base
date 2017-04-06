@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Vehicle name="LAVIDA" dataModelVersion="1.0">
+    <Family name="BCM" displayName="@P3-VEHMAP">
+      	<ECU name="BCM_001000111" displayName="@P3-VEHMAP">
+			<VCIConfiguration>030A700071307220A1077303</VCIConfiguration>
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404320054058A00540604005407E80354080F0054090000540A8813540B0000540C00006600006601006602006603010066040066050066060050000000500100035002200050030A00</ProtocolDescription>
+		  	<PeriodicMsg>0C0403E801A3</PeriodicMsg>
+			<BeginCommECU request="220601" response="6206011A"/>
+			<EndCommECU request="82" response="C2"/>
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			<Parameters allowUDSLikeParaReading="false" numMaxID="1" >
+				<Parameter id="p1" name="Supply_Voltage_Reference" label="@P20354-DATA" unit="V" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.128" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p2" name="Supply_Voltage_Terminal" label="@P20355-DATA" unit="V" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.128" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p3" name="Management_Of_Charge_Status" label="@P20356-DATA" unit="" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p4" name="Vehicle_Speed" label="@P20357-DATA" unit="km/h" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="13" length="1" bit="0" order="0" encoding="UNM" format="1" factor="1.28" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p5" name="Driver_Door_Lock_Cylinder_Switch_Status" label="@P20358-DATA" unit="" reqService="21" reqData="08" respService="61" respData="08" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p6" name="Passenger_Door_Rear_Lid_Lock_Cylinder_Switch_Status" label="@P20359-DATA" unit="" reqService="21" reqData="08" respService="61" respData="08" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p7" name="Rear_Lid_Unlock_Status_Internal" label="@P20360-DATA" unit="" reqService="21" reqData="08" respService="61" respData="08" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p8" name="Rear_Lid_Unlock_Status_External" label="@P20361-DATA" unit="" reqService="21" reqData="08" respService="61" respData="08" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p9" name="Sunroof_Comfort_Close_Status" label="@P20362-DATA" unit="" reqService="21" reqData="09" respService="61" respData="09" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p10" name="Driver_Window_Switch_Status_1" label="@P20363-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p11" name="Driver_Window_Switch_Status_2" label="@P20364-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p12" name="Driver_Window_Switch_Status_3" label="@P20365-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p13" name="Driver_Window_Switch_Status_4" label="@P20366-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p14" name="Child_Lock_Switch_Status" label="@P20367-DATA" unit="" reqService="21" reqData="0D" respService="61" respData="0D" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p15" name="Passenger_Window_Switch_Status" label="@P20368-DATA" unit="" reqService="21" reqData="0D" respService="61" respData="0D" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p16" name="Rear_Left_Window_Switch_Status" label="@P20369-DATA" unit="" reqService="21" reqData="0D" respService="61" respData="0D" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p17" name="Rear_Right_Window_Switch_Status" label="@P20370-DATA" unit="" reqService="21" reqData="0D" respService="61" respData="0D" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p18" name="Driver_Window_Standard_Status" label="@P20371-DATA" unit="" reqService="21" reqData="0E" respService="61" respData="0E" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p19" name="Passenger_Window_Standard_Status" label="@P20372-DATA" unit="" reqService="21" reqData="0E" respService="61" respData="0E" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p20" name="Rear_Left_Window_Standard_Status" label="@P20373-DATA" unit="" reqService="21" reqData="0E" respService="61" respData="0E" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p21" name="Rear_Right_Window_Standard_Status" label="@P20374-DATA" unit="" reqService="21" reqData="0E" respService="61" respData="0E" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p22" name="Remote_Control_Key_Button" label="@P20375-DATA" unit="" reqService="21" reqData="0F" respService="61" respData="0F" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p23" name="Anti_theft_Key_Distinguish" label="@P20376-DATA" unit="" reqService="21" reqData="0F" respService="61" respData="0F" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p24" name="Key_Number" label="@P20377-DATA" unit="" reqService="21" reqData="0F" respService="61" respData="0F" respDataLength="12" position="10" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p25" name="Folding_Outside_Mirror_Switch" label="@P20378-DATA" unit="" reqService="21" reqData="10" respService="61" respData="10" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p26" name="Brake_Light_Switch" label="@P20379-DATA" unit="" reqService="21" reqData="1E" respService="61" respData="1E" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p27" name="Reversing_Light_Switch" label="@P20380-DATA" unit="" reqService="21" reqData="1E" respService="61" respData="1E" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p28" name="Warning_Light_Switch" label="@P20381-DATA" unit="" reqService="21" reqData="1F" respService="61" respData="1F" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p29" name="Windscreen_Washer_Pump" label="@P20382-DATA" unit="" reqService="21" reqData="1F" respService="61" respData="1F" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p30" name="Horn_Switch" label="@P20383-DATA" unit="" reqService="21" reqData="1F" respService="61" respData="1F" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p31" name="Left_Turn_Light_Control_Status" label="@P20384-DATA" unit="" reqService="21" reqData="22" respService="61" respData="22" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p32" name="Right_Turn_Light_Control_Status" label="@P20385-DATA" unit="" reqService="21" reqData="22" respService="61" respData="22" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p33" name="Brake_Light_Control_Status" label="@P20386-DATA" unit="" reqService="21" reqData="22" respService="61" respData="22" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>			
+			  	</Parameter>
+			  	<Parameter id="p34" name="Reversing_Light_Control_Status" label="@P20387-DATA" unit="" reqService="21" reqData="22" respService="61" respData="22" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p35" name="Left_Dipped_Beam_Status" label="@P20388-DATA" unit="" reqService="21" reqData="23" respService="61" respData="23" respDataLength="12" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p36" name="Right_Dipped_Beam_Status" label="@P20389-DATA" unit="" reqService="21" reqData="23" respService="61" respData="23" respDataLength="12" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p37" name="Left_Parking_Light_Taillight Status" label="@P20390-DATA" unit="" reqService="21" reqData="23" respService="61" respData="23" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p38" name="Right_Parking_Light_Taillight Status" label="@P20391-DATA" unit="" reqService="21" reqData="23" respService="61" respData="23" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p39" name="Warning_Light_Switch_Control_Status" label="@P20392-DATA" unit="" reqService="21" reqData="24" respService="61" respData="24" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p40" name="Fuel_Pump_Relay_Control_Status" label="@P20393-DATA" unit="" reqService="21" reqData="27" respService="61" respData="27" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00001101" label="@P10297-DATA"/>
+					<Discrete value="00011100" label="@P10298-DATA"/>
+					<Discrete value="00100011" label="@P10299-DATA"/>
+					<Discrete value="00100100" label="@P10300-DATA"/>
+					<Discrete value="01111111" label="@P20644-DATA"/>
+					<Discrete value="10001001" label="@P6354-DATA"/>
+					<Discrete value="10010010" label="@P6208-DATA"/>
+					<Discrete value="11100111" label="@P6354-DATA"/>
+					<Discrete value="11101000" label="@P6354-DATA"/>
+					<Discrete value="11111101" label="@P10301-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p41" name="Light_Open_Status" label="@P20394-DATA" unit="" reqService="21" reqData="4E" respService="61" respData="4E" respDataLength="12" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P10302-DATA"/>
+					<Discrete value="10000111" label="@P21228-DATA"/>
+					<Discrete value="10001000" label="@P21229-DATA"/>
+					<Discrete value="10100111" label="@P10303-DATA"/>
+					<Discrete value="10111111" label="@P6207-DATA"/>
+					<Discrete value="11000000" label="@P6208-DATA"/>
+					<Discrete value="11111000" label="@P10224-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p42" name="Software_Production_Date_Day/Month" label="@P20397-DATA" unit="" reqService="21" reqData="63" respService="61" respData="63" respDataLength="12" position="9" length="2" bit="0" order="0" encoding="HEXA" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p43" name="Software_Production_Date_Year" label="@P20398-DATA" unit="" reqService="21" reqData="63" respService="61" respData="63" respDataLength="12" position="12" length="2" bit="0" order="0" encoding="HEXA" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter> 
+	        </Parameters>
+			
+			<ParametersMapping>
+			</ParametersMapping>
+			
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+    </Family>
+	<Family name="ICM" displayName="@P58-VEHMAP">
+      	<ECU name="ICM_004000112" displayName="@P58-VEHMAP">
+			<VCIConfiguration>030A700071307220A1077303</VCIConfiguration>
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404320054058A00540604005407E80354080F0054090000540A8813540B0000540C00006600006601006602006603010066040066050066060050000000500100035002070050030A00</ProtocolDescription>
+		  	<PeriodicMsg>0C0403E801A3</PeriodicMsg>
+			<BeginCommECU request="1A9B" response="5A9B31384439323038303020202030313830030007D307EB5DCE24364B4F4D4249494E535452554D454E542020202020"/>
+			<EndCommECU request="82" response="C2"/>
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			<Parameters allowUDSLikeParaReading="false" numMaxID="1" >
+				<Parameter id="p1" name="Vehicle_Speed" label="@P20357-DATA" unit="km/h" reqService="21" reqData="01" respService="61" respData="01" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p2" name="Engine_Speed" label="@P20332-DATA" unit="RPM" reqService="21" reqData="01" respService="61" respData="01" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="40" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p3" name="Odometer_Reading" label="@P20401-DATA" unit="KM" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="10" offset="2560">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p4" name="Fuel_Level" label="@P20067-DATA" unit="L" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p5" name="Fuel_Level_Sensor" label="@P6335-DATA" unit="ohms" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="10" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="50">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p6" name="Ambient_Temperature" label="@P6131-DATA" unit="℃" reqService="21" reqData="02" respService="61" respData="02" respDataLength="12" position="13" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p7" name="Coolant_Temperature" label="@P6381-DATA" unit="℃" reqService="21" reqData="03" respService="61" respData="03" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p8" name="Battery_Voltage" label="@P20070-DATA" unit="V" reqService="21" reqData="04" respService="61" respData="04" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p9" name="R11_R1s" label="@P20402-DATA" unit="ohms" reqService="21" reqData="07" respService="61" respData="07" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="51">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p10" name="R1s" label="@P20403-DATA" unit="ohms" reqService="21" reqData="07" respService="61" respData="07" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="1">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p11" name="Mileage_Since_Last_Service" label="@P20404-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p12" name="Mileage_Last_Service" label="@P20405-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p13" name="Days_Since_Last_Service" label="@P20406-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="10" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p14" name="Days_Last_Service" label="@P20407-DATA" unit="" reqService="21" reqData="0C" respService="61" respData="0C" respDataLength="12" position="13" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p15" name="Fuel_Remaining_Amount_Driving_Distance" label="@P20408-DATA" unit="" reqService="21" reqData="11" respService="61" respData="11" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p16" name="Fuel_Consumption_Driving_Distance" label="@P20409-DATA" unit="" reqService="21" reqData="11" respService="61" respData="11" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p17" name="Can_Driving_Distance" label="@P20410-DATA" unit="" reqService="21" reqData="11" respService="61" respData="11" respDataLength="12" position="10" length="1" bit="0" order="0" encoding="UNM" format="0" factor="10" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p18" name="Channel_50_Value" label="@P20411-DATA" unit="" reqService="21" reqData="12" respService="61" respData="12" respDataLength="12" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p19" name="Service_Mileage" label="@P20412-DATA" unit="" reqService="21" reqData="12" respService="61" respData="12" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p20" name="Channel_51_Value" label="@P20413-DATA" unit="" reqService="21" reqData="12" respService="61" respData="12" respDataLength="12" position="10" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p21" name="Service_Days" label="@P20414-DATA" unit="" reqService="21" reqData="12" respService="61" respData="12" respDataLength="12" position="13" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="255">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+	        </Parameters>
+			
+			<ParametersMapping>
+			</ParametersMapping>
+			
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+    </Family>
+</Vehicle>

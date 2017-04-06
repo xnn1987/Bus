@@ -1,0 +1,54 @@
+8
+
+dir
+1046
+svn://140.206.48.34/smartdiag/android/trunk/SmartDiag2013_1_14/res/drawable-xhdpi
+svn://140.206.48.34/smartdiag/android
+
+
+
+2013-01-14T05:48:08.225039Z
+486
+xuting
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5e3c7544-347f-4a0c-9ad2-b5e9bfc61147
+
+ic_launcher.png
+file
+
+
+
+
+2013-05-20T00:43:47.188173Z
+66abec4761f327e78ec927368ac68f3c
+2013-01-14T05:48:08.225039Z
+486
+xuting
+has-props
+
+aaa.png
+file
+
+
+
+
+2013-05-20T00:43:47.204174Z
+005129410f686bbd68a1be82ec34cf01
+2013-01-14T05:48:08.225039Z
+486
+xuting
+has-props
+

@@ -1,0 +1,8 @@
+CONFIG.LIVE							= true
+CONFIG.CLOUD_WEBSITE_URL			= http://www.smartdiag.com
+CONFIG.CLOUD_WEBSERVICE_HTTP_URL	= http://www.smartdiag.com/SDCloudWebservice/resources
+CONFIG.CLOUD_WEBSERVICE_HTTPS_URL	= https://www.smartdiag.com/SDCloudWebservice/resources
+CONFIG.CLOUD_CERTIF_NAME			= sdcloud.bks
+CONFIG.LIC_WEBSERVICE_HTTP_URL		= http://smartdiag.com:8082/RestServiceImpl.svc/Webservice/ressources
+CONFIG.LIC_WEBSERVICE_HTTPS_URL		= https://smartdiag.com/RestServiceImpl.svc/Webservice/ressources
+CONFIG.LIC_CERTIF_NAME				= clientTrustStore.bks

@@ -1,0 +1,305 @@
+<resources>
+
+    <!-- application string -->
+    <string name="selectmake_no">此Make未包含对应的ECUFamily信息</string>
+    <string name="selectmodel_no">此Model未包含对应的ECUFamily信息</string>
+    <string name="app_getvic_first">get a VCI first</string>
+    <string name="app_search_1_model">查询</string>
+    <string name="app_search_2_year">汽车年份</string>
+    <string name="app_search_3_car_name">请输入汽车信息</string>
+    <string name="app_search_4_year_hint">年份</string>
+    <string name="util_bluetooth_opend_or_no">请确认蓝牙已经打开</string>
+    <!-- 最新部分 -->
+    <string name="get_a_vic_first">请先选择一个VCI</string>
+    <string name="end_get_conn_sdcloud">正在连接服务器</string>
+    <string name="end_get_check_vci_info">正在检测VCI信息</string>
+    <string name="end_get_check_version_info">正在检测版本信息</string>
+    <string name="end_get_load_new_version">正在下载最新版本</string>
+    <string name="end_no_new_vci">未找到新的VCI,与您连接的VCI未改变</string>
+    <string name="end_use_new_vci">使用其它的vci</string>
+	<string name="end_nofirware">固件无版本</string>
+	<string name="end_makesure_download">Are you make sure to download?</string>
+	<string name="end_no_banbenmsg_find">未检测到版本信息</string>
+    
+    <!-- application string -->
+    <string name="login_username">用户名：</string>
+    <string name="login_islogin">正在登陆，请稍侯</string>
+    <string name="login_password">密    码：</string>
+    <string name="login_login">登录</string>
+    <string name="login_login_again">请重新登录</string>
+    <string name="login_error_cod">错误码：</string>
+    <string name="app_prompt">提示</string>
+    <string name="app_search">查找</string>
+    <string name="app_ok">确定</string>
+    <string name="app_waiting_for_complete">请等待数据的扫描完成后重新点击。。。</string>
+    <string name="app_cancel">取消</string>
+    <string name="app_agree">同意</string>
+    <string name="app_disagree">不同意</string>
+    <string name="app_name">SmartDiag</string>
+    <string name="app_scaning">正在扫描…</string>
+    <string name="app_waiting">请稍等…</string>
+    <string name="app_next">下一种表示方式</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="smart_diag">Smart Diag</string>
+    <string name="loading_zh_name">乘用车辆灵巧诊断系统</string>
+    <string name="loading_attention">注意：在行驶过程中请谨慎使用此系统，以免发生意想不到的状况</string>
+    <string name="content_smart">smart_content</string>
+    <!-- mainActivity -->
+    <string name="main_sure_to_exit">确定退出？</string>
+    <string name="main_user_agreement">用户须知</string>
+    <string name="main_vehicle_state">车辆状态</string>
+    <string name="main_depth_diag">深度诊断</string>
+    <string name="main_maintenance">维护保养</string>
+    <string name="main_traffic_management">行车管理</string>
+    <string name="main_fuel_management">燃油管理</string>
+    <string name="main_fast_scan">快速扫描</string>
+    <string name="main_car_tips">爱车贴士</string>
+    <string name="main_no_devices_found">未找到任何设备</string>
+    <!-- mainActivity 菜单 -->
+    <string name="main_menu_user">用户端配置</string>
+    <string name="main_menu_customer">客户端配置</string>
+    <string name="main_menu_vci">VCI配置</string>
+    <!-- Vehicle_state -->
+    <string name="vehicle_state_title">主页>车辆状况</string>
+    <string name="vehicle_state_engine">发动机</string>
+    <string name="vehicle_state_oil_pressure">机油油压</string>
+    <string name="vehicle_state_stop_vehicle">刹车系统</string>
+    <string name="vehicle_state_water">水温</string>
+    <string name="vehicle_state_lighting">灯光</string>
+    <string name="popup_nopopup">对不起，此项目暂时没有提供可以切换的视图</string>
+    <string name="popup_normal_style">普通视图</string>
+    <string name="popup_digital_style">电子视图</string>
+    <string name="popup_check_one">请选择需要切换的视图显示形式：</string>
+    <!-- fast_scan -->
+    <string name="fast_scan_title">主页>快速扫描</string>
+    <string name="fast_scan_chassis">底盘</string>
+    <string name="fast_scan_all">全车</string>
+    <string name="fast_scan_carrosserie">车身</string>
+    <string name="fast_scan_engine">发动机</string>
+    <string name="fast_scan_network">网络</string>
+    <string name="fast_scan_car_test">汽车体检：</string>
+    <string name="fast_scan_score">分</string>
+    <string name="fast_scan_scan_time_1">扫描耗时</string>
+    <string name="fast_scan_scan_time_2">秒，出现故障码</string>
+    <string name="fast_scan_scan_time_3">个</string>
+    <string name="fast_scan_scan_time_3_pl">个</string>
+    <string name="fast_scan_fault_code">待处理的故障码：</string>
+    <string name="fast_scan_fault_code_pl">待处理的故障码：</string>
+    <string name="app_connect_disconnect">清除故障成功</string>
+    <string name="fast_scan_clear_dtc">清除故障码</string>
+    <string name="fast_scan_clear_dtc_pl">清除故障码</string>
+    <string name="fast_scan_clear_dtc_failed">故障码清除失败！</string>
+    <string name="fast_scan_clear_dtc_failed_pl">故障码清除失败！</string>
+    <string name="fast_scan_congratuation">恭喜您，未检测到故障码！</string>
+    <string name="fast_scan_clear_dtc_success">故障码清除成功！</string>
+    <string name="fast_scan_noerrorcode">对不起，您不能查看没有故障码的项目。</string>
+    <string name="fast_scan_wait">请耐心等待扫描的完成^_^</string>
+    <string name="fast_scan_list_title">快速扫描>详情</string>
+    <string name="bluetooth_start_scan">开始扫描周围的蓝牙设备…</string>
+    <string name="fast_scan_end">扫描结束</string>
+    <!-- VCISetting -->
+    <string name="vci_setting_title">VCI匹配</string>
+    <string name="vci_setting_vci_connected">已经连接的VCI:</string>
+    <string name="vci_setting_click_to_connected">点击以匹配VCI</string>
+    <string name="vci_setting_click_to_unconnected">点击以停止匹配VCI</string>
+    <string name="vci_setting_set_adress_success">设置蓝牙地址成功</string>
+    <string name="vci_setting_completed_part1">与</string>
+    <string name="vci_setting_completed_part3">的联系已经建立</string>
+
+    <!-- StatusEngine -->
+    <string name="status_Engine_title">车辆状况>发动机</string>
+    <!-- StatusOil -->
+    <string name="status_oil_title">车辆状况>机油油压</string>
+    <!-- StatusStop -->
+    <string name="status_Stop_title">车辆状况>刹车系统</string>
+    <!-- StatusWater -->
+    <string name="status_Water_title">车辆状况>水温</string>
+    <!-- StatusLighting -->
+    <string name="status_Lighting_title">车辆状况>灯光</string>
+    <string name="tips_no_message">没有信息</string>
+    <string name="tips_title">主页>爱车贴士</string>
+    <string name="tips_title_second">爱车贴士</string>
+    <string name="fast_scan_is_scan_3">正在扫描...</string>
+    <string name="fast_scan_is_scan_2">正在扫描..</string>
+    <string name="fast_scan_is_scan_1">正在扫描.</string>
+    <string name="bluetooth_no_vci">未找到周围的VCI设备</string>
+    <string name="bluetooth_get_location_vci">获取本地已经配对的VCI设备…</string>
+    <string name="bluetooth_no_location_vci">本地未找到已经配对的VCI设备…</string>
+    <string name="bluetooth_no_suitable">蓝牙不可用</string>
+    <string name="app_login_success">登录成功！</string>
+    <string name="app_login_fail">登录失败！</string>
+    <string name="app_state_success">状态检测成功！</string>
+    <string name="app_name_connect_disconnect">与设备连接已经断开！</string>
+    <string name="app_name_2">SmartDiag\nExample</string>
+
+    <!-- 车辆选择 -->
+    <string name="select_china">中国</string>
+    <string name="select_asia">亚洲</string>
+    <string name="select_us">美国</string>
+    <string name="select_europe">欧洲</string>
+    <string name="select_exit">您取消了操作</string>
+    <string name="select_guess_a_car">猜猜汽车的情况</string>
+    <string name="select_get_other_car">选择其他车辆</string>
+    <string name="select_get_other_manual">手动选择其他车辆</string>
+    <string name="select_get_use_this_car">确定</string>
+    <string name="select_used_car">您选择的汽车</string>
+    <string name="select_is_guessing">正在识别您的汽车数据</string>
+    <string name="select_title_fuel">燃油管理>车辆选择</string>
+    <string name="select_title_deep">深度诊断>车辆选择</string>
+    <string name="select_title_main">维护保养>车辆选择</string>
+    <string name="select_ecu_nomessage">未获取到此Ecu的信息</string>
+    <string name="select_ecu_nomessage_toread">未获取到此Ecu对应功能的参数</string>
+    <string name="select_set_error">连接汽车系统失败</string>
+    <string name="select_model_year_no_find">没有此模型的对应信息，请手动选择一个</string>
+    <!-- 找不到所需要的ECU类型 -->
+    <string name="select_no_message_for_this_ecu">没有适合此功能的ECU信息</string>
+    <string name="select_set_vechile_success">配置此车辆信息成功</string>
+
+    <!-- 行车管理 -->
+    <string name="drivermanager_current_environment">当前的行车环境</string>
+    <string name="drivermanager_current_analysis">实时行车分析</string>
+    <string name="drivermanager_current_advices">实时行车建议</string>
+    <string name="drivermanager_current_speech_enable">语音转换开启</string>
+    <string name="drivermanager_current_speech_disable">语音转换关闭</string>
+    <string name="drivermanager_current_need_data">请选择车辆的信息</string>
+    <string name="drivermanager_current_get_ecufamily">请选择系统</string>
+    <string name="drivermanager_current_get_ecu">请选择ECU</string>
+    <string name="drivermanager_title">主页>行车管理</string>
+    <string name="drivermanager_no_support_local">系统暂不支持此语言的文字转语音</string>
+    <string name="drivermanager_need_chinese">需要安装中文插件"手说TTS"，是否下载安装？</string>
+
+    <!-- 设置界面的标题 -->
+    <string name="setting_title">SmartDiag客户端配置</string>
+    <string name="setting_version_title">SmartDiag客户端版本</string>
+    <string name="setting_allow_update_title">允许使用开发版本更新</string>
+    <string name="setting_check_update_title">更新版本</string>
+    <string name="setting_setting_title">功能配置</string>
+    <string name="setting_setting_other_title">其他</string>
+    <string name="setting_IS_TIME_ENABLE_title">是否开启时间模式</string>
+    <string name="setting_IS_LIGHT_ENABLE_title">是否开启隧道模式</string>
+    <string name="setting_SWITCH_TO_NIGHT_title">晚上开始时间</string>
+    <string name="setting_SWITCH_TO_DAY_title">白天开始时间</string>
+    <string name="setting_SWITCH_LIGHT_title">隧道模式亮度</string>
+    <string name="setting_on">开</string>
+    <string name="setting_off">关</string>
+    <string name="setting_light_sensor_title">光感模式</string>
+    <string name="setting_vehicle_state">车辆状态</string>
+    <string name="setting_text_show_on_screen">文字显示时长(s)</string>
+    <string name="setting_time_unit_h">时</string>
+    <string name="setting_time_unit_s">秒</string>
+    <string name="setting_over_lay">数据超出范围</string>
+
+    <!-- 设置界面的标题 -->
+    <string name="vci_setting_category_title">SmartDiag VCI 设置</string>
+    <string name="vci_setting_title1">选择 SmartDiag VCI</string>
+    <string name="vci_setting_title2">引导装载程序版本</string>
+    <string name="vci_setting_title3">固件版本</string>
+    <string name="vci_setting_title4">检测更新</string>
+    <string name="vci_setting_title5">允许使用开发版本更新</string>
+    <string name="vci_setting_success">VCI信息更新成功！</string>
+
+    <!-- 注册页面相关 -->
+    <string name="regist_devices_title">激活</string>
+    <string name="regist_devices_need_regist_devices">您的设备需要激活</string>
+    <string name="regist_devices_tv1">VCI序列号</string>
+    <string name="regist_devices_hint2">VCI序列号</string>
+    <string name="regist_devices_tv3">VCI激活号</string>
+    <string name="regist_devices_hint4">VCI激活号</string>
+    <string name="regist_devices_success">激活成功</string>
+    <string name="regist_devices_not_network">激活</string>
+    <string name="regist_devices_open_network">激活需要跟网络沟通</string>
+    <string name="regist_devices_is_registing">正在激活...</string>
+
+    <!-- 设置界面的键 -->
+    <string name="key_IS_TIME_ENABLE">is_time_enable</string>
+    <string name="key_IS_LIGHT_ENABLE">is_light_enable</string>
+    <string name="key_SWITCH_TO_NIGHT">switch_to_night</string>
+    <string name="key_SWITCH_TO_DAY">switch_to_day</string>
+    <string name="key_SWITCH_LIGHT">switch_light</string>
+    <string name="key_ALLOW_UPDATA">Allow_updata_with_RC_version</string>
+    <string name="key_CHECK_FOR_UPDATE">CHECK_FOR_UP_DATE</string>
+    <string name="key_SETTING">SETTING</string>
+    <string name="key_TIME_TEXT_SHOW">key_time_text_show</string>
+    <string name="key_SMART_CENTER_VERSION">SMART_CENTER_VERSION</string>
+
+    <!-- VCI设置界面的键 -->
+    <string name="vci_key_1">vci_key_1</string>
+    <string name="vci_key_2">vci_key_2</string>
+    <string name="vci_key_3">vci_key_3</string>
+    <string name="vci_key_4">vci_key_4</string>
+    <string name="vci_key_5">vci_key_5</string>
+
+    <!-- error wrap -->
+    <string name="NO_FIRMWARE_ERROR">SmartDiag VCI未安装固件，需刷新固件程序</string>
+    <string name="PARAMETER_ERROR">用户配置参数不匹配</string>
+    <string name="NO_VCIADDRESS_ERROR">Call to the method setVCIAddress has not been made</string>
+    <string name="SETVCIADDRESS_ERROR">Cannot call this method now, call resetWrapper firstly</string>
+    <string name="CONNECT_VCI_ERROR">与SmartDiag VCI建立连接失败</string>
+    <string name="CONNECT_VEHICLE_ERROR">与车辆连接失败</string>
+    <string name="PARAMETERLIST_ERROR">提供的参数不完全支持</string>
+    <string name="INVALID_ERROR">未知错误</string>
+    <string name="CRITICAL_ERROR">发生了严重错误，Middleware将自动重启</string>
+    <string name="FAIL_ERROR">主要故障错误</string>
+    <string name="NEEDUPDATEVCI_ERROR">SmartDiag VCI需要升级固件后使用</string>
+    <string name="NOUPDATE_ERROR">未检测到更新</string>
+    <string name="CLOUD_ERROR">与SmartDiag云通信失败</string>
+    <string name="NEEDUPDATESD_ERROR">SmartDiag应用中心程序需更新后才能继续使用SmartDiag VCI</string>
+    <string name="BOOTLOAD_ERROR">SmartDiag VCI的引导装载程序不能使用</string>
+    <string name="PARSEXML_ERROR">解析配置文件时发生错误</string>
+    <string name="BLWINTERNAL_ERROR">内部封装错误</string>
+    <string name="SUITABLEVERSION_ERROR">SmartDiag VCI和SmartDiag中心版本不匹配</string>
+    <string name="INPUT_PARAMETER_ERROR">输入的内容不能为空</string>
+    <string name="NO_CONFIG_ERROR">Call to the method configureSystemInfo has not been made</string>
+    <string name="VEHICLE_NOT_FOUND">未找到车辆名称</string>
+    <string name="ECU_NOT_FOUND">未找到ECU名称</string>
+    <string name="ECU_COMM_ERROR">与ECU通信失败</string>
+    <string name="READ_DTC_ERROR">读故障码失败</string>
+    <string name="NO_SDCLOUD_INIT_ERROR">Call to the method init</string>
+    <!-- cloud_error -->
+    <string name="NO_ERROR">无错误</string>
+    <string name="USERNAME_NULL">用户名为空</string>
+    <string name="PASSWORD_NULL">密码为空</string>
+    <string name="EMAIL_NULL">邮箱为空</string>
+    <string name="USERNAME_LENGTH_WRONG">用户名长度不正确(6--25)</string>
+    <string name="PASSWORD_LENGTH_WRONG">密码长度不正确(6--25)</string>
+    <string name="EMAIL_FORMAT_WRONG">错误的邮箱格式</string>
+    <string name="NO_LOGIN">未登陆</string>
+    <string name="OLD_PASSWORD_NULL">原密码为空</string>
+    <string name="APP_NAME_NULL">应用程序名为空</string>
+    <string name="VERSION_NAME_NULL">版本号为空</string>
+    <string name="PARAM_NAME_NULL">参数为空</string>
+    <string name="DTC_CODE_NULL">故障码为空</string>
+    <string name="REGISTER_FAILURE">注册失败</string>
+    <string name="USERNAME_EXIST">用户名已经存在</string>
+    <string name="UPDATE_PROFILE_FAILURE">更新用户信息失败</string>
+    <string name="OLD_PASSWORD_NOCORRECT">原密码不正确</string>
+    <string name="UPDATE_PASSWORD_FAILURE">更新密码失败</string>
+    <string name="PASSWORD_FIND_EMAIL_FAILURE">密码发送到邮箱错误</string>
+    <string name="DELETE_ACCOUNT_FAILURE">删除账户失败</string>
+    <string name="NO_VERSION">该版本未在服务器中</string>
+    <string name="NO_NEW_VERSION">没有新版本</string>
+    <string name="DOWNLOAD_FAILURE">下载失败</string>
+    <string name="PASSWORD_ERROR">密码错误</string>
+    <string name="USERNAME_NO_EXIST">用户名不存在</string>
+    <string name="NETWORK_ERROR">网络问题</string>
+    <string name="SERVICE_ERROR">服务器问题</string>
+    <string name="UNDEFINE_ERROR">未定义错误，您可以重新执行当前操作</string>
+    <string name="LASTOPERATE_ERROR">上一步操作失败</string>
+    <string name="NOINIT_ERROR">No previous call to init</string>
+    <string name="XMLNOFOUND_ERROR">未找到XML</string>
+    <string name="CERTIFICATE_ERROR">证书不存在</string>
+    <string name="MEMORYRW_ERROR">无法把文件写入内存，没有足够空间</string>
+    <!-- regist error code -->
+    <string name="NO_ERROR_ALREADY_ACTIVATED">激活成功（该设备之前被激活过）</string>
+    <string name="NO_CALL_CONF_SYS_INFO_ERROR">Logic Error: configureSystemInfo(...) should have been called!</string>
+    <string name="VCI_SN_FORMAT_ERROR">VCI序列号格式不正确！ </string>
+    <string name="ACTI_CODE_FORMAT_ERROR">VCI激活码格式是不正确！</string>
+    <string name="UNKNOWN_VCI_ERROR">未知的VCI序列号！</string>
+    <string name="VCI_ACT_CODE_MISMATCH_ERROR">输入的激活码与序列号不匹配！</string>
+    <string name="VCI_HW_MISMATCH_ERROR">输入的序列号/激活码不属于当前连接的VCI！</string>
+    <string name="MAX_NUM_DEVICES_REACH_ERROR">已达到最大的激活设备数量（一个VCI最多5个设备）！</string>
+    <string name="SERVER_INTERNAL_ERROR">授权服务器内部错误！</string>
+    <string name="COMM_SERVER_ERROR">与授权服务器通信失败，请稍后重试。</string>
+    <string name="UPDATE_CLIENT_ERROR">您需要更新的SmartDiag应用程序以激活您的设备和VCI。</string>
+
+</resources>

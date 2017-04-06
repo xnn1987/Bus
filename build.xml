@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AC_SmartDiagCenter" default="help" >
+ 
+    <property file="local.properties" /> <!-- load the SDK directory variable -->
+ 
+    <property file="ant.properties" /> <!-- load the keystore variables (for building APKS) -->
+ 
+    <loadproperties srcFile="project.properties" /> <!-- load the Android target and proguard (if enabled) -->
+ 
+    <!-- quick check that sdk.dir has been set properly-->
+ 
+    <fail
+        message="sdk.dir is missing. Make sure to generate local.properties using &apos;android update project&apos;"
+        unless="sdk.dir" />
+    
+    <fail
+        message="key.store is missing. Make sure to add the release keystore path into ant.properties file and to put the release keystore into config folder when building a live version !"
+        unless="key.store" />
+    
+    <!--
+         Custom Android task to deal with the project target, and import the proper rules.
+         This requires ant 1.6.0 or above.
+    -->
+    <path id="android.antlibs" > <!-- This is Android build stuff its needed! -->
+ 
+        <pathelement path="${sdk.dir}/tools/lib/anttasks.jar" />
+ 
+        <pathelement path="${sdk.dir}/tools/lib/sdklib.jar" />
+ 
+        <pathelement path="${sdk.dir}/tools/lib/androidprefs.jar" />
+ 
+        <pathelement path="${sdk.dir}/tools/lib/apkbuilder.jar" />
+ 
+        <pathelement path="${sdk.dir}/tools/lib/jarutils.jar" />
+    </path>
+    
+    <!--  add some task from anttasks to obtain version code for example -->
+    <taskdef name="xpath"
+        classname="com.android.ant.XPathTask"
+        classpathref="android.antlibs" />
+    
+    <!--  Grab the version name in the manifest file -->
+    <xpath input="AndroidManifest.xml" expression="/manifest/@android:versionName"
+                        output="versionName" default="unknown"/>    
+ 
+    <!--  Overide of some inherited function from the ${sdk.dir}/tools/ant/build.xml ANT file -->
+    
+    <!--  Overide the debug naming of the APK -->
+    <target name="-set-debug-files" depends="-set-mode-check">
+    	<property name="out.packaged.file" location="${out.absolute.dir}/${ant.project.name}-${versionName}-debug-unaligned.apk" />
+    	<property name="out.final.file" location="${out.absolute.dir}/${ant.project.name}-${versionName}-debug.apk" />
+    	<property name="build.is.mode.set" value="true" />
+	</target>
+	
+    <!-- Overide the release naming of the APK -->
+    <target name="-set-release-mode" depends="-set-mode-check">
+        
+        <condition property="unsigned.suffix" value="-release-unsigned-internal" else="-release-unsigned">
+            <isset property="is.internal.release" />
+        </condition>
+              
+        <condition property="signed.suffix" value="-release-internal" else="-release">
+            <isset property="is.internal.release" />
+        </condition>
+        
+    	<property name="out.packaged.file" location="${out.absolute.dir}/${ant.project.name}-${versionName}${unsigned.suffix}.apk" />
+        <property name="out.final.file" location="${out.absolute.dir}/${ant.project.name}-${versionName}${signed.suffix}.apk" />
+        <property name="build.is.mode.set" value="true" />
+
+        <!-- record the current build target -->
+        <property name="build.target" value="release" />
+
+        <property name="build.is.instrumented" value="false" />
+
+        <!-- release mode is only valid if the manifest does not explicitly
+             set debuggable to true. default is false. -->
+        <xpath input="AndroidManifest.xml" expression="/manifest/application/@android:debuggable"
+                output="build.is.packaging.debug" default="false"/>
+
+        <!-- signing mode: release -->
+        <property name="build.is.signing.debug" value="false" />
+
+        <if condition="${build.is.packaging.debug}">
+            <then>
+                <echo>*************************************************</echo>
+                <echo>****  Android Manifest has debuggable=true   ****</echo>
+                <echo>**** Doing DEBUG packaging with RELEASE keys ****</echo>
+                <echo>*************************************************</echo>
+            </then>
+            <else>
+                <!-- property only set in release mode.
+                     Useful for if/unless attributes in target node
+                     when using Ant before 1.8 -->
+                <property name="build.is.mode.release" value="true"/>
+            </else>
+        </if>
+    </target>
+    
+    <!--  Change the version-tag to "custom" for the android tool not to override this file when using android update -->
+    
+    <!-- version-tag: custom -->
+    <import file="${sdk.dir}/tools/ant/build.xml" /> <!-- Inherit from the Android build file (very useful) -->
+  
+ 	<!-- Build Dev debug version, always using dev properties, will never use release properties! -->
+    <target
+        name="buildDev"
+        depends="clean, loadDevProperties, debug"
+        description="Build APK with developer settings i.e. logging on etc"> <!-- Name the build and give it a helpful description -->
+    </target>
+ 
+    <!-- Build Release version, using release servers (SD Cloud, Licensing) to be given to final client, cannot be fully used for internal test (update,VCI flashing ...)-->
+    <target
+        name="buildReleaseExternal"
+        depends="clean, loadLiveProperties, release"
+        description="Build Release version, using release servers (SD Cloud, Licensing) to be given to final client, cannot be fully used for internal test (update,VCI flashing ...)"  >
+    </target>
+ 
+    <target
+        name="setInternalSuffixName"
+        description="Used to add -internal to the APK generated" >
+        
+        <!-- Set special property to append "internal" to generated file name -->
+        <property name="is.internal.release" value="true" />
+    </target>
+    
+    <!-- Build Release version, using dev servers (SD Cloud, Licensing) for INTERNAL PURPOSE ONLY, allows internal test (update,VCI flashing ...) to be possible -->
+    <target
+        name="buildReleaseInternal"
+        depends="setInternalSuffixName, clean, loadDevProperties, release"
+        description="Build Release version, using dev servers (SD Cloud, Licensing) for INTERNAL PURPOSE ONLY, allows internal test (update,VCI flashing ...)"  >
+    </target>
+   
+ 	<property
+        name="config.source.path"
+        value="config/" />
+    
+ 	<property
+        name="config.env.util.target.file"
+        value="EnvUtilConf.xml" />
+ 	
+    <property
+        name="config.mw.template.file"
+        value="SDMiddlewareConfig.xml" />
+    	
+ 	<property
+        name="config.mw.target.file"
+        value="SDMiddlewareConfig.xml" />
+ 
+ 	<property
+        name="config.target.path.asset"
+        value="assets/" />
+ 
+    <!-- Copy Config,java to our source tree, replacing custom tokens with values from ant.properties -->
+ 
+    <target
+        name="loadDevProperties"
+        description="Use dev properties for logging / url etc" >
+ 
+        <property
+            name="config.properties.file"
+            value="config.dev.properties" /> <!-- For loading dev properties we setup the variable 'config.properties.file' to be the dev properties -->
+            
+  		<property
+            name="config.env.util.file"
+            value="EnvUtilConf-debug.xml" />
+   		
+        <antcall target="copyProperties" /> <!--  We then copy from our /config/ to our project build /org.test/ -->
+    </target>
+ 
+    <!-- Copy Config,java to our source tree, replacing custom tokens with values from ant.properties -->
+ 
+    <target
+        name="loadLiveProperties"
+        description="Use live properties for logging / url etc" >
+ 
+        <property
+            name="config.properties.file"
+            value="config.live.properties" />
+        
+        <property
+            name="config.env.util.file"
+            value="EnvUtilConf-release.xml" />
+ 
+        <antcall target="copyProperties" />
+    </target>
+ 
+    <target
+        name="copyProperties"
+        description="Copy the configuration file and xmls, replacing tokens in the file" >
+ 
+         <!-- Full path to files to be copied previously created -->
+  		<property
+            name="config.env.util.file.with.path"
+            value="${config.source.path}${config.env.util.file}" />
+  		<property
+            name="config.mw.file.with.path"
+            value="${config.source.path}${config.mw.template.file}" />
+        
+  		<!-- Replace SDMiddlewareConfig.xml template with specific build properties values -->
+  		<copy
+            encoding="utf-8"
+            file="${config.source.path}${config.mw.template.file}"
+            overwrite="true"
+            todir="${config.target.path.asset}" > <!-- This is reading the template file and overwriting our build path equivalent file -->
+ 
+            <filterset filtersfile="${config.source.path}${config.properties.file}" /> <!-- Whilst it is overwriting we replace the placeholder with the values we set -->
+        </copy>
+        
+        <!-- Copy the EnvUtilConf.xml to the asset folder -->
+		<!-- Copy the current config.env.util.file to config.target.path.asset and rename it to config.env.util.target.file -->
+		<copy
+            encoding="utf-8"
+            file="${config.env.util.file.with.path}"
+            overwrite="true"
+            todir="${config.target.path.asset}" >
+        </copy>
+       	
+ 		<move todir="${config.target.path.asset}" overwrite="true" includeemptydirs="false">
+    		<fileset dir="${config.target.path.asset}"/>
+   			<mapper type="glob" from="${config.env.util.file}" to="${config.env.util.target.file}"/>
+  		</move>
+ 		
+        <tstamp />
+        
+        <echo message="Copy of properties finished. ${TSTAMP}" />
+    </target>
+ 
+</project>

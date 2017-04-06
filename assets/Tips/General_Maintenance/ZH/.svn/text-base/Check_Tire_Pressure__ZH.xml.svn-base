@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>轮胎压力检测</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/05</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>轮胎是行驶系统的主要部件，它工作的好坏，直接影响着车辆的安全性﹑稳定性﹑经济性。因此，检查轮胎气压是安全检查中最重要的一环。
+	检查胎压应该用轮胎气压表进行准确测量，发现胎压不足应及时补充，气压过高应放出部分气体。轮胎气压检查至少每个月进行一次，而胎压的检查必须在轮胎冷却的状态下进行，因为高温会使胎压升高，量起来不准确。检查胎压后，用唾沫涂在气门嘴上，查看是否漏气。
+	</BodyContent>
+</Article>
+	

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>上汽通用五菱</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>上汽通用五菱
+	
+	五菱之光：位置在驾驶员右侧座下；系统根据不同发动机和所配的电脑有所不同。五菱系统还有诊断头在电脑附近的。
+	
+	五菱扬光：五菱系统；随不同电脑，系统也有所不同；诊断头位置也在电脑附近。在用OBD诊断头检测不了时，请换用E-100欧宝/赛欧诊断头检测。
+	
+	</BodyContent>
+</Article>
+	

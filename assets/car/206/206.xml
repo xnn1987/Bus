@@ -1,0 +1,1410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Vehicle name="206" dataModelVersion="1.0">
+	<Family name="EMS" displayName="@P4-VEHMAP">
+      	<ECU name="INJ_ME749_BOSCH_002000125" displayName="@P134-VEHMAP">
+			<VCIConfiguration>030A700171017220A1077303</VCIConfiguration>
+			
+			<!--  0x66 0x03 0x00 => Padding disabled  P2 MAX Timeout set to 150 MS for test purpose only !! -->
+			<!-- <ProtocolDescription>045A5400FA0054016400540219005403FA005404020054059600540604005407E8035408000054090000540A8813540B0000540C00006600006601006602006603000066040066050066060050000000500152075002520650030A00</ProtocolDescription> -->
+			<!--  Padding disabled -->
+			<!-- 045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C00006600006601006602006603010066040066050066060050000000500152075002520650030A00 -->
+			<!--  Padding disabled default UDS P2 MAX Timeout (50 ms) 0x54 0x05 0x32 0x00 -->
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C000066000066010066020066030000660400660500660600500000005001A8065002880650030A00</ProtocolDescription> -->
+			
+			<!--  TP IS 3E/7E for this ECU -->
+		  	<PeriodicMsg>0C040BB8013E</PeriodicMsg>
+		  	
+			<BeginCommECU request="10C0" response="50C0" />
+			<!-- EndCommECU needs to be kept in the XML even if the data are not known or incorrect -->
+			<EndCommECU request="1001" response="5001" />
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			<Parameters allowUDSLikeParaReading="false" numMaxID="4" >
+				<Parameter id="p1" name="MP_REGIME_MOTEUR" label="@P35-DATA" unit="tr/min" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="2" length="1" bit="0" order="0" encoding="UNM" format="0" factor="40" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p2" name="MP_TENSION_BATTERIE" label="@P6377-DATA" unit="V" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1104" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p3" name="MP_TEMPS_INJECTION_11" label="@P7955-DATA" unit="ms" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="6" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.8533" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p4" name="MP_COUPURE_INJECTION_DECELERATION" label="@P7956-DATA" unit="" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6208-DATA"/>
+					<Discrete value="00000001" label="@P6207-DATA"/>
+			  	</Parameter>
+				<Parameter id="p5" name="MP_TEMPERATURE_EAU_a" label="@P6381-DATA" unit="°C" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="12" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.75" offset="-48">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p6" name="MP_ETAT_PAPILLON" label="@P7957-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="21" position="9" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P20051-DATA"/>
+					<Discrete value="00000010" label="@P7971-DATA"/>
+					<Discrete value="00000100" label="@P7972-DATA"/>
+			  	</Parameter>
+				<Parameter id="p7" name="MP_TENSION_PAPILLON" label="@P7958-DATA" unit="mV" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="10" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.019552" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p8" name="MP_ANGLE_PAPILLON" label="@P7959-DATA" unit="°" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="9" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-128">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p9" name="MP_PRESSION_COLLECTEUR" label="@P6382-DATA" unit="mbar" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="15" length="1" bit="0" order="0" encoding="UNM" format="0" factor="10" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p10" name="MP_TEMPERATURE_AIR" label="@P7529-DATA" unit="°C" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="14" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.75" offset="-48">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p11" name="MP_ETAT_ELECTROVANNE_CANISTER" label="@P7963-DATA" unit="" reqService="21" reqData="C0" respService="61" respData="C0" respDataLength="18" position="19" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p12" name="MP_RCO_EV_CANISTER" label="@P6385-DATA" unit="%" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="24" position="18" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.3921" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p13" name="MP_AVANCE_ALLUMAGE" label="@P6413-DATA" unit="°" reqService="21" reqData="C1" respService="61" respData="C1" respDataLength="7" position="6" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.75" offset="-96">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p14" name="MP_TEMPS_DE_CHARGE_BOBINES_CYLINDRES_01_04" label="@P7960-DATA" unit="ms" reqService="21" reqData="C1" respService="61" respData="C1" respDataLength="7" position="7" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1706" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p15" name="MP_TEMPS_CHARGE_BOBINES_CYLINDRES_02_03" label="@P7961-DATA" unit="ms" reqService="21" reqData="C1" respService="61" respData="C1" respDataLength="7" position="8" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1706" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p16" name="MP_ETAT_SONDE_OXYGENE_AMONT" label="@P15631-DATA" unit="" reqService="21" reqData="C2" respService="61" respData="C2" respDataLength="13" position="5" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p17" name="MP_TENSION_SONDE_A_OXYGENE_AMONT" label="@P7231-DATA" unit="V" reqService="21" reqData="C2" respService="61" respData="C2" respDataLength="13" position="9" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.00522" offset="-0.2">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p18" name="MP_ETAT_SONDE_OXYGENE_AVAL" label="@P15634-DATA" unit="" reqService="21" reqData="C2" respService="61" respData="C2" respDataLength="13" position="6" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p19" name="MP_TENSION_SONDE_A_OXYGENE_AVAL" label="@P15635-DATA" unit="V" reqService="21" reqData="C2" respService="61" respData="C2" respDataLength="13" position="10" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.00522" offset="-0.2">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p20" name="MP_ETAT_REGULATION_RICHESSE_AMONT" label="@P7962-DATA" unit="" reqService="21" reqData="C2" respService="61" respData="C2" respDataLength="13" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7404-DATA"/>
+					<Discrete value="00000001" label="@P7405-DATA"/>
+			  	</Parameter>
+				<Parameter id="p21" name="MP_ETAT_REGULATION_RICHESSE_AVAL" label="@P7964-DATA" unit="" reqService="21" reqData="C2" respService="61" respData="C2" respDataLength="13" position="14" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7404-DATA"/>
+					<Discrete value="00000001" label="@P7405-DATA"/>
+			  	</Parameter>
+				<Parameter id="p22" name="MP_ETAT_RELAIS_GMV" label="@P7965-DATA" unit="" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="10" position="8" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p23" name="MP_CONSIGNE_VITESSE_GMV" label="@P7966-DATA" unit="%" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="10" position="10" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.3921" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p24" name="MP_VITESSE_GROUPE_MOTOVENTILATEUR" label="@P7967-DATA" unit="%" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="10" position="9" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.3921" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p25" name="MP_AUTORISATION_CLIM_new_1" label="@P7724-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="24" position="19" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6208-DATA"/>
+					<Discrete value="00000001" label="@P6207-DATA"/>
+			  	</Parameter>
+				<Parameter id="p26" name="MP_ENTREE_DEMANDE_CLIMATISATION" label="@P7968-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="24" position="20" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6208-DATA"/>
+					<Discrete value="00000001" label="@P6207-DATA"/>
+			  	</Parameter>
+				<Parameter id="p27" name="MP_PRESSION_CIRCUIT_REFRIGERANT" label="@P7554-DATA" unit="Bar" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="10" position="11" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.15359765625" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p28" name="MP_COUPLE_MOTEUR" label="@P6291-DATA" unit="Nm" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="21" position="6" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.75" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p29" name="MP_RECONNAISSANCE_BVA" label="@P7969-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="21" position="21" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6208-DATA"/>
+					<Discrete value="00000001" label="@P6207-DATA"/>
+			  	</Parameter>
+				<Parameter id="p30" name="MP_RAPPORT_BOITE_VITESSES_ENGAGE" label="@P7038-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="21" position="22" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21341-DATA"/>
+					<Discrete value="00000001" label="@P21342-DATA"/>
+					<Discrete value="00000010" label="@P21343-DATA"/>
+					<Discrete value="00000011" label="@P21344-DATA"/>
+					<Discrete value="00000100" label="@P21345-DATA"/>
+					<Discrete value="00000101" label="@P21346-DATA"/>
+					<Discrete value="00000110" label="@P21347-DATA"/>
+					<Discrete value="00000111" label="@P21348-DATA"/>
+			  	</Parameter>
+				<Parameter id="p31" name="MP_ETAT_CONTACT_EMBRAYAGE" label="@P7289-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="24" position="25" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6208-DATA"/>
+					<Discrete value="00000001" label="@P6207-DATA"/>
+			  	</Parameter>
+				<Parameter id="p32" name="MP_VITESSE_VEHICULE_b" label="@P36-DATA" unit="km/h" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="21" position="20" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p33" name="MP_COMMANDE_RELAIS_DE_PUISSANCE_a" label="@P7970-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="21" position="17" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p34" name="MP_ETAT_DU_CALCULTATEUR" label="@P7234-DATA" unit="" reqService="21" reqData="B0" respService="61" respData="B0" respDataLength="3" position="2" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15653-DATA"/>
+					<Discrete value="00000001" label="@P15652-DATA"/>
+			  	</Parameter>
+				<Parameter id="p35" name="MP_ETAT_PROGRAMMATION_ANTI_DEMARRAGE" label="@P7236-DATA" unit="" reqService="21" reqData="B0" respService="61" respData="B0" respDataLength="3" position="3" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15656-DATA"/>
+					<Discrete value="00000001" label="@P15657-DATA"/>
+					<Discrete value="00000010" label="@P15658-DATA"/>
+			  	</Parameter>
+				<Parameter id="p36" name="MP_PB_TRANSMISSION_CODE_DEVERROUILLAGE" label="@P7237-DATA" unit="" reqService="21" reqData="B0" respService="61" respData="B0" respDataLength="3" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15662-DATA"/>
+					<Discrete value="00000001" label="@P7281-DATA"/>
+					<Discrete value="00000010" label="@P7282-DATA"/>
+			  	</Parameter>
+	        </Parameters>
+			
+			<!-- Newly added section -->
+			<!-- The Category name "DEFAULT" SHOULD NOT BE USED !! IT WILL BE USED BY THE SYSTEM -->
+			<!-- In this example, p3 will be automatically added to the DEFAULT category because it is not attached to any defined Category -->
+			<ParametersMapping>
+				<Category id="c1" name="FUEL_INJECTION_AND_EMISSION_CONTROL" displayName="@P7523-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+				</Category>
+				<Category id="c2" name="AIR_INTAKE_CIRCUIT_INFORMATION" displayName="@P7524-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p7"/>
+					<ParameterRef idref="p8"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p10"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p12"/>
+				</Category>
+				<Category id="c3" name="IGNITION" displayName="@P6432-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p13"/>
+					<ParameterRef idref="p14"/>
+					<ParameterRef idref="p15"/>
+				</Category>
+				<Category id="c4" name="COOLING_HVAC" displayName="@P7525-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p18"/>
+					<ParameterRef idref="p19"/>
+					<ParameterRef idref="p20"/>
+					<ParameterRef idref="p21"/>
+				</Category>
+				<Category id="c5" name="INFORMATION_DRIVING" displayName="@P6284-DATA" >
+					<ParameterRef idref="p22"/>
+					<ParameterRef idref="p23"/>
+					<ParameterRef idref="p24"/>
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p26"/>
+					<ParameterRef idref="p27"/>
+				</Category>
+				<Category id="c6" name="ELECTRICAL_SUPPLY_AND_ENGINE_IMMOBILISER" displayName="@P7526-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p28"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p29"/>
+					<ParameterRef idref="p30"/>
+					<ParameterRef idref="p31"/>
+					<ParameterRef idref="p32"/>
+					<ParameterRef idref="p3"/>
+				</Category>
+				<Category id="c7" name="SPECIFIC_MESURES_FLEX_FUEL" displayName="@P7954-DATA" >
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p33"/>
+					<ParameterRef idref="p34"/>
+					<ParameterRef idref="p35"/>
+					<ParameterRef idref="p36"/>
+				</Category>
+			</ParametersMapping>
+			
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+		<ECU name="INJ_EDC16C34_DV4_002000126" displayName="@P131-VEHMAP">
+			<VCIConfiguration>030A700171017220A1077303</VCIConfiguration>
+			
+			<!--  0x66 0x03 0x00 => Padding disabled  P2 MAX Timeout set to 150 MS for test purpose only !! -->
+			<!-- <ProtocolDescription>045A5400FA0054016400540219005403FA005404020054059600540604005407E8035408000054090000540A8813540B0000540C00006600006601006602006603000066040066050066060050000000500152075002520650030A00</ProtocolDescription> -->
+			<!--  Padding disabled -->
+			<!-- 045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C00006600006601006602006603010066040066050066060050000000500152075002520650030A00 -->
+			<!--  Padding disabled default UDS P2 MAX Timeout (50 ms) 0x54 0x05 0x32 0x00 -->
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C000066000066010066020066030000660400660500660600500000005001A8065002880650030A00</ProtocolDescription> -->
+			
+			<!--  TP IS 3E/7E for this ECU -->
+		  	<PeriodicMsg>0C040BB8013E</PeriodicMsg>
+		  	
+			<BeginCommECU request="10C0" response="50C0" />
+			<!-- EndCommECU needs to be kept in the XML even if the data are not known or incorrect -->
+			<EndCommECU request="1001" response="5001" />
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			<Parameters allowUDSLikeParaReading="false" numMaxID="4" >
+				<Parameter id="p1" name="MP_REGIME_MOTEUR" label="@P6262-DATA" unit="tr/min" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="2" length="1" bit="0" order="0" encoding="UNM" format="0" factor="32.1255" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p2" name="MP_SYNCHRONISATION_AAC_VILEBREQUIN" label="@P7183-DATA" unit="" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="6" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+					<ValueRanges>
+						<SpecificRange label="P6208-DATA">
+							<Beginning>00</Beginning>
+							<End>02</End>
+						</SpecificRange>
+						<SpecificRange label="P6208-DATA">
+							<Beginning>03</Beginning>
+							<End>FF</End>
+						</SpecificRange>
+						<SingleValue label="P6207-DATA">03</SingleValue>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p3" name="MP_PRESSION_CARBURANT_MESURE" label="@P7150-DATA" unit="bar" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="7.8431" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p4" name="MP_CONSIGNE_PRESSION_CARBURANT" label="@P21794-DATA" unit="bar" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="18" length="1" bit="0" order="0" encoding="UNM" format="0" factor="7.8431" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p5" name="MP_COMMANDE_OUVERTURE_REGULATEUR_DEBIT_CARBURANT" label="@P7854-DATA" unit="%" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.3922" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p6" name="MP_DEBIT_INJECTE_MESURE" label="@P7705-DATA" unit="mg/coup" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="5" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.3922" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p7" name="MP_CORRECTION_DEBIT_INJECTEUR_01" label="@P7706-DATA" unit="mg/coup" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="12" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0471" offset="-6">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p8" name="MP_CORRECTION_DEBIT_INJECTEUR_02" label="@P7707-DATA" unit="mg/coup" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="13" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0471" offset="-6">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p9" name="MP_CORRECTION_DEBIT_INJECTEUR_03" label="@P7708-DATA" unit="mg/coup" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="14" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0471" offset="-6">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p10" name="MP_CORRECTION_DEBIT_INJECTEUR_04" label="@P7709-DATA" unit="mg/coup" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="15" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0471" offset="-6">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p11" name="MP_CONSIGNE_DEBIT_GAZOLE_POMPE" label="@P7701-DATA" unit="mm³/s" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="8" length="1" bit="0" order="0" encoding="UNM" format="2" factor="325.4902" offset="-3000">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p12" name="MP_ETAT_ERREUR_COMMANDE_INJECTEURS" label="@P7711-DATA" unit="" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="10" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15389-DATA"/>
+					<Discrete value="00000001" label="@P7745-DATA"/>
+					<Discrete value="00000010" label="@P7746-DATA"/>
+					<Discrete value="00000100" label="@P7747-DATA"/>
+					<Discrete value="00001000" label="@P7762-DATA"/>
+					<Discrete value="00010000" label="@P7763-DATA"/>
+					<Discrete value="01000000" label="@P7764-DATA"/>
+					<Discrete value="10000000" label="@P7765-DATA"/>
+			  	</Parameter>
+				<Parameter id="p13" name="MP_DEBIT_AIR_MESURE" label="@P7162-DATA" unit="mg/coup" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="5.8824" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p14" name="MP_AVANCE_PRE_INJECTION" label="@P7712-DATA" unit="°" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="8" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1.4118" offset="-180">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p15" name="MP_AVANCE_INJECTION_PRINCIPALE" label="@P7713-DATA" unit="°" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="9" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1.4118" offset="-180">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p16" name="MP_TEMPERATURE_D_EAU_MOTEUR_a" label="@P10083-DATA" unit="°C" reqService="21" reqData="C58001" respService="61" respData="C5" respDataLength="9" position="5" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.9961" offset="-40">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p17" name="MP_TEMPERATURE_CARBURANT_c" label="@P21797-DATA" unit="°C" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="23" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.9961" offset="-40">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p18" name="MP_CONSIGNE_DEBIT_AIR" label="@P7163-DATA" unit="mg/coup" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="9" length="1" bit="0" order="0" encoding="UNM" format="0" factor="3.9216" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p19" name="MP_COMMANDE_OUVERTURE_VANNE_EGR" label="@P7855-DATA" unit="%" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="15" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.3922" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p20" name="MP_RECOPIE_POSITION_VANNE_EGR" label="@P7166-DATA" unit="%" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="5" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.3922" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p21" name="MP_TEMP_ADMI_DEBITMETRE" label="@P7856-DATA" unit="°C" reqService="21" reqData="C58001" respService="61" respData="C5" respDataLength="9" position="6" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.9961" offset="-40">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p22" name="MP_PRESSION_ATMOSPHERIQUE" label="@P7173-DATA" unit="mbar" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="14" length="1" bit="0" order="0" encoding="UNM" format="0" factor="11.7647" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p23" name="MP_PRESSION_TURBO_1" label="@P7857-DATA" unit="mbar" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="15" length="1" bit="0" order="0" encoding="UNM" format="0" factor="11.7647" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p24" name="MP_TENSION_BATTERIE" label="@P20070-DATA" unit="V" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.1004" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p25" name="MP_RELAIS_PRE_POST_CHAUFFAGE" label="@P7858-DATA" unit="" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="16" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p26" name="MP_DEMANDE_COUPURE_CLIMATISATION" label="@P7722-DATA" unit="" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="17" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7402-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p27" name="MP_PRESSION_CIRCUIT_CLIMATISATION" label="@P7723-DATA" unit="bar" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="24" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.1255" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p28" name="MP_AUTORISATION_CLIMATISATION_a" label="@P7724-DATA" unit="" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="18" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7766-DATA"/>
+					<Discrete value="00000001" label="@P7767-DATA"/>
+			  	</Parameter>
+				<Parameter id="p29" name="MP_AUTORISATION_CLIMATISATION_a" label="@P7725-DATA" unit="" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="19" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7768-DATA"/>
+					<Discrete value="00000001" label="@P7769-DATA"/>
+					<Discrete value="00000010" label="@P7770-DATA"/>
+					<Discrete value="00000011" label="@P7771-DATA"/>
+			  	</Parameter>
+				<Parameter id="p30" name="MP_RELAIS_GROUPE_MOTO_VENTILATEUR" label="@P7726-DATA" unit="" reqService="21" reqData="C58001" respService="61" respData="C5" respDataLength="9" position="8" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p31" name="MP_VITESSE_GROUPE_MOTOVENTILATEUR" label="@P7556-DATA" unit="%" reqService="21" reqData="C58001" respService="61" respData="C5" respDataLength="9" position="9" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.3922" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p32" name="MP_CONSIGNE_VITESSE_GMV_C5" label="@P7198-DATA" unit="%" reqService="21" reqData="C58001" respService="61" respData="C5" respDataLength="9" position="10" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.3922" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p33" name="MP_VITESSE_VEHICULE" label="@P15012-DATA" unit="km/h" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="20" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p34" name="MP_POSITION_DE_PEDALE_ACCELERATEUR" label="@P20196-DATA" unit="%" reqService="21" reqData="C88001" respService="61" respData="C8" respDataLength="17" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.3922" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p35" name="MP_RAPPORT_BOITE_DE_VITESSES" label="@P21289-DATA" unit="" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="22" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P22341-DATA"/>
+					<Discrete value="00000001" label="@P22342-DATA"/>
+					<Discrete value="00000010" label="@P22343-DATA"/>
+					<Discrete value="00000011" label="@P22344-DATA"/>
+					<Discrete value="00000100" label="@P22345-DATA"/>
+					<Discrete value="00000101" label="@P22346-DATA"/>
+					<Discrete value="00000110" label="@P21919-DATA"/>
+			  	</Parameter>
+				<Parameter id="p36" name="MP_ETAT_PEDALE_FREIN_PRINCIPAL" label="@P7185-DATA" unit="" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="13" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P22084-DATA"/>
+					<Discrete value="00000001" label="@P22083-DATA"/>
+			  	</Parameter>
+				<Parameter id="p37" name="MP_ETAT_PEDALE_FREIN_REDONDANT" label="@P7186-DATA" unit="" reqService="21" reqData="C78001" respService="61" respData="C7" respDataLength="16" position="13" length="1" bit="00000010" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P22084-DATA"/>
+					<Discrete value="00000010" label="@P22083-DATA"/>
+			  	</Parameter>
+				<Parameter id="p38" name="MP_ETAT_PEDALE_EMBRAYAGE" label="@P7859-DATA" unit="" reqService="21" reqData="C48001" respService="61" respData="C4" respDataLength="23" position="21" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P22084-DATA"/>
+					<Discrete value="00000001" label="@P22083-DATA"/>
+			  	</Parameter>
+				<Parameter id="p39" name="MP_ETAT_VERROUILLAGE_DEVERROUILLAGE_CALCULTATEUR" label="@P22038-DATA" unit="" reqService="21" reqData="B0" respService="61" respData="B0" respDataLength="3" position="2" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15653-DATA"/>
+					<Discrete value="00000001" label="@P15652-DATA"/>
+			  	</Parameter>
+				<Parameter id="p40" name="MP_ETAT_PROGRAMMATION_ANTI_DEMARRAGE" label="@P7236-DATA" unit="" reqService="21" reqData="B0" respService="61" respData="B0" respDataLength="3" position="3" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="11111111" label="@P15655-DATA"/>
+					<Discrete value="00000000" label="@P7272-DATA"/>
+					<Discrete value="00000001" label="@P7273-DATA"/>
+					<Discrete value="00000010" label="@P7274-DATA"/>
+					<Discrete value="00000011" label="@P7275-DATA"/>
+					<Discrete value="00000100" label="@P15660-DATA"/>
+			  	</Parameter>
+				<Parameter id="p41" name="MP_PB_TRANSMISSION_CODE_DEVERROUILLAGE" label="@P7237-DATA" unit="" reqService="21" reqData="B0" respService="61" respData="B0" respDataLength="3" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7280-DATA"/>
+					<Discrete value="00000001" label="@P7281-DATA"/>
+					<Discrete value="00000010" label="@P7282-DATA"/>
+					<Discrete value="00000100" label="@P7589-DATA"/>
+					<Discrete value="00001000" label="@P7590-DATA"/>
+			  	</Parameter>
+	        </Parameters>
+			
+			<!-- Newly added section -->
+			<!-- The Category name "DEFAULT" SHOULD NOT BE USED !! IT WILL BE USED BY THE SYSTEM -->
+			<!-- In this example, p3 will be automatically added to the DEFAULT category because it is not attached to any defined Category -->
+			<ParametersMapping>
+			    <Category id="c1" name="FUEL" displayName="@P7139-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p7"/>
+					<ParameterRef idref="p8"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p10"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p12"/>
+					<ParameterRef idref="p13"/>
+					<ParameterRef idref="p14"/>
+					<ParameterRef idref="p15"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+				</Category>
+				<Category id="c2" name="AIR_INTAKE_CIRCUIT_INFORMATION" displayName="@P7140-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p13"/>
+					<ParameterRef idref="p18"/>
+					<ParameterRef idref="p19"/>
+					<ParameterRef idref="p20"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p21"/>
+					<ParameterRef idref="p22"/>
+					<ParameterRef idref="p23"/>
+				</Category>
+				<Category id="c3" name="ELECTRICAL_INFORMATION" displayName="@P7141-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p24"/>
+					<ParameterRef idref="p12"/>
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p26"/>
+					<ParameterRef idref="p27"/>
+					<ParameterRef idref="p28"/>
+					<ParameterRef idref="p29"/>
+					<ParameterRef idref="p30"/>
+					<ParameterRef idref="p31"/>
+					<ParameterRef idref="p32"/>
+					<ParameterRef idref="p6"/>
+				</Category>
+				<Category id="c4" name="MISCELLANEOUS" displayName="@P7142-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p33"/>
+					<ParameterRef idref="p34"/>
+					<ParameterRef idref="p35"/>
+					<ParameterRef idref="p36"/>
+					<ParameterRef idref="p37"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p38"/>
+				</Category>
+				<Category id="c5" name="VEHICLE_IMMOBILISATION_INFORMATION" displayName="@P7145-DATA" >
+					<ParameterRef idref="p39"/>
+					<ParameterRef idref="p40"/>
+					<ParameterRef idref="p41"/>
+				</Category>
+			</ParametersMapping>
+			
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+    </Family>
+	<Family name="TCM" displayName="@P27-VEHMAP">
+		<ECU name="BVA_AL4_SIEMENS_003000177" displayName="@P107-VEHMAP">
+			<VCIConfiguration>030A700171017220A1077303</VCIConfiguration>
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C000066000066010066020066030000660400660500660600500000005001A9065002890650030A00</ProtocolDescription>
+		  	<PeriodicMsg>0C040BB8013E</PeriodicMsg>
+			<BeginCommECU request="1081" response="5081" />
+			<EndCommECU request="10C0" response="50C0" />
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			<Parameters allowUDSLikeParaReading="false" numMaxID="1" >
+				<Parameter id="p1" name="MP_REGIME_MOTEUR" label="@P35-DATA" unit="tr/min" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="5" length="1" bit="0" order="0" encoding="UNM" format="0" factor="32" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p2" name="MP_VITESSE_VEHICULE" label="@P36-DATA" unit="km/h" reqService="21" reqData="C8" respService="61" respData="C8" respDataLength="12" position="12" length="2" bit="0" order="0" encoding="UNM" format="0" factor="0.01" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p3" name="MP_VITESSE_ENTREE_BVA_MESUREE" label="@P7483-DATA" unit="tr/min" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="6" length="1" bit="0" order="0" encoding="UNM" format="0" factor="32" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p4" name="MP_VITESSE_ENTREE_BVA_CONSIGNE" label="@P7484-DATA" unit="tr/min" reqService="21" reqData="C6" respService="61" respData="C6" respDataLength="15" position="11" length="1" bit="0" order="0" encoding="UNM" format="0" factor="32" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p5" name="MP_VITESSE_SORTIE_BVA_MESUREE" label="@P7485-DATA" unit="tr/min" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="32" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p6" name="MP_VITESSE_SORTIE_BVA_CONSIGNE" label="@P7486-DATA" unit="tr/min" reqService="21" reqData="C6" respService="61" respData="C6" respDataLength="15" position="16" length="1" bit="0" order="0" encoding="UNM" format="0" factor="32" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p7" name="MP_PRESSION_CONSIGNE" label="@P7487-DATA" unit="bar" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="16" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p8" name="MP_PRESSION_HUILE" label="@P7488-DATA" unit="bar" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="18" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.05" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p9" name="MP_TEMPS_ACTIVATION_EV_EVM" label="@P7489-DATA" unit="%" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="19" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.4" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p10" name="MP_TEMPERATURE_HUILE_b" label="@P6246-DATA" unit="°C" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="21" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-50">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p11" name="MP_POSITION_PEDALE_ACCELERATEUR_RECALCULE" label="@P7024-DATA" unit="%" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="11" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p12" name="MP_POSITION_LEVIER_VITESSES" label="@P21393-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="4" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00010000" label="@P21583-DATA"/>
+					<Discrete value="00100000" label="@P21584-DATA"/>
+					<Discrete value="00110000" label="@P21585-DATA"/>
+					<Discrete value="01000000" label="@P21586-DATA"/>
+					<Discrete value="01010000" label="@P21587-DATA"/>
+					<Discrete value="01100000" label="@P21588-DATA"/>
+					<Discrete value="01110000" label="@P21589-DATA"/>
+					<Discrete value="10000000" label="@P21590-DATA"/>
+					<Discrete value="10010000" label="@P21591-DATA"/>
+					<Discrete value="10100000" label="@P21592-DATA"/>
+					<Discrete value="11000000" label="@P21593-DATA"/>
+					<Discrete value="11100000" label="@P21594-DATA"/>
+					<Discrete value="11110000" label="@P21595-DATA"/>
+			  	</Parameter>
+				<Parameter id="p13" name="MP_CONTACTEUR_MULTIFONCTION_BVA_EN_POSITION_PN" label="@P7491-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="5" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10267-DATA"/>
+					<Discrete value="00100000" label="@P10268-DATA"/>
+			  	</Parameter>
+				<Parameter id="p14" name="MP_CONTACTEUR_MULTIFONCTION_BVA_EN_POSITION_S4" label="@P7492-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="5" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10267-DATA"/>
+					<Discrete value="00010000" label="@P10268-DATA"/>
+			  	</Parameter>
+				<Parameter id="p15" name="MP_CONTACTEUR_MULTIFONCTION_BVA_EN_POSITION_S3" label="@P7493-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="5" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10267-DATA"/>
+					<Discrete value="00001000" label="@P10268-DATA"/>
+			  	</Parameter>
+				<Parameter id="p16" name="MP_CONTACTEUR_MULTIFONCTION_BVA_EN_POSITION_S2" label="@P7494-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="5" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10267-DATA"/>
+					<Discrete value="00000100" label="@P10268-DATA"/>
+			  	</Parameter>
+				<Parameter id="p17" name="MP_CONTACTEUR_MULTIFONCTION_BVA_EN_POSITION_S1_IMPULSIONNEL" label="@P7495-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="5" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10267-DATA"/>
+					<Discrete value="01000000" label="@P10268-DATA"/>
+			  	</Parameter>
+				<Parameter id="p18" name="MP_CONTACT_1ERE_OU_IMPULSIONNEL" label="@P7496-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="5" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10267-DATA"/>
+					<Discrete value="10000000" label="@P10268-DATA"/>
+			  	</Parameter>
+				<Parameter id="p19" name="MP_SELECT_LOI_SPORT" label="@P7497-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="10" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000001" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p20" name="MP_SELECTION_LOI_NEIGE" label="@P7498-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="10" length="1" bit="00000010" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00000010" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p21" name="MP_TENSION_BATTERIE" label="@P6377-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="12" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7518-DATA"/>
+					<Discrete value="00000001" label="@P7519-DATA"/>
+			  	</Parameter>
+				<Parameter id="p22" name="MP_CONTACT_FREIN_01" label="@P7499-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="12" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6213-DATA"/>
+					<Discrete value="00000100" label="@P6214-DATA"/>
+			  	</Parameter>
+				<Parameter id="p23" name="MP_CONTACT_FREIN_02" label="@P7500-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="9" length="1" bit="00000010" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6213-DATA"/>
+					<Discrete value="00000010" label="@P6214-DATA"/>
+			  	</Parameter>
+				<Parameter id="p24" name="MP_ETAT_KICKDOWN_BVA" label="@P7501-DATA" unit="" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="12" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6213-DATA"/>
+					<Discrete value="00001000" label="@P6214-DATA"/>
+			  	</Parameter>
+				<Parameter id="p25" name="MP_PRESSION_HUILE" label="@P7488-DATA" unit="bar" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="6" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.05" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p26" name="MP_TENSION_CAPTEUR_PRESSION" label="@P7502-DATA" unit="V" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="7" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p27" name="MP_TEMPERATURE_HUILE_b" label="@P6246-DATA" unit="°C" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="8" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-50">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p28" name="MP_TENSION_CAPTEUR_TEMPERATURE" label="@P7503-DATA" unit="V" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="9" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p29" name="MP_POSITION_PEDALE_ACCELERATEUR_RECALCULE" label="@P7024-DATA" unit="%" reqService="21" reqData="C3" respService="61" respData="C3" respDataLength="23" position="11" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.390625" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p30" name="MP_TEMPERATURE_HUILE_b" label="@P6246-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="3" length="1" bit="00000010" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6218-DATA"/>
+					<Discrete value="00000010" label="@P7793-DATA"/>
+			  	</Parameter>
+				<Parameter id="p31" name="MP_VIDANGE_A_FAIRE" label="@P21381-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6208-DATA"/>
+					<Discrete value="00000100" label="@P6207-DATA"/>
+			  	</Parameter>
+				<Parameter id="p32" name="MP_ALIMENTATION_COMMUNE_ELECTROVANNES_SEQUENCE" label="@P7504-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="3" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="00010000" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p33" name="MP_SORTIE_CLIM_KEYLOCK" label="@P7505-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="01000000" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p34" name="MP_ESTOMPAGE_COUPLE" label="@P7506-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P10268-DATA"/>
+					<Discrete value="10000000" label="@P10267-DATA"/>
+			  	</Parameter>
+				<Parameter id="p35" name="MP_PONTAGE_CONVERTISSEUR_COUPLE" label="@P7507-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="5" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7271-DATA"/>
+					<Discrete value="10000000" label="@P10039-DATA"/>
+			  	</Parameter>
+				<Parameter id="p36" name="MP_TEMPS_ACTIVATION_EVLU_BVA" label="@P7508-DATA" unit="%" reqService="21" reqData="C5" respService="61" respData="C5" respDataLength="20" position="20" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.4" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p37" name="MP_ELECTROVANNE_EVS_01" label="@P7509-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="4" length="1" bit="00000001" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15791-DATA"/>
+					<Discrete value="00000001" label="@P15790-DATA"/>
+			  	</Parameter>
+				<Parameter id="p38" name="MP_ELECTROVANNE_EVS_02" label="@P7510-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="4" length="1" bit="00000010" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15791-DATA"/>
+					<Discrete value="00000010" label="@P15790-DATA"/>
+			  	</Parameter>
+				<Parameter id="p39" name="MP_ELECTROVANNE_EVS_03" label="@P7511-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="4" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15791-DATA"/>
+					<Discrete value="00000100" label="@P15790-DATA"/>
+			  	</Parameter>
+				<Parameter id="p40" name="MP_ELECTROVANNE_EVS_04" label="@P7512-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="4" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15791-DATA"/>
+					<Discrete value="00001000" label="@P15790-DATA"/>
+			  	</Parameter>
+				<Parameter id="p41" name="MP_ELECTROVANNE_EVS_05" label="@P7513-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="4" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15791-DATA"/>
+					<Discrete value="00010000" label="@P15790-DATA"/>
+			  	</Parameter>
+				<Parameter id="p42" name="MP_ELECTROVANNE_EVS_06" label="@P7514-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="4" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15791-DATA"/>
+					<Discrete value="00100000" label="@P15790-DATA"/>
+			  	</Parameter>
+				<Parameter id="p43" name="MP_EV_DEBIT_ECHANGEUR_BVA_EPDE_new" label="@P7515-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="4" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15791-DATA"/>
+					<Discrete value="01000000" label="@P15790-DATA"/>
+			  	</Parameter>
+				<Parameter id="p44" name="MP_ETAT_BVA" label="@P7516-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="11" length="1" bit="11000000" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6218-DATA"/>
+					<Discrete value="01000000" label="@P7520-DATA"/>
+					<Discrete value="10000000" label="@P7521-DATA"/>
+					<Discrete value="11000000" label="@P7522-DATA"/>
+			  	</Parameter>
+				<Parameter id="p45" name="MP_POSITION_PROGRAMME" label="@P7517-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="11" length="1" bit="00110000" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21633-DATA"/>
+					<Discrete value="00010000" label="@P21634-DATA"/>
+					<Discrete value="00100000" label="@P21635-DATA"/>
+					<Discrete value="00110000" label="@P21636-DATA"/>
+			  	</Parameter>
+				<Parameter id="p46" name="MP_POSITION_LEVIER_VITESSES" label="@P21393-DATA" unit="" reqService="21" reqData="C4" respService="61" respData="C4" respDataLength="10" position="11" length="1" bit="00001111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21637-DATA"/>
+					<Discrete value="00000001" label="@P21638-DATA"/>
+					<Discrete value="00000010" label="@P21639-DATA"/>
+					<Discrete value="00000011" label="@P21640-DATA"/>
+					<Discrete value="00000100" label="@P21641-DATA"/>
+					<Discrete value="00000101" label="@P21642-DATA"/>
+					<Discrete value="00000110" label="@P21643-DATA"/>
+					<Discrete value="00001000" label="@P21644-DATA"/>
+					<Discrete value="00001001" label="@P21645-DATA"/>
+					<Discrete value="00001010" label="@P21646-DATA"/>
+					<Discrete value="00001100" label="@P21647-DATA"/>
+					<Discrete value="00001101" label="@P21648-DATA"/>
+					<Discrete value="00001110" label="@P21649-DATA"/>
+			  	</Parameter>
+	        </Parameters>
+			<ParametersMapping>
+				<Category id="c1" name="MAIN_VARIABLES" displayName="@P7476-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p7"/>
+					<ParameterRef idref="p8"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p10"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p12"/>
+				</Category>
+				<Category id="c2" name="AUTOMATIC_GEARBOX_LEVER_INPUT" displayName="@P7477-DATA" >
+					<ParameterRef idref="p13"/>
+					<ParameterRef idref="p14"/>
+					<ParameterRef idref="p15"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p18"/>
+					<ParameterRef idref="p19"/>
+					<ParameterRef idref="p20"/>
+				</Category>
+				<Category id="c3" name="STATUS_OF_DIGITAL_INPUTS" displayName="@P7478-DATA" >
+					<ParameterRef idref="p21"/>
+					<ParameterRef idref="p22"/>
+					<ParameterRef idref="p23"/>
+					<ParameterRef idref="p24"/>
+				</Category>
+				<Category id="c4" name="STATUS_OF_ANALOGUE_INPUTS" displayName="@P7479-DATA" >
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p26"/>
+					<ParameterRef idref="p27"/>
+					<ParameterRef idref="p28"/>
+					<ParameterRef idref="p29"/>
+				</Category>
+				<Category id="c5" name="STATUS_OF_THE_AUTOMATIC_GEARBOX_OUTPUTS" displayName="@P7480-DATA" >
+					<ParameterRef idref="p30"/>
+					<ParameterRef idref="p31"/>
+					<ParameterRef idref="p32"/>
+					<ParameterRef idref="p33"/>
+					<ParameterRef idref="p34"/>
+					<ParameterRef idref="p35"/>
+					<ParameterRef idref="p36"/>
+				</Category>
+				<Category id="c6" name="STATE_OF_SOLENOID_VALVES" displayName="@P7481-DATA" >
+					<ParameterRef idref="p37"/>
+					<ParameterRef idref="p38"/>
+					<ParameterRef idref="p39"/>
+					<ParameterRef idref="p40"/>
+					<ParameterRef idref="p41"/>
+					<ParameterRef idref="p42"/>
+					<ParameterRef idref="p43"/>
+				</Category>
+				<Category id="c7" name="CONTROL_PANEL_DISPLAY_SERIAL_LINE" displayName="@P7482-DATA" >
+					<ParameterRef idref="p44"/>
+					<ParameterRef idref="p45"/>
+					<ParameterRef idref="p46"/>
+				</Category>
+			</ParametersMapping>
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+	</Family>
+	<Family name="ABS_ESP" displayName="@P85-VEHMAP">
+      	<ECU name="ABS_MK70_ESP_MK60_027000178" displayName="@P132-VEHMAP">
+			<VCIConfiguration>030A700171017220A1077303</VCIConfiguration>
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C000066000066010066020066030000660400660500660600500000005001AD0650028D0650030A00</ProtocolDescription>
+		  	<PeriodicMsg>0C040BB8013E</PeriodicMsg>
+			<BeginCommECU request="1003" response="5003" />
+			<EndCommECU request="10C0" response="50C0" />
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			<Parameters allowUDSLikeParaReading="flase" numMaxID="4" >
+				<Parameter id="p1" name="MP_TENSION_ALIMENTATION" label="@P7652-DATA" unit="Volts" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="11" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FE</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p2" name="MP_VITESSE_ROUE_ARRIERE_GAUCHE" label="@P21439-DATA" unit="Km/h" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="2" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.01" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>6338</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p3" name="MP_VITESSE_ROUE_ARRIERE_DROITE" label="@P21438-DATA" unit="Km/h" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="4" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.01" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>6338</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p4" name="MP_VITESSE_ROUE_AVANT_GAUCHE" label="@P7653-DATA" unit="Km/h" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="6" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.01" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>6338</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p5" name="MP_VITESSE_ROUE_AVANT_DROIT" label="@P7654-DATA" unit="Km/h" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="8" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.01" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>6338</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p6" name="MP_VITESSE_VEHICULE_a" label="@P6380-DATA" unit="Km/h" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="10" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FE</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p7" name="MP_TENSION_ALIMENTATION_CALCULATEUR_C0" label="@P7016-DATA" unit="Km/h" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="11" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FE</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p8" name="MP_CONTACTEUR_FEUX_STOP_1" label="@P15401-DATA" unit="" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="12" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21740-DATA"/>
+					<Discrete value="00000001" label="@P21741-DATA"/>
+			  	</Parameter>
+				<Parameter id="p9" name="MP_USURE_GARNITURES_FREIN" label="@P7655-DATA" unit="" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7205-DATA"/>
+					<Discrete value="00000001" label="@P7204-DATA"/>
+					<Discrete value="11111111" label="@P10265-DATA"/>
+			  	</Parameter>
+				<Parameter id="p10" name="MP_ETAT_RELAIS_ALIMENTATION_EV" label="@P7656-DATA" unit="" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="15" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21048-DATA"/>
+					<Discrete value="00000001" label="@P7685-DATA"/>
+			  	</Parameter>
+				<Parameter id="p11" name="MP_NIVEAU_LIQUIDE_DE_FREIN" label="@P7658-DATA" unit="" reqService="21" reqData="C08001" respService="61" respData="C0" respDataLength="14" position="14" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7267-DATA"/>
+					<Discrete value="00000001" label="@P21926-DATA"/>
+			  	</Parameter>
+				<Parameter id="p12" name="MP_VITESSE_ANG_LACET_new" label="@P7659-DATA" unit="°/s" reqService="21" reqData="C18001" respService="61" respData="C1" respDataLength="12" position="2" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-100">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>C8</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p13" name="MP_ACC_TRANSVERSALE_new" label="@P15079-DATA" unit="m/s²" reqService="21" reqData="C18001" respService="61" respData="C1" respDataLength="12" position="5" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="-12.7">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FD</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p14" name="MP_REGIME_MOTEUR_a" label="@P6378-DATA" unit="Tr/min" reqService="21" reqData="C18001" respService="61" respData="C1" respDataLength="12" position="7" length="1" bit="0" order="0" encoding="UNM" format="0" factor="32" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FE</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p15" name="MP_DIAGNOSTIC_COMMUNICATION_RESEAU" label="@P7662-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="5" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7690-DATA"/>
+					<Discrete value="00000001" label="@P7689-DATA"/>
+			  	</Parameter>
+				<Parameter id="p16" name="MP_ETAT_SERRAGE_FREIN_A_AMIN" label="@P7665-DATA" unit="" reqService="21" reqData="C18001" respService="61" respData="C1" respDataLength="12" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21229-DATA"/>
+					<Discrete value="00000001" label="@P21228-DATA"/>
+			  	</Parameter>
+				<Parameter id="p17" name="MP_ETAT_CAPTEUR_ANGLE_VOLANT_DIRECTION" label="@P7666-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="7" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21048-DATA"/>
+					<Discrete value="00000001" label="@P7691-DATA"/>
+			  	</Parameter>
+				<Parameter id="p18" name="MP_CALIBRATION_DU_CAPTEUR_ANGLE_VOLANT_DE_DIRECTION" label="@P7667-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="8" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P15437-DATA"/>
+					<Discrete value="00000001" label="@P15438-DATA"/>
+			  	</Parameter>
+				<Parameter id="p19" name="MP_AJUSTEMENT_CAPTEUR_ANGLE_VOLANT_DE_DIRECTION" label="@P7668-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="9" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7693-DATA"/>
+					<Discrete value="00000001" label="@P7692-DATA"/>
+			  	</Parameter>
+				<Parameter id="p20" name="MP_ANG_VOL_new" label="@P7669-DATA" unit="°" reqService="21" reqData="C18001" respService="61" respData="C1" respDataLength="12" position="10" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="-780">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>3CF0</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p21" name="MP_SENS_ROTATION_VOLANT_DE_DIRECTION" label="@P7670-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="12" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7790-DATA"/>
+					<Discrete value="00000001" label="@P7791-DATA"/>
+			  	</Parameter>
+				<Parameter id="p22" name="MP_COUPLE_DEMANDE_CONDUCTEUR" label="@P7675-DATA" unit="Nm" reqService="21" reqData="C18001" respService="61" respData="C1" respDataLength="12" position="8" length="1" bit="0" order="0" encoding="UNM" format="0" factor="2" offset="-100">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FE</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p23" name="MP_COUPLE_REEL" label="@P7674-DATA" unit="Nm" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="2" offset="-100">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FE</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p24" name="MP_POSITION_PEDALE_ACCELERATION" label="@P7024-DATA" unit="%" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="4" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>64</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				<Parameter id="p25" name="MP_ETAT_REL_ASR_MSR" label="@P7677-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="2" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7685-DATA"/>
+					<Discrete value="00000001" label="@P7864-DATA"/>
+					<Discrete value="00000010" label="@P7865-DATA"/>
+					<Discrete value="00000011" label="@P7696-DATA"/>
+					<Discrete value="11111111" label="@P10265-DATA"/>
+			  	</Parameter>
+				<Parameter id="p26" name="MP_RAPPORT_ENGAGE_SI_BVA" label="@P7860-DATA" unit="" reqService="21" reqData="C18001" respService="61" respData="C1" respDataLength="12" position="9" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P21341-DATA"/>
+					<Discrete value="00000001" label="@P20676-DATA"/>
+					<Discrete value="00000010" label="@P20677-DATA"/>
+					<Discrete value="00000011" label="@P20678-DATA"/>
+					<Discrete value="00000100" label="@P20679-DATA"/>
+					<Discrete value="00000101" label="@P20680-DATA"/>
+					<Discrete value="00000110" label="@P20681-DATA"/>
+					<Discrete value="00000111" label="@P21348-DATA"/>
+					<Discrete value="11111111" label="@P10265-DATA"/>
+			  	</Parameter>
+				<Parameter id="p27" name="MP_RAPPORT_EN_COURS_SI_BVA" label="@P7861-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="6" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P6208-DATA"/>
+					<Discrete value="00000001" label="@P6207-DATA"/>
+			  	</Parameter>
+				<Parameter id="p28" name="MP_ETAT_EMBRAYAGE_BVMP" label="@P7862-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="14" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7975-DATA"/>
+					<Discrete value="00000001" label="@P7976-DATA"/>
+			  	</Parameter>
+				<Parameter id="p29" name="MP_ETAT_CONVERTISSEUR_SI_BVA" label="@P7863-DATA" unit="" reqService="21" reqData="C28001" respService="61" respData="C2" respDataLength="13" position="13" length="1" bit="11111111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+					<Discrete value="00000000" label="@P7697-DATA"/>
+					<Discrete value="00000001" label="@P7698-DATA"/>
+			  	</Parameter>
+	        </Parameters>
+			
+			<ParametersMapping>
+				<Category id="c1" name="DYNAMIC_INFORMATION" displayName="@P7601-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p12"/>
+					<ParameterRef idref="p13"/>
+					<ParameterRef idref="p14"/>
+					<ParameterRef idref="p15"/>
+				</Category>
+				<Category id="c2" name="RELAY_AND_BRAKE_SWITCH_INFORMATION" displayName="@P7600-DATA" >
+					<ParameterRef idref="p7"/>
+					<ParameterRef idref="p8"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p10"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p16"/>
+				</Category>
+				<Category id="c3" name="STEERING_WHEEL_ANGLE_SENSOR_INFORMATION" displayName="@P7686-DATA" >
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p18"/>
+					<ParameterRef idref="p19"/>
+					<ParameterRef idref="p20"/>
+					<ParameterRef idref="p21"/>
+				</Category>
+				<Category id="c4" name="GEARBOX_AND_ENGINE_INFORMATION" displayName="@P7687-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p22"/>
+					<ParameterRef idref="p23"/>
+					<ParameterRef idref="p24"/>
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p26"/>
+					<ParameterRef idref="p27"/>
+					<ParameterRef idref="p28"/>
+					<ParameterRef idref="p29"/>
+				</Category>
+			</ParametersMapping>
+			
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+    </Family>
+</Vehicle>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>东风雪铁龙</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>东风雪铁龙
+	
+	富康988：AT系统诊断座在仪表板下保险丝盒内；16 PIN. AT系统诊断座在发动机室内左前侧；2 PIN.
+	
+	富康：发动机保险盒内；2 PIN.
+	
+	爱丽舍：OBD诊断头在驾驶员左护板侧保险盒内。
+	
+	</BodyContent>
+</Article>
+	

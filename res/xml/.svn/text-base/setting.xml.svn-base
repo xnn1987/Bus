@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/setting_title" >
+        <Preference
+            android:key="@string/key_SMART_CENTER_VERSION"
+            android:title="@string/setting_version_title" />
+        <Preference
+            android:key="@string/key_CHECK_FOR_UPDATE"
+            android:title="@string/setting_check_update_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/key_ALLOW_UPDATA"
+            android:title="@string/setting_allow_update_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/setting_setting_other_title" >
+        <PreferenceScreen
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:title="@string/setting_setting_title" >
+            <PreferenceCategory android:title="@string/setting_light_sensor_title" >
+                <CheckBoxPreference
+                    android:defaultValue="true"
+                    android:key="@string/key_IS_TIME_ENABLE"
+                    android:summaryOff="@string/setting_off"
+                    android:summaryOn="@string/setting_on"
+                    android:title="@string/setting_IS_TIME_ENABLE_title" />
+                <CheckBoxPreference
+                    android:defaultValue="true"
+                    android:dependency="@string/key_IS_TIME_ENABLE"
+                    android:key="@string/key_IS_LIGHT_ENABLE"
+                    android:summaryOff="@string/setting_off"
+                    android:summaryOn="@string/setting_on"
+                    android:title="@string/setting_IS_LIGHT_ENABLE_title" />
+
+                <EditTextPreference
+                    android:dependency="@string/key_IS_TIME_ENABLE"
+                    android:key="@string/key_SWITCH_TO_DAY"
+                    android:shouldDisableView="true"
+                    android:title="@string/setting_SWITCH_TO_DAY_title" />
+                <EditTextPreference
+                    android:dependency="@string/key_IS_TIME_ENABLE"
+                    android:key="@string/key_SWITCH_TO_NIGHT"
+                    android:shouldDisableView="true"
+                    android:title="@string/setting_SWITCH_TO_NIGHT_title" />
+                <EditTextPreference
+                    android:dependency="@string/key_IS_LIGHT_ENABLE"
+                    android:key="@string/key_SWITCH_LIGHT"
+                    android:shouldDisableView="true"
+                    android:title="@string/setting_SWITCH_LIGHT_title" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/setting_vehicle_state" >
+                <EditTextPreference
+                    android:defaultValue="2"
+                    android:key="@string/key_TIME_TEXT_SHOW"
+                    android:title="@string/setting_text_show_on_screen" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/disk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <cn.com.actia.smartdiag.widget.Histogram
+            android:id="@+id/histogram"
+            android:layout_width="@dimen/histogram_size"
+            android:layout_height="@dimen/histogram_size"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextMarqueeStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" />
+
+</LinearLayout>

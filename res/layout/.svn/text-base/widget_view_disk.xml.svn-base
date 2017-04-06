@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- <cn.com.actia.smartdiag.widget.RollLinearLayout -->
+
+    <LinearLayout
+        android:id="@+id/disk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <cn.com.actia.smartdiag.widget.Disk
+            android:id="@+id/clock_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <cn.com.actia.smartdiag.widget.DiskBack
+                android:id="@+id/clockback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/content_smart"
+                android:src="@drawable/clock_back" />
+
+            <ImageView
+                android:id="@+id/second_hands"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/content_smart"
+                android:src="@drawable/clock_hand" />
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/content_smart"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clock_face" />
+        </cn.com.actia.smartdiag.widget.Disk>
+    </LinearLayout>
+    <!-- </cn.com.actia.smartdiag.widget.RollLinearLayout> -->
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextMarqueeStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:gravity="center_horizontal" />
+
+</LinearLayout>

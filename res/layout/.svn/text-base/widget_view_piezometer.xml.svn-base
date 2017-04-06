@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <cn.com.actia.smartdiag.widget.PiezometerDisk
+            android:id="@+id/clock_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <cn.com.actia.smartdiag.widget.PiezometerBack
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/content_smart"
+                android:src="@drawable/widget_view_piezometer" />
+
+            <ImageView
+                android:id="@+id/second_hands"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/content_smart"
+                android:src="@drawable/clock_hand" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+	android:paddingBottom="15dp"                
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/content_smart"
+                android:src="@drawable/widget_piezometer_face" />
+        </cn.com.actia.smartdiag.widget.PiezometerDisk>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextMarqueeStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" />
+
+</LinearLayout>

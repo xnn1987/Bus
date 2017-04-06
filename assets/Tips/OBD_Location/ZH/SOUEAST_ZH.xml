@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>东南汽车</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>东南汽车
+	
+	菱帅：仪表板下方，转向柱附近；16PIN.
+	
+	得利卡、福利卡三菱系统：仪表板下方驾驶员左脚侧.
+	
+	得利卡、福利卡德尔福系统：仪表板下方；16PIN.
+	
+	</BodyContent>
+</Article>
+	

@@ -1,0 +1,305 @@
+﻿<resources>
+
+    <!-- application string -->
+    <string name="selectmake_no">此Make未包含对应的ECUFamily信息</string>
+    <string name="selectmodel_no">此Model未包含对应的ECUFamily信息</string>
+    <string name="app_getvic_first">请先匹配VCI</string>
+    <string name="app_search_1_model">查询</string>
+    <string name="app_search_2_year">汽车年份</string>
+    <string name="app_search_3_car_name">请输入汽车信息</string>
+    <string name="app_search_4_year_hint">年份</string>
+    <string name="util_bluetooth_opend_or_no">Please insure that the Bluetooth is turned on</string>
+    <!-- 最新部分 -->
+    <string name="get_a_vic_first">请先选择一个VCI</string>
+    <string name="end_get_conn_sdcloud">正在连接服务器</string>
+    <string name="end_get_check_vci_info">正在检测VCI信息</string>
+    <string name="end_get_check_version_info">正在检测版本信息</string>
+    <string name="end_get_load_new_version">正在下载最新版本</string>
+    <string name="end_no_new_vci">未找到新的VCI,与您连接的VCI未改变</string>
+    <string name="end_use_new_vci">使用其它的vci</string>
+    <string name="end_nofirware">no Firmware found</string>
+    <string name="end_makesure_download">确认下载?</string>
+    <string name="end_no_banbenmsg_find">未检测到版本信息</string>
+    
+    <!-- application string -->
+    <string name="login_username">Username：</string>
+    <string name="login_islogin">Log in, please wait!</string>
+    <string name="login_password">Password：</string>
+    <string name="login_login">Loggin</string>
+    <string name="login_login_again">Please login again</string>
+    <string name="login_error_cod">Error code：</string>
+    <string name="app_prompt">Information</string>
+    <string name="app_ok">Confirm</string>
+    <string name="app_search">Search</string>
+    <string name="app_waiting_for_complete">Please wait the data to be refreshed a first time before trying again...</string>
+    <string name="app_cancel">Cancel</string>
+    <string name="app_agree">Accept</string>
+    <string name="app_disagree">Refuse</string>
+    <string name="app_name">SmartDiag</string>
+    <string name="app_scaning">Scanning...</string>
+    <string name="app_waiting">Please wait...</string>
+    <string name="app_next">Next display mode</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="smart_diag">Smart Diag</string>
+    <string name="loading_zh_name">Passenger car smart diagnostic system</string>
+    <string name="loading_attention">Warning：This application can interfere with your vehicle systems. Use at your own risk while driving</string>
+    <string name="content_smart">smart_content</string>
+    <!-- mainActivity -->
+    <string name="main_sure_to_exit">Are you sure you want to exit?</string>
+    <string name="main_user_agreement">User notice</string>
+    <string name="main_vehicle_state">Vehicle status</string>
+    <string name="main_depth_diag">In depth diagnostic</string>
+    <string name="main_maintenance">Maintenance</string>
+    <string name="main_traffic_management">Driving management</string>
+    <string name="main_fuel_management">Fuel management</string>
+    <string name="main_fast_scan">Quick Scan</string>
+    <string name="main_car_tips">Tips</string>
+    <string name="main_no_devices_found">Device not found</string>
+    <!-- mainActivity 菜单 -->
+    <string name="main_menu_user">User settings</string>
+    <string name="main_menu_customer">Application settings</string>
+    <string name="main_menu_vci">VCI settings</string>
+    <!-- Vehicle_state -->
+    <string name="vehicle_state_title">Home>Vehicle status</string>
+    <string name="vehicle_state_engine">Engine</string>
+    <string name="vehicle_state_oil_pressure">Oil pressure</string>
+    <string name="vehicle_state_stop_vehicle">Safety system</string>
+    <string name="vehicle_state_water">Water temperature</string>
+    <string name="vehicle_state_lighting">Lights</string>
+    <string name="popup_nopopup">Sorry, this parameter does not have other display style!</string>
+    <string name="popup_normal_style">Analog style</string>
+    <string name="popup_digital_style">Digital style</string>
+    <string name="popup_check_one">Please select a dislay style：</string>
+    <!-- fast_scan -->
+    <string name="fast_scan_title">Home>Quick Scan</string>
+    <string name="fast_scan_chassis">Chassis</string>
+    <string name="fast_scan_all">All</string>
+    <string name="fast_scan_carrosserie">Body</string>
+    <string name="fast_scan_engine">Powertrain</string>
+    <string name="fast_scan_network">Network</string>
+    <string name="fast_scan_car_test">Score</string>
+    <string name="fast_scan_score"></string>
+    <string name="fast_scan_scan_time_1">Done in</string>
+    <string name="fast_scan_scan_time_2">s，found</string>
+    <string name="fast_scan_scan_time_3">defaults</string>
+    <string name="fast_scan_scan_time_3_pl">default</string>
+    <string name="fast_scan_fault_code">Defaults details：</string>
+    <string name="fast_scan_fault_code_pl">Default details：</string>
+    <string name="app_connect_disconnect">Successfully fixed faults</string>
+    <string name="fast_scan_clear_dtc">Fix found faults</string>
+    <string name="fast_scan_clear_dtc_pl">Fix found fault</string>
+    <string name="fast_scan_clear_dtc_failed">Failed to fix fault(s)</string>
+    <string name="fast_scan_clear_dtc_failed_pl">Failed to fix fault</string>
+    <string name="fast_scan_congratuation">Congratulation, no fault has been found on your vehicle!</string>
+    <string name="fast_scan_clear_dtc_success">Successfuly fixed faults</string>
+    <string name="fast_scan_noerrorcode">Sorry, you cannot see the faults details!</string>
+    <string name="fast_scan_wait">Please wait for the scan to be finished!</string>
+    <string name="fast_scan_list_title">Quick Scan>Fault Details</string>
+    <string name="bluetooth_start_scan">Started scan for Bluetooth VCI...</string>
+    <string name="fast_scan_end">Scan finished</string>
+    <!-- VCISetting -->
+    <string name="vci_setting_title">VCI settings</string>
+    <string name="vci_setting_vci_connected">Already connect VCI:</string>
+    <string name="vci_setting_click_to_connected">Press to connect to VCI</string>
+    <string name="vci_setting_click_to_unconnected">Press to stop in progress VCI connection</string>
+    <string name="vci_setting_set_adress_success">Bluetooth device address success</string>
+    <string name="vci_setting_completed_part1">the communication with the</string>
+    <string name="vci_setting_completed_part3">has been successful.</string>
+
+    <!-- StatusEngine -->
+    <string name="status_Engine_title">Vehicle status>Engine</string>
+    <!-- StatusOil -->
+    <string name="status_oil_title">Vehicle status>Oil pressure</string>
+    <!-- StatusStop -->
+    <string name="status_Stop_title">Vehicle status>Safety system</string>
+    <!-- StatusWater -->
+    <string name="status_Water_title">Vehicle status>Water temperature</string>
+    <!-- StatusLighting -->
+    <string name="status_Lighting_title">Vehicle status>Lights</string>
+    <string name="tips_no_message">Feature in preparation!</string>
+    <string name="tips_title">Home>Tips</string>
+    <string name="tips_title_second">Tips</string>
+    <string name="fast_scan_is_scan_3">Scan in progress...</string>
+    <string name="fast_scan_is_scan_2">Scan in progress..</string>
+    <string name="fast_scan_is_scan_1">Scan in progress.</string>
+    <string name="bluetooth_no_vci">No Bluetooth VCI found</string>
+    <string name="bluetooth_get_location_vci">Obtaining already connected VCI information...</string>
+    <string name="bluetooth_no_location_vci">No previously connected VCI found</string>
+    <string name="bluetooth_no_suitable">Cannot use Bluetooth</string>
+    <string name="app_login_success">Login successful!</string>
+    <string name="app_login_fail">Login failed!</string>
+    <string name="app_state_success">Connection with vehicle system successful!</string>
+    <string name="app_name_connect_disconnect">Connection with device lost!</string>
+    <string name="app_name_2">SmartDiag_Example</string>
+
+    <!-- 车辆选择 -->
+    <string name="select_china">China</string>
+    <string name="select_asia">Asia</string>
+    <string name="select_us">US</string>
+    <string name="select_europe">Europe</string>
+    <string name="select_exit">The operation has been canceled</string>
+    <string name="select_guess_a_car">Guessed vehicle information status</string>
+    <string name="select_get_other_car">Auto-identify vehicle</string>
+    <string name="select_get_other_manual">Select another vehicle</string>
+    <string name="select_get_use_this_car">Ok</string>
+    <string name="select_used_car">Selected vehicle information</string>
+    <string name="select_is_guessing">Attempting to auto-identify your vehicle information</string>
+    <string name="select_title_fuel">Fuel Management>Vehicle Selection</string>
+    <string name="select_title_deep">In depth diagnostic>Vehicle selection</string>
+    <string name="select_title_main">Maintenance>Vehicle Selection</string>
+    <string name="select_ecu_nomessage">Current Vehicle/ECU not supported for this feature</string>
+    <string name="select_ecu_nomessage_toread">Current Vehicle/ECU not supported for this feature</string>
+    <string name="select_set_error">The auto-identification of the vehicle failed</string>
+    <string name="select_model_year_no_find">The year of the vehicle model has not been foud, please select it manually</string>
+    <!-- 找不到所需要的ECU类型 -->
+    <string name="select_no_message_for_this_ecu">Current Vehicle/ECU not supported for this feature</string>
+    <string name="select_set_vechile_success">Communication with selected vehicle successful</string>
+
+    <!-- 行车管理 -->
+    <string name="drivermanager_current_environment">Current driving environment</string>
+    <string name="drivermanager_current_analysis">Real-time driving analysis</string>
+    <string name="drivermanager_current_advices">Real-time driving advice</string>
+    <string name="drivermanager_current_speech_enable">Disable Text to Speech</string>
+    <string name="drivermanager_current_speech_disable">Enable Text to Speech</string>
+    <string name="drivermanager_current_need_data">Please select missing vehicle information</string>
+    <string name="drivermanager_current_get_ecufamily">Please select a type of ECU</string>
+    <string name="drivermanager_current_get_ecu">Please select an ECU</string>
+    <string name="drivermanager_title">Home>Driving management</string>
+    <string name="drivermanager_no_support_local">Your current system local is not supported!</string>
+    <string name="drivermanager_need_chinese">Enabling this feature requires downloading another application "手说TTS"，do you want to install it？</string>
+
+    <!-- 设置界面的标题 -->
+    <string name="setting_title">SmartDiag Center Settings</string>
+    <string name="setting_version_title">SmartDiag Center version</string>
+    <string name="setting_allow_update_title">Development version enable</string>
+    <string name="setting_check_update_title">Check for updates</string>
+    <string name="setting_setting_title">Features settings</string>
+    <string name="setting_setting_other_title">Other</string>
+    <string name="setting_IS_TIME_ENABLE_title">Enable day/night mode display style</string>
+    <string name="setting_IS_LIGHT_ENABLE_title">Enable "Tunnel mode" display style</string>
+    <string name="setting_SWITCH_TO_NIGHT_title">Night mode beginning time</string>
+    <string name="setting_SWITCH_TO_DAY_title">Day mode beginning time</string>
+    <string name="setting_SWITCH_LIGHT_title">Tunnel mode luminosity trigger</string>
+    <string name="setting_on">Enabled</string>
+    <string name="setting_off">Disabled</string>
+    <string name="setting_light_sensor_title">Vehicle status</string>
+    <string name="setting_vehicle_state">Driving Management</string>
+    <string name="setting_text_show_on_screen">Advices display duration(s)</string>
+    <string name="setting_time_unit_h">hour</string>
+    <string name="setting_time_unit_s">second</string>
+    <string name="setting_over_lay">value out of range</string>
+
+    <!-- 设置界面的标题 -->
+    <string name="vci_setting_category_title">SmartDiag VCI Setup</string>
+    <string name="vci_setting_title1">Selected SmartDiag VCI</string>
+    <string name="vci_setting_title2">Bootloader version</string>
+    <string name="vci_setting_title3">Firmware version</string>
+    <string name="vci_setting_title4">Check for updates</string>
+    <string name="vci_setting_title5">Update with development version</string>
+    <string name="vci_setting_success">VCI Information updated successfully!</string>
+
+    <!-- 注册页面相关 -->
+    <string name="regist_devices_title">Activate</string>
+    <string name="regist_devices_need_regist_devices">You need to activate your device and SmartDiag VCI</string>
+    <string name="regist_devices_tv1">VCI Serial Number</string>
+    <string name="regist_devices_hint2">VCI Serial Number</string>
+    <string name="regist_devices_tv3">VCI Activation Code</string>
+    <string name="regist_devices_hint4">VCI Activation Code</string>
+    <string name="regist_devices_success">Activation sucessful</string>
+    <string name="regist_devices_not_network">There is no network connectivity</string>
+    <string name="regist_devices_open_network">Please turn on Wi-Fi or mobile network</string>
+    <string name="regist_devices_is_registing">Activating...</string>
+
+    <!-- 设置界面的键 -->
+    <string name="key_IS_TIME_ENABLE">is_time_enable</string>
+    <string name="key_IS_LIGHT_ENABLE">is_light_enable</string>
+    <string name="key_SWITCH_TO_NIGHT">switch_to_night</string>
+    <string name="key_SWITCH_TO_DAY">switch_to_day</string>
+    <string name="key_SWITCH_LIGHT">switch_light</string>
+    <string name="key_ALLOW_UPDATA">Allow_updata_with_RC_version</string>
+    <string name="key_CHECK_FOR_UPDATE">CHECK_FOR_UP_DATE</string>
+    <string name="key_SETTING">SETTING</string>
+    <string name="key_TIME_TEXT_SHOW">key_time_text_show</string>
+    <string name="key_SMART_CENTER_VERSION">SMART_CENTER_VERSION</string>
+
+    <!-- VCI设置界面的键 -->
+    <string name="vci_key_1">vci_key_1</string>
+    <string name="vci_key_2">vci_key_2</string>
+    <string name="vci_key_3">vci_key_3</string>
+    <string name="vci_key_4">vci_key_4</string>
+    <string name="vci_key_5">vci_key_5</string>
+
+    <!-- error wrap -->
+    <string name="NO_FIRMWARE_ERROR">The SD VCI doesn’t have a Firmware, need to flash the SD VCI</string>
+    <string name="PARAMETER_ERROR">UserProfile parameters do not match</string>
+    <string name="NO_VCIADDRESS_ERROR">Call to the method setVCIAddress has not been made</string>
+    <string name="SETVCIADDRESS_ERROR">Cannot call this method now, call resetWrapper firstly</string>
+    <string name="CONNECT_VCI_ERROR">Connection with the SD VCI failed</string>
+    <string name="CONNECT_VEHICLE_ERROR">Connection with the Vehicle failed</string>
+    <string name="PARAMETERLIST_ERROR">Parameters provided are not all supported</string>
+    <string name="INVALID_ERROR">Unknown error</string>
+    <string name="CRITICAL_ERROR">Critical error happened, the Middleware will reset itself</string>
+    <string name="FAIL_ERROR">Major failure error</string>
+    <string name="NEEDUPDATEVCI_ERROR">The SD VCI Firmware need to be updated to be used</string>
+    <string name="NOUPDATE_ERROR">No update of has been found</string>
+    <string name="CLOUD_ERROR">Communication with SD Cloud failed</string>
+    <string name="NEEDUPDATESD_ERROR">The SD Center application need to be updated to use the SD VCI</string>
+    <string name="BOOTLOAD_ERROR">The bootloader of the SD VCI cannot be used</string>
+    <string name="PARSEXML_ERROR">Error while parsing configuration XML file</string>
+    <string name="BLWINTERNAL_ERROR">Wrapper Internal error</string>
+    <string name="SUITABLEVERSION_ERROR">SD VCI and SD Center versions are not compatible</string>
+    <string name="INPUT_PARAMETER_ERROR">Inputted parameters are null or empty</string>
+    <string name="NO_CONFIG_ERROR">Call to the method configureSystemInfo has not been made</string>
+    <string name="VEHICLE_NOT_FOUND">The Vehicle name provided has not been found </string>
+    <string name="ECU_NOT_FOUND">The ECU name/family provided has not been found</string>
+    <string name="ECU_COMM_ERROR">The communication with the ECU failed</string>
+    <string name="READ_DTC_ERROR">Read DTC feature failed</string>
+    <string name="NO_SDCLOUD_INIT_ERROR">Call to the method init</string>
+    <!-- cloud_error -->
+    <string name="NO_ERROR">No error</string>
+    <string name="USERNAME_NULL">The user name is empty</string>
+    <string name="PASSWORD_NULL">The password is empty</string>
+    <string name="EMAIL_NULL">The email is empty</string>
+    <string name="USERNAME_LENGTH_WRONG">User name is too long or too short(6--25)</string>
+    <string name="PASSWORD_LENGTH_WRONG">Password is too long or too short(6--25)</string>
+    <string name="EMAIL_FORMAT_WRONG">Bad email format</string>
+    <string name="NO_LOGIN">No login</string>
+    <string name="OLD_PASSWORD_NULL">Old password is null</string>
+    <string name="APP_NAME_NULL">The application name is null </string>
+    <string name="VERSION_NAME_NULL">The version is null</string>
+    <string name="PARAM_NAME_NULL">Parameter name is null</string>
+    <string name="DTC_CODE_NULL">Dtc code is null</string>
+    <string name="REGISTER_FAILURE">Registration failed</string>
+    <string name="USERNAME_EXIST">The user name already exists</string>
+    <string name="UPDATE_PROFILE_FAILURE">Failed to update user information</string>
+    <string name="OLD_PASSWORD_NOCORRECT">Old password is not correct</string>
+    <string name="UPDATE_PASSWORD_FAILURE">Failed to update password</string>
+    <string name="PASSWORD_FIND_EMAIL_FAILURE">Password sent to the mailbox error</string>
+    <string name="DELETE_ACCOUNT_FAILURE">Delect account fail</string>
+    <string name="NO_VERSION">This version is not in the server</string>
+    <string name="NO_NEW_VERSION">No new version</string>
+    <string name="DOWNLOAD_FAILURE">Download failed</string>
+    <string name="PASSWORD_ERROR">Password error</string>
+    <string name="USERNAME_NO_EXIST">User name does not exist</string>
+    <string name="NETWORK_ERROR">Network problem</string>
+    <string name="SERVICE_ERROR">Service problem</string>
+    <string name="UNDEFINE_ERROR">Undefined error, you can redo the current operation</string>
+    <string name="LASTOPERATE_ERROR">Last operate fail</string>
+    <string name="NOINIT_ERROR">No previous call to init</string>
+    <string name="XMLNOFOUND_ERROR">Not found XML</string>
+    <string name="CERTIFICATE_ERROR">The certificate does not exist</string>
+    <string name="MEMORYRW_ERROR">Could not write file to memory, not enough space left</string>
+    <!-- regist error code -->
+    <string name="NO_ERROR_ALREADY_ACTIVATED">Activation successful (this device/VCI has already been activated before)</string>
+    <string name="NO_CALL_CONF_SYS_INFO_ERROR">Logic Error: configureSystemInfo(...) should have been called!</string>
+    <string name="VCI_SN_FORMAT_ERROR">VCI Serial Number format is incorrect!</string>
+    <string name="ACTI_CODE_FORMAT_ERROR">VCI Activation Code format is incorrect!</string>
+    <string name="UNKNOWN_VCI_ERROR">Unknown VCI Serial Number!</string>
+    <string name="VCI_ACT_CODE_MISMATCH_ERROR">Inputed Activation code does not match inputed Serial Number!</string>
+    <string name="VCI_HW_MISMATCH_ERROR">Inputed Serial Number/Activation Code do not belong to the VCI currently connected!</string>
+    <string name="MAX_NUM_DEVICES_REACH_ERROR">The maximum number of devices that can be activated with one VCI has been reached (max 5 devices)!</string>
+    <string name="SERVER_INTERNAL_ERROR">Licensing server internal error happened!</string>
+    <string name="COMM_SERVER_ERROR">Communication with the licensing server failed. Retry later.</string>
+    <string name="UPDATE_CLIENT_ERROR">You need to update to the SmartDiag Center application in order to activate your Device and VCI</string>
+
+</resources>

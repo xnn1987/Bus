@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration file for the SmartDiag Middleware component -->
+<SDMiddlewareConfiguration version="v0.2.5.2-Beta">
+
+    <!-- Configuration of the Middleware -->
+    <SDMiddleware>
+        <!-- Interval of time for which to check communication with VCI -->
+        <VCICommTest>500</VCICommTest>
+        <!-- Used to perform the improved OBD Scan process once a first OBD Scan has been successful, values are true/false,default is true -->
+        <EnableImprovedOBDScan>true</EnableImprovedOBDScan>
+    </SDMiddleware>
+    
+    <!--  Configuration of the Driving Management module -->
+    <DrivingManagement>
+		<!-- Configuration related to the environment guessing logic -->
+        <Environment>
+			<!-- timespan used to calculate the environment im MS -->
+			<TimeSpan>20000</TimeSpan>
+			<!-- Speed ranges of the model in km/h -->
+			<SpeedRanges>
+				<SpeedRange id="1" start="0" end="40" />
+				<SpeedRange id="2" start="40" end="80" />
+				<SpeedRange id="3" start="80" end="256" />
+			</SpeedRanges>
+			<!-- Template used as references -->
+			<CycleTemplates>
+				<CycleTemplate name="URBAN" range1="70" range2="20" range3="10" />
+				<CycleTemplate name="SUBURBAN" range1="50" range2="40" range3="10" />
+				<CycleTemplate name="HIGHWAY" range1="10" range2="20" range3="70" />
+			</CycleTemplates>
+		</Environment>
+		
+		<!-- Configuration for Driving Analysis/Advice logic -->
+		<AnalysisAdvice>
+			<!-- Maximum number of parameters to keep for the algorithm -->
+			<NbMaxParamAlgo>15</NbMaxParamAlgo>
+			<!-- Vehicle accel ratio -->
+			<VehAccelRatio>0.0175</VehAccelRatio>
+			<!-- Vehicle decel ratio -->
+			<VehDecelRatio>0.0176</VehDecelRatio>
+			<!-- Stable cruising fixed offset -->
+			<StableFixedOffset>2.5</StableFixedOffset>
+			<!-- Stable cruising flexible offset (percent) -->
+			<StablePercentOffset>2</StablePercentOffset>
+		</AnalysisAdvice>
+    </DrivingManagement>
+    
+	<!-- Configuration of the SD Diagnostic Business Logic -->
+	<SDDiagBusinessLogic>
+	</SDDiagBusinessLogic>
+
+	<!-- Configuration of the SD Cloud -->
+	<SDCloud>
+		<!-- Release server URLS -->
+		<WebsiteURL>http://www.smartdiag.com</WebsiteURL>
+		<WebserviceHttpURL>http://www.smartdiag.com/SDCloudWebservice/resources</WebserviceHttpURL>
+		<WebserviceHttpsURL>https://www.smartdiag.com/SDCloudWebservice/resources</WebserviceHttpsURL>
+		
+		<!-- Certificate name for use of SSH -->
+		<!-- Used if the WebserviceURL tag contains a "https" URL -->
+		<SDCloudCertificateName>sdcloud.bks</SDCloudCertificateName>
+		
+		<!-- Test URLs can also be used for local or specific test server -->
+		<!-- <WebsiteURL>http://www.test.smartdiag.com</WebsiteURL> -->
+		<!-- <WebserviceURL>http://www.test.smartdiag.com/SDCloudWebservice/resources</WebserviceURL> -->
+		
+		<!-- Certificate name for use of SSH -->
+		<!-- Used if the WebserviceURL tag contains a "https" URL -->
+		<!--<CertificateName></CertificateName> -->
+		
+	</SDCloud>
+	
+	<!-- Use for information related to Licensing server of Smartdiag -->
+	<SDLicensing>
+	    <!-- TEMP dev URL -->
+	    <LicensingWebserviceHttpURL>http://smartdiag.com:8082/RestServiceImpl.svc/Webservice/ressources</LicensingWebserviceHttpURL>
+	    <LicensingWebserviceHttpsURL>https://smartdiag.com/RestServiceImpl.svc/Webservice/ressources</LicensingWebserviceHttpsURL>
+	    <!-- name of the certificate to be used to verify server signature for received content from server -->
+	    <SignatureCertificateFile>signatureKeystore.cer</SignatureCertificateFile>
+	   	<!-- name of the keystore to be used to decrypt data received by server if encrypted -->
+	    <EncDecKeystoreFile>blablah.bks</EncDecKeystoreFile>
+	    
+	    <LicCertificateName>clientTrustStore.bks</LicCertificateName>
+	</SDLicensing>
+
+</SDMiddlewareConfiguration>
+	

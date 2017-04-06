@@ -1,0 +1,1681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Vehicle name="GL8" dataModelVersion="1.0">
+    <Family name="BCM" displayName="@P3-VEHMAP">
+      	<ECU name="BSI_001000013" displayName="@P17-VEHMAP">
+			<!-- VCI Configuration data to be sent to the SD VCI through the setVCI command of AT command set -->
+			<VCIConfiguration>030A700071017220A1077303</VCIConfiguration>
+			
+			<!-- Protocol description data to be sent to the SD VCI through the setProtocol command of AT command set -->
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C000066000066010066020066030100660400660500660600500000005001E0075002E80750030A00</ProtocolDescription>
+			
+		  	<!-- PeriodicMsg -->
+		  	<PeriodicMsg>0C040BB8013E</PeriodicMsg>
+		  	
+		  	<!-- Command used to begin communication on ECU -->
+			<BeginCommECU request="20" response="60" />
+		  
+		  	<!-- Command used to end communication on ECU -->
+			<!-- Temporary use TP message to end transaction if the end transaction cmd isnot known -->
+			<EndCommECU request="3E" response="7E" />
+			
+			<!-- This section is not used right now -->
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			
+			<!-- 
+				B1003	Défaut de télécodage			
+				B1004	Défaut interne du boîtier de servitude intelligent			
+				B100F	Défaut de l'horloge interne du boîtier de servitude intelligent	
+			-->
+			<!-- Used for 508 BSI Test -->
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<!-- YY is the characterization of the DTC -->
+		    			<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="U0073" code="900496" label="@P5140-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="P00AA" code="900496" label="@P340-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="P2184" code="900496" label="@P3579-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			
+			<!-- Defines the list of parameters, their request and expected response from the BCM of the GL8 -->
+			<!-- allowUDSLikeParaReading: allow the parameters' DID defined below to be read in a single "UDS like" fashion (like using service $22 of UDS with several DID at the same time-->
+			<!-- numMaxID: used only if allowUDSLikeParaReading is set to true, defines the maximal number of DID that can be used ina single request -->
+			<Parameters allowUDSLikeParaReading="false" numMaxID="1" >
+		      <!-- 	name:		The name of the parameter on a system point of view	
+					label:		The dictionnary sentence to be used to display the localized parameter name
+					unit:		The dictionary sentence to be used to display the unit of the parameter
+					reqService:	The service "id" used to read the parameter
+					reqData:	The data "id" used to get this particular parameter
+					
+					The data actually sent to the ECU will be the concatenation of reqService + reqData. Minimum either reqService or reqData must be filled. Both can be filled. Both empty will result in an error
+					
+					respService:The service "id" ACK received
+					respData:	The data "id" ACK recevied
+					
+					Same than for the reqService and reqData note.
+					
+					respDataLength: The length (in bytes) of the WHOLE variable data response (even if some bytes/bits of the response are not used) (this length does not includ the respService or respData length)
+					position:	Index (Starting from 1) at which the variable data begin RELATED TO "respData" index (e.g., with a resData="20", and a variable data XX after the previous fixed request, the position will be of 2)
+					length:		Number of bytes of the variable part of the data starting at the index "position" to be used to obtain the parameter value (can be less than the respDataLength)
+					bit:		bitmask to apply to the variable data (can be a 8,16,14,32 bits mask) (The corresponding length are thus 1,2,3,4)
+					order:		Order of the bit in the variable data Big Endian (1) or Little Endian (0), keep to 0 for default value(big endian from left (MSB) to right (LSB))
+					encoding:	Encoding of the parameter: UNM for unsigned numeric, SNM for signed numeric, ASCII for ASCII data (VIN, ECU name, ...), ENUM for enumeration types of discrete values, HEXA for hexadecimal values encoding
+					format:		Format is used for UNM and SNM value to define the number of digits after the "dot" If raw result is 145.5025, format="2" -> 145.50 
+					factor:		Factor used for UNM and SNM with which to multiply the value of the bytes found
+					offset:		Offset used for UNM and SNM to be applied to the calculation
+				-->
+				<Parameter id="p1" name="engineRPM" label="@P6127-DATA" unit="min-1" reqService="22" reqData="000C" respService="62" respData="000C" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="0.249989" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p2" name="desiredIdleSpeed" label="@P6128-DATA" unit="min-1" reqService="22" reqData="11C9" respService="62" respData="11C9" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="8" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p3" name="engineCoolantTemperatureSensor" label="@P6129-DATA" unit="°C" reqService="22" reqData="0005" respService="62" respData="0005" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p4" name="startingTheEngineCoolantTemperature" label="@P6130-DATA" unit="°C" reqService="22" reqData="116F" respService="62" respData="116F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p5" name="ambientTemperature" label="@P6131-DATA" unit="°C" reqService="22" reqData="0046" respService="62" respData="0046" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p6" name="coldBoot" label="@P6132-DATA" unit="" reqService="22" reqData="1128" respService="62" respData="1128" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6207-DATA"/>
+					<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p7" name="evaporativeEmissionVentSolenoidCommand" label="@P6133-DATA" unit="" reqService="22" reqData="1128" respService="62" respData="1128" respDataLength="1" position="3" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00001000" label="@P6209-DATA"/>
+					<Discrete value="00000000" label="@P6210-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p8" name="massAirFlowSensor1" label="@P6134-DATA" unit="Hz" reqService="22" reqData="12DA" respService="62" respData="12DA" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p9" name="massAirFlowSensor2" label="@P6135-DATA" unit="g/s" reqService="22" reqData="0010" respService="62" respData="0010" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.01" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p10" name="calculationOfTheFlow" label="@P6136-DATA" unit="g/s" reqService="22" reqData="11AC" respService="62" respData="11AC" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.0078124" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p11" name="engineLoad" label="@P6137-DATA" unit="%" reqService="22" reqData="0004" respService="62" respData="0004" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p12" name="acceleratorPedalPositionForMoreThan2Ponit0L" label="@P6138-DATA" unit="%" reqService="22" reqData="131F" respService="62" respData="131F" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p13" name="acceleratorPedalPositionForLessThan2Ponit0L" label="@P6139-DATA" unit="%" reqService="22" reqData="2810" respService="62" respData="2810" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p14" name="reqiredThrottlePosition" label="@P6140-DATA" unit="%" reqService="22" reqData="004C" respService="62" respData="004C" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p15" name="throttlePosition" label="@P6141-DATA" unit="%" reqService="22" reqData="12B1" respService="62" respData="12B1" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p16" name="manifoldAbsolutePressureSensor" label="@P6142-DATA" unit="kPa" reqService="22" reqData="000B" respService="62" respData="000B" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p17" name="barometricPressure" label="@P6143-DATA" unit="kPa" reqService="22" reqData="0033" respService="62" respData="0033" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p18" name="areFuleEquivalentRatioOfInstruction" label="@P6144-DATA" unit="" reqService="22" reqData="0044" respService="62" respData="0044" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.000030518" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p19" name="fuelInjectorLoadCycleCylinderRow1" label="@P6145-DATA" unit="ms" reqService="22" reqData="12C3" respService="62" respData="12C3" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.015" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p20" name="fuelInjectorLoadCycleCylinderRow2" label="@P6146-DATA" unit="ms" reqService="22" reqData="12C4" respService="62" respData="12C4" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.016" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p21" name="HO2S1" label="@P6147-DATA" unit="V" reqService="22" reqData="0014" respService="62" respData="0014" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="3" factor="0.000019456" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p22" name="HO2S2" label="@P6148-DATA" unit="V" reqService="22" reqData="0015" respService="62" respData="0015" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="3" factor="0.000019456" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p23" name="longTermFuelTrimCylinderGroup1" label="@P6149-DATA" unit="%" reqService="22" reqData="0007" respService="62" respData="0007" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.78" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p24" name="shortTermFuelTrimCylinderGroup2" label="@P6150-DATA" unit="%" reqService="22" reqData="0008" respService="62" respData="0008" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.78" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p25" name="longTermFuelTrimCylinderGroup2" label="@P6151-DATA" unit="%" reqService="22" reqData="0009" respService="62" respData="0009" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.78" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter> 
+			  	<Parameter id="p26" name="decelerationFuleCut1" label="@P6152-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00001000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p27" name="decelerationFuleCut2" label="@P6775-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00010000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p28" name="enhancedPower1" label="@P6153-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00100000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p29" name="enhancedPower2" label="@P6776-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+				
+			  	<Parameter id="p30" name="fuelPumpEnableCommand" label="@P6154-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6213-DATA"/>
+					<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p31" name="fuelCorrectionMemoryUnit" label="@P6155-DATA" unit="" reqService="22" reqData="1190" respService="62" respData="1190" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="SNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p32" name="fuelPumpEnableCircuitLowVoltageTestStatus" label="@P6156-DATA" unit="" reqService="22" reqData="136C" respService="62" respData="136C" respDataLength="1" position="3" length="1" bit="00110000" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00010000" label="@P6216-DATA"/>
+			  		<Discrete value="00100000" label="@P6217-DATA"/>
+			  		<Discrete value="00110000" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p33" name="fuelPumpEnabledOpenCircuitTestStatus" label="@P6157-DATA" unit="" reqService="22" reqData="136C" respService="62" respData="136C" respDataLength="1" position="3" length="1" bit="00001100" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000100" label="@P6216-DATA"/>
+			  		<Discrete value="00001000" label="@P6217-DATA"/>
+			  		<Discrete value="00001100" label="@P6218-DATA"/>					
+			  	</Parameter>
+			  	<Parameter id="p34" name="fuelPumpEnableCircuitHighVoltageTestStatus" label="@P6158-DATA" unit="" reqService="22" reqData="136C" respService="62" respData="136C" respDataLength="1" position="3" length="1" bit="00000011" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000001" label="@P6216-DATA"/>
+			  		<Discrete value="00000010" label="@P6217-DATA"/>
+			  		<Discrete value="00000011" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p35" name="steamEmissionPurgeSolenoidCommand" label="@P6159-DATA" unit="%" reqService="22" reqData="002E" respService="62" respData="002E" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p36" name="mailboxInResidualFuelOil" label="@P6160-DATA" unit="L" reqService="22" reqData="132A" respService="62" respData="132A" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.0156" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p37" name="ignitionTiming" label="@P6161-DATA" unit="°" reqService="22" reqData="000E" respService="62" respData="000E" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.502" offset="-64">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p38" name="controlModuleVoltageSignal" label="@P6162-DATA" unit="V" reqService="22" reqData="0042" respService="62" respData="0042" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.001" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p39" name="ignitionPartsSignal" label="@P6163-DATA" unit="" reqService="22" reqData="1130" respService="62" respData="1130" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6213-DATA"/>
+			  		<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p40" name="engineIgnitionControlRelayInstruction" label="@P6164-DATA" unit="" reqService="22" reqData="1130" respService="62" respData="1130" respDataLength="1" position="3" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00100000" label="@P6213-DATA"/>
+			  		<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p41" name="parkingNeutralSwitch" label="@P6165-DATA" unit="" reqService="22" reqData="1130" respService="62" respData="1130" respDataLength="1" position="3" length="1" bit="00000010" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000010" label="@P6211-DATA"/>
+			  		<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p42" name="engineIgitionRelayFeedbackSignalController" label="@P6166-DATA" unit="V" reqService="22" reqData="148D" respService="62" respData="148D" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p43" name="diagnosticTroubleCodeRequirementsIlluminatedFaultIndicator1" label="@P6167-DATA" unit="" reqService="22" reqData="2220" respService="62" respData="2220" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p44" name="malfuntionIndicator" label="@P6168-DATA" unit="" reqService="22" reqData="2220" respService="62" respData="2220" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6219-DATA"/>
+			  		<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p45" name="lowVoltageControlLoopFaultIndicatorTestStatus" label="@P6169-DATA" unit="" reqService="22" reqData="135F" respService="62" respData="135F" respDataLength="1" position="3" length="1" bit="00000011" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000001" label="@P6216-DATA"/>
+			  		<Discrete value="00000010" label="@P6217-DATA"/>
+			  		<Discrete value="00000011" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p46" name="faultIndicatorTestStateControlCircuitOpen" label="@P6170-DATA" unit="" reqService="22" reqData="135F" respService="62" respData="135F" respDataLength="1" position="3" length="1" bit="00001100" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000100" label="@P6216-DATA"/>
+			  		<Discrete value="00001000" label="@P6217-DATA"/>
+			  		<Discrete value="00001100" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p47" name="faultIndicatorControlCircuitHighVoltageTestStatus" label="@P6171-DATA" unit="" reqService="22" reqData="135F" respService="62" respData="135F" respDataLength="1" position="3" length="1" bit="00110000" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00010000" label="@P6216-DATA"/>
+			  		<Discrete value="00100000" label="@P6217-DATA"/>
+			  		<Discrete value="00110000" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p48" name="constantSpeedConfiguration" label="@P6172-DATA" unit="" reqService="22" reqData="150C" respService="62" respData="150C" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6211-DATA"/>
+			  		<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p49" name="brakePedalPositionSensorSignal" label="@P6173-DATA" unit="" reqService="22" reqData="1124" respService="62" respData="1124" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6221-DATA"/>
+			  		<Discrete value="00000000" label="@P6220-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p50" name="engineOilLevelSwitch" label="@P6174-DATA" unit="" reqService="22" reqData="1127" respService="62" respData="1127" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6218-DATA"/>
+			  		<Discrete value="00000000" label="@P6222-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p51" name="engineOilPressureSwitch" label="@P6175-DATA" unit="" reqService="22" reqData="1127" respService="62" respData="1127" respDataLength="1" position="3" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00010000" label="@P6218-DATA"/>
+			  		<Discrete value="00000000" label="@P6222-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p52" name="vehicleSpeedSensor" label="@P6176-DATA" unit="km/h" reqService="22" reqData="000D" respService="62" respData="000D" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p53" name="sincePreheatingSinceNumberOfClearDtcs" label="@P6177-DATA" unit="" reqService="22" reqData="0030" respService="62" respData="0030" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p54" name="emissionsFailurePreheatingTimes" label="@P6178-DATA" unit="" reqService="22" reqData="1232" respService="62" respData="1232" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p55" name="withoutExceptionNumberOfWarmupEmissionsFailure" label="@P6179-DATA" unit="" reqService="22" reqData="1233" respService="62" respData="1233" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p56" name="distanceTraveledSinceTheClearDtcs" label="@P6180-DATA" unit="km" reqService="22" reqData="0031" respService="62" respData="0031" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>	
+			  	<Parameter id="p57" name="torqueConveyorSignal" label="@P6181-DATA" unit="Nm" reqService="22" reqData="1A2D" respService="62" respData="1A2D" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.25" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p58" name="intakeAirTemperatureSensor1" label="@P6182-DATA" unit="°C" reqService="22" reqData="000F" respService="62" respData="000F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p59" name="diagnostictroublecoderequirementsilluminatedfaultindicator2" label="@P6183-DATA" unit="" reqService="22" reqData="2020" respService="62" respData="2020" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>	  	
+			  	<Parameter id="p60" name="engineRunningTime" label="@P6184-DATA" unit="s" reqService="22" reqData="001F" respService="62" respData="001F" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>		  	
+			  	<Parameter id="p61" name="inhibitionTorqueRequestFuel" label="@P6185-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="0" order="00000010" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000010" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p62" name="suppressTorqueRequestMinimumIdle" label="@P6186-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p63" name="inhibitionTorqueRequestMinimumTorque" label="@P6187-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00010000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p64" name="suppressTorqueRequestIgnitionTimingAdvance" label="@P6188-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p65" name="suppressTorqueRequestIgnitionTiming" label="@P6189-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p66" name="suppressTorqueRequestTACRestrictions" label="@P6190-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00100000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p67" name="suppressTorqueRequestTAC" label="@P6191-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00001000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p68" name="1haveBeenStudyingApplicationAcceleratorPedalSensLocation" label="@P6192-DATA" unit="%" reqService="22" reqData="2856" respService="62" respData="2856" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p69" name="2haveBeenStudyingApplicationAcceleratorPedalSensLocation" label="@P6193-DATA" unit="%" reqService="22" reqData="2857" respService="62" respData="2857" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter> 	
+			  	<Parameter id="p70" name="clutchPedalSwitch" label="@P6194-DATA" unit="" reqService="22" reqData="1125" respService="62" respData="1125" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6221-DATA"/>
+			  		<Discrete value="00000000" label="@P6220-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p71" name="clutchPedalSensor" label="@P6195-DATA" unit="V" reqService="22" reqData="201B" respService="62" respData="201B" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p72" name="learningApplicationsClutchPedalPosition" label="@P6196-DATA" unit="%" reqService="22" reqData="201C" respService="62" respData="201C" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p73" name="clutchPedalPositionLearningState" label="@P6197-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  		<Discrete value="00000010" label="@P6225-DATA"/>
+			  		<Discrete value="00000011" label="@P6226-DATA"/>
+			  		<Discrete value="00000100" label="@P6227-DATA"/>
+			  		<Discrete value="00000101" label="@P6228-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p74" name="learningReleaseClutchPedalPosition" label="@P6198-DATA" unit="V" reqService="22" reqData="201E" respService="62" respData="201E" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p75" name="clutchPedalPositionSensor" label="@P6199-DATA" unit="%" reqService="22" reqData="201F" respService="62" respData="201F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>	
+			  	<Parameter id="p76" name="fuelAlcoholContent" label="@P6200-DATA" unit="%" reqService="22" reqData="0052" respService="62" respData="0052" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p77" name="fuelCompositionSensor" label="@P6201-DATA" unit="Hz" reqService="22" reqData="20A3" respService="62" respData="20A3" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p78" name="fuelPressureSensor" label="@P6202-DATA" unit="kPa" reqService="22" reqData="000A" respService="62" respData="000A" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="3" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p79" name="airFuelEquivalenceRatioInstruction" label="@P6203-DATA" unit="" reqService="22" reqData="0044" respService="62" respData="0044" respDataLength="2" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0078" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p80" name="rightTankFuelLevelSensor" label="@P6204-DATA" unit="V" reqService="22" reqData="1155" respService="62" respData="1155" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p81" name="leftTankFuelLevelSensor" label="@P6205-DATA" unit="V" reqService="22" reqData="1338" respService="62" respData="1338" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>			  	
+			  	<Parameter id="p82" name="fuelEconomy" label="@P6206-DATA" unit="L/h" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	
+			  	<!--  TEMP TEMP ! -->
+			  	<!--  HERE STARTS THE SIMULATION OF OBD2 PROTOCOL DATA FOR ISMULATION PURPOSE ONLY (AVOID TO SWITCH ECU AND CAR) -->
+			  	<!--  TEMP TEMP ! -->
+			  	<!--<Parameter id="p83" name="timeSinceEngineStart" label="@P55-DATA" unit="s" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p84" name="fuelSystem1Status" label="@P25-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  		<Discrete value="00000010" label="@P6225-DATA"/>
+			  		<Discrete value="00000011" label="@P6226-DATA"/>
+			  		<Discrete value="00000100" label="@P6227-DATA"/>
+			  		<Discrete value="00000101" label="@P6228-DATA"/>
+			  	</Parameter>
+
+			  	<Parameter id="p85" name="fuelRailPressuregauge" label="@P33-DATA" unit="kPa" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p86" name="fuelLevelInput" label="@P70-DATA" unit="%" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+
+			  	<Parameter id="p87" name="fuelTypeUsed" label="@P128-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  		<Discrete value="00000010" label="@P6225-DATA"/>
+			  		<Discrete value="00000011" label="@P6226-DATA"/>
+			  		<Discrete value="00000100" label="@P6227-DATA"/>
+			  		<Discrete value="00000101" label="@P6228-DATA"/>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p88" name="engineOilTemperature" label="@P5698-DATA" unit="°C" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				
+				
+				<Parameter id="p89" name="mILStatus" label="@P2-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6235-DATA"/>
+			  		<Discrete value="00000001" label="@P6236-DATA"/>
+			  	</Parameter>
+				
+				<Parameter id="p90" name="ambientAirTemperature" label="@P6131-DATA" unit="°C" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>-->
+			
+			
+	
+			  	<!--  TO DO DICTIONAARY ENTRIES ! -->
+				
+			  	<!--<Parameter id="p91" name="airbagStatus" label="@P6229-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6235-DATA"/>
+			  		<Discrete value="00000001" label="@P6236-DATA"/>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p92" name="evfl" label="@P6230-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  	</Parameter>
+			  	
+			  	
+			 	<Parameter id="p93" name="avfl" label="@P6231-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6233-DATA"/>
+			  		<Discrete value="00000001" label="@P6234-DATA"/>
+			  	</Parameter>
+			  	
+			 	<Parameter id="p94" name="airbagLight" label="@P6232-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6233-DATA"/>
+			  		<Discrete value="00000001" label="@P6234-DATA"/>
+			  	</Parameter>-->
+			  
+			  	
+			  	
+			  	<!--  TEMP TEMP ! -->
+			  	<!--  HERE ENDS THE SIMULATION OF OBD2 PROTOCOL DATA FOR ISMULATION PURPOSE ONLY (AVOID TO SWITCH ECU AND CAR) -->
+			  	<!--  TEMP TEMP ! -->
+			  	
+	        </Parameters>
+			<ParametersMapping>
+				<Category id="c1" name="ENGINE_DATA" displayName="@P6490-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p7"/>
+					<ParameterRef idref="p8"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p10"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p12"/>
+					<ParameterRef idref="p13"/>
+					<ParameterRef idref="p14"/>
+					<ParameterRef idref="p15"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p18"/>
+					<ParameterRef idref="p19"/>
+					<ParameterRef idref="p20"/>
+					<ParameterRef idref="p21"/>
+					<ParameterRef idref="p22"/>
+					<ParameterRef idref="p23"/>
+					<ParameterRef idref="p24"/>
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p26"/>
+					<ParameterRef idref="p27"/>
+					<ParameterRef idref="p35"/>
+					<ParameterRef idref="p36"/>
+					<ParameterRef idref="p37"/>
+					<ParameterRef idref="p38"/>
+					<ParameterRef idref="p39"/>
+					<ParameterRef idref="p40"/>
+					<ParameterRef idref="p41"/>
+					<ParameterRef idref="p42"/>
+					<ParameterRef idref="p43"/>
+					<ParameterRef idref="p44"/>
+				    <ParameterRef idref="p45"/>
+					<ParameterRef idref="p46"/>
+					<ParameterRef idref="p47"/>
+					<ParameterRef idref="p48"/>
+				</Category>
+				<Category id="c2" name="AUTOMATIC_TRANSMISSION_DATA" displayName="@P6499-DATA" >
+					<ParameterRef idref="p57"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p58"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p15"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p52"/>
+					<ParameterRef idref="p49"/>
+					<ParameterRef idref="p38"/>
+					<ParameterRef idref="p59"/>
+					<ParameterRef idref="p60"/>
+					<ParameterRef idref="p61"/>
+					<ParameterRef idref="p62"/>
+					<ParameterRef idref="p63"/>
+					<ParameterRef idref="p64"/>
+					<ParameterRef idref="p65"/>
+					<ParameterRef idref="p66"/>
+					<ParameterRef idref="p67"/>
+					<ParameterRef idref="p68"/>
+					<ParameterRef idref="p69"/>
+					<ParameterRef idref="p70"/>
+					<ParameterRef idref="p71"/>
+					<ParameterRef idref="p72"/>
+					<ParameterRef idref="p73"/>
+				</Category>
+				<Category id="c3" name="FUEL" displayName="@P6771-DATA" >
+					<ParameterRef idref="p76"/>
+					<ParameterRef idref="p77"/>
+					<ParameterRef idref="p78"/>
+					<ParameterRef idref="p79"/>
+					<ParameterRef idref="p80"/>
+					<ParameterRef idref="p81"/>
+					<!-- TEMP NOT REALLY RELATED DATA BUT OK FOR DEMO -->
+					<ParameterRef idref="p23"/>
+					<ParameterRef idref="p24"/>
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p82"/>
+				</Category>
+				<!-- PARAMETER INSIDE THIS GROUP ARE NOT REALLY MAINTENANCE ONES, FOR DEMOR ONLY -->
+				<Category id="c4" name="MAINTENANCE" displayName="@P6772-DATA" >
+					<!-- TEMP NOT REALLY RELATED DATA BUT OK FOR DEMO -->
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+					<ParameterRef idref="p17"/>
+				</Category>
+			</ParametersMapping>
+			
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+    </Family>
+	
+	<!--Fake EMS ,copy from BCM ,just used for Category FUEL.-->
+	<Family name="EMS" displayName="@P4-VEHMAP">
+      	<ECU name="EMS_002000179" displayName="@P4-VEHMAP">
+			<!-- VCI Configuration data to be sent to the SD VCI through the setVCI command of AT command set -->
+			<VCIConfiguration>030A700071017220A1077303</VCIConfiguration>
+			
+			<!-- Protocol description data to be sent to the SD VCI through the setProtocol command of AT command set -->
+			<ProtocolDescription>045A5400FA0054016400540219005403FA005404020054053200540604005407E8035408000054090000540A8813540B0000540C000066000066010066020066030100660400660500660600500000005001E0075002E80750030A00</ProtocolDescription>
+			
+		  	<!-- PeriodicMsg -->
+		  	<PeriodicMsg>0C040BB8013E</PeriodicMsg>
+		  	
+		  	<!-- Command used to begin communication on ECU -->
+			<BeginCommECU request="20" response="60" />
+		  
+		  	<!-- Command used to end communication on ECU -->
+			<!-- Temporary use TP message to end transaction if the end transaction cmd isnot known -->
+			<EndCommECU request="3E" response="7E" />
+			
+			<!-- This section is not used right now -->
+	        <SecurityAccess>
+	        	<RTD logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<IOC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<DTC logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	          	<ECUINF logic="false" beforSeedDelay="0" seedLength="0" reqSeed="0" sendKey="0" algrithmNum="0"/>
+	        </SecurityAccess>
+			
+			<!-- 
+				B1003	Défaut de télécodage			
+				B1004	Défaut interne du boîtier de servitude intelligent			
+				B100F	Défaut de l'horloge interne du boîtier de servitude intelligent	
+			-->
+			<!-- Used for 508 BSI Test -->
+			<DTCs>
+				<RDDTCS request="22E7FF" response="62E7FF">
+			    	<Block position="4" length="4">
+				  		<DTC name="B1003" code="900300" label="@P1-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<!-- YY is the characterization of the DTC -->
+		    			<DTC name="B1004" code="900496" label="@P2-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="U0073" code="900496" label="@P5140-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="P00AA" code="900496" label="@P340-DATA" status="true" position="1" length="3">
+				  		</DTC>
+				  		<DTC name="P2184" code="900496" label="@P3579-DATA" status="true" position="1" length="3">
+				  		</DTC>
+					</Block>
+					<DTCStatus value="00" label="@P2-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="08" label="@P3-DATA" position="4" length="1">
+					</DTCStatus>
+					<DTCStatus value="09" label="@P4-DATA" position="4" length="1">
+					</DTCStatus>
+			  	</RDDTCS>
+			  	<CLRDI request="14" response="54">
+			  	</CLRDI>
+			  	<RSDTC/>
+			</DTCs>
+			
+			<!-- Defines the list of parameters, their request and expected response from the BCM of the GL8 -->
+			<!-- allowUDSLikeParaReading: allow the parameters' DID defined below to be read in a single "UDS like" fashion (like using service $22 of UDS with several DID at the same time-->
+			<!-- numMaxID: used only if allowUDSLikeParaReading is set to true, defines the maximal number of DID that can be used ina single request -->
+			<Parameters allowUDSLikeParaReading="false" numMaxID="1" >
+		      <!-- 	name:		The name of the parameter on a system point of view	
+					label:		The dictionnary sentence to be used to display the localized parameter name
+					unit:		The dictionary sentence to be used to display the unit of the parameter
+					reqService:	The service "id" used to read the parameter
+					reqData:	The data "id" used to get this particular parameter
+					
+					The data actually sent to the ECU will be the concatenation of reqService + reqData. Minimum either reqService or reqData must be filled. Both can be filled. Both empty will result in an error
+					
+					respService:The service "id" ACK received
+					respData:	The data "id" ACK recevied
+					
+					Same than for the reqService and reqData note.
+					
+					respDataLength: The length (in bytes) of the WHOLE variable data response (even if some bytes/bits of the response are not used) (this length does not includ the respService or respData length)
+					position:	Index (Starting from 1) at which the variable data begin RELATED TO "respData" index (e.g., with a resData="20", and a variable data XX after the previous fixed request, the position will be of 2)
+					length:		Number of bytes of the variable part of the data starting at the index "position" to be used to obtain the parameter value (can be less than the respDataLength)
+					bit:		bitmask to apply to the variable data (can be a 8,16,14,32 bits mask) (The corresponding length are thus 1,2,3,4)
+					order:		Order of the bit in the variable data Big Endian (1) or Little Endian (0), keep to 0 for default value(big endian from left (MSB) to right (LSB))
+					encoding:	Encoding of the parameter: UNM for unsigned numeric, SNM for signed numeric, ASCII for ASCII data (VIN, ECU name, ...), ENUM for enumeration types of discrete values, HEXA for hexadecimal values encoding
+					format:		Format is used for UNM and SNM value to define the number of digits after the "dot" If raw result is 145.5025, format="2" -> 145.50 
+					factor:		Factor used for UNM and SNM with which to multiply the value of the bytes found
+					offset:		Offset used for UNM and SNM to be applied to the calculation
+				-->
+				<Parameter id="p1" name="engineRPM" label="@P6127-DATA" unit="min-1" reqService="22" reqData="000C" respService="62" respData="000C" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="0.249989" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p2" name="desiredIdleSpeed" label="@P6128-DATA" unit="min-1" reqService="22" reqData="11C9" respService="62" respData="11C9" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="8" offset="0">
+					<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p3" name="engineCoolantTemperatureSensor" label="@P6129-DATA" unit="°C" reqService="22" reqData="0005" respService="62" respData="0005" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p4" name="startingTheEngineCoolantTemperature" label="@P6130-DATA" unit="°C" reqService="22" reqData="116F" respService="62" respData="116F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p5" name="ambientTemperature" label="@P6131-DATA" unit="°C" reqService="22" reqData="0046" respService="62" respData="0046" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p6" name="coldBoot" label="@P6132-DATA" unit="" reqService="22" reqData="1128" respService="62" respData="1128" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6207-DATA"/>
+					<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p7" name="evaporativeEmissionVentSolenoidCommand" label="@P6133-DATA" unit="" reqService="22" reqData="1128" respService="62" respData="1128" respDataLength="1" position="3" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00001000" label="@P6209-DATA"/>
+					<Discrete value="00000000" label="@P6210-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p8" name="massAirFlowSensor1" label="@P6134-DATA" unit="Hz" reqService="22" reqData="12DA" respService="62" respData="12DA" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p9" name="massAirFlowSensor2" label="@P6135-DATA" unit="g/s" reqService="22" reqData="0010" respService="62" respData="0010" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.01" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p10" name="calculationOfTheFlow" label="@P6136-DATA" unit="g/s" reqService="22" reqData="11AC" respService="62" respData="11AC" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.0078124" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p11" name="engineLoad" label="@P6137-DATA" unit="%" reqService="22" reqData="0004" respService="62" respData="0004" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p12" name="acceleratorPedalPositionForMoreThan2Ponit0L" label="@P6138-DATA" unit="%" reqService="22" reqData="131F" respService="62" respData="131F" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p13" name="acceleratorPedalPositionForLessThan2Ponit0L" label="@P6139-DATA" unit="%" reqService="22" reqData="2810" respService="62" respData="2810" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p14" name="reqiredThrottlePosition" label="@P6140-DATA" unit="%" reqService="22" reqData="004C" respService="62" respData="004C" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p15" name="throttlePosition" label="@P6141-DATA" unit="%" reqService="22" reqData="12B1" respService="62" respData="12B1" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p16" name="manifoldAbsolutePressureSensor" label="@P6142-DATA" unit="kPa" reqService="22" reqData="000B" respService="62" respData="000B" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p17" name="barometricPressure" label="@P6143-DATA" unit="kPa" reqService="22" reqData="0033" respService="62" respData="0033" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p18" name="areFuleEquivalentRatioOfInstruction" label="@P6144-DATA" unit="" reqService="22" reqData="0044" respService="62" respData="0044" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.000030518" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p19" name="fuelInjectorLoadCycleCylinderRow1" label="@P6145-DATA" unit="ms" reqService="22" reqData="12C3" respService="62" respData="12C3" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.015" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p20" name="fuelInjectorLoadCycleCylinderRow2" label="@P6146-DATA" unit="ms" reqService="22" reqData="12C4" respService="62" respData="12C4" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="1" factor="0.016" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p21" name="HO2S1" label="@P6147-DATA" unit="V" reqService="22" reqData="0014" respService="62" respData="0014" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="3" factor="0.000019456" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p22" name="HO2S2" label="@P6148-DATA" unit="V" reqService="22" reqData="0015" respService="62" respData="0015" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="3" factor="0.000019456" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p23" name="longTermFuelTrimCylinderGroup1" label="@P6149-DATA" unit="%" reqService="22" reqData="0007" respService="62" respData="0007" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.78" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p24" name="shortTermFuelTrimCylinderGroup2" label="@P6150-DATA" unit="%" reqService="22" reqData="0008" respService="62" respData="0008" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.78" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p25" name="longTermFuelTrimCylinderGroup2" label="@P6151-DATA" unit="%" reqService="22" reqData="0009" respService="62" respData="0009" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.78" offset="-100">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter> 
+			  	<Parameter id="p26" name="decelerationFuleCut1" label="@P6152-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00001000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p27" name="decelerationFuleCut2" label="@P6775-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00010000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p28" name="enhancedPower1" label="@P6153-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00100000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p29" name="enhancedPower2" label="@P6776-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6211-DATA"/>
+					<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+				
+			  	<Parameter id="p30" name="fuelPumpEnableCommand" label="@P6154-DATA" unit="" reqService="22" reqData="1131" respService="62" respData="1131" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6213-DATA"/>
+					<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p31" name="fuelCorrectionMemoryUnit" label="@P6155-DATA" unit="" reqService="22" reqData="1190" respService="62" respData="1190" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="SNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p32" name="fuelPumpEnableCircuitLowVoltageTestStatus" label="@P6156-DATA" unit="" reqService="22" reqData="136C" respService="62" respData="136C" respDataLength="1" position="3" length="1" bit="00110000" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00010000" label="@P6216-DATA"/>
+			  		<Discrete value="00100000" label="@P6217-DATA"/>
+			  		<Discrete value="00110000" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p33" name="fuelPumpEnabledOpenCircuitTestStatus" label="@P6157-DATA" unit="" reqService="22" reqData="136C" respService="62" respData="136C" respDataLength="1" position="3" length="1" bit="00001100" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000100" label="@P6216-DATA"/>
+			  		<Discrete value="00001000" label="@P6217-DATA"/>
+			  		<Discrete value="00001100" label="@P6218-DATA"/>					
+			  	</Parameter>
+			  	<Parameter id="p34" name="fuelPumpEnableCircuitHighVoltageTestStatus" label="@P6158-DATA" unit="" reqService="22" reqData="136C" respService="62" respData="136C" respDataLength="1" position="3" length="1" bit="00000011" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000001" label="@P6216-DATA"/>
+			  		<Discrete value="00000010" label="@P6217-DATA"/>
+			  		<Discrete value="00000011" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p35" name="steamEmissionPurgeSolenoidCommand" label="@P6159-DATA" unit="%" reqService="22" reqData="002E" respService="62" respData="002E" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p36" name="mailboxInResidualFuelOil" label="@P6160-DATA" unit="L" reqService="22" reqData="132A" respService="62" respData="132A" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.0156" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p37" name="ignitionTiming" label="@P6161-DATA" unit="°" reqService="22" reqData="000E" respService="62" respData="000E" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.502" offset="-64">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p38" name="controlModuleVoltageSignal" label="@P6162-DATA" unit="V" reqService="22" reqData="0042" respService="62" respData="0042" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.001" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p39" name="ignitionPartsSignal" label="@P6163-DATA" unit="" reqService="22" reqData="1130" respService="62" respData="1130" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6213-DATA"/>
+			  		<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p40" name="engineIgnitionControlRelayInstruction" label="@P6164-DATA" unit="" reqService="22" reqData="1130" respService="62" respData="1130" respDataLength="1" position="3" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00100000" label="@P6213-DATA"/>
+			  		<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p41" name="parkingNeutralSwitch" label="@P6165-DATA" unit="" reqService="22" reqData="1130" respService="62" respData="1130" respDataLength="1" position="3" length="1" bit="00000010" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000010" label="@P6211-DATA"/>
+			  		<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p42" name="engineIgitionRelayFeedbackSignalController" label="@P6166-DATA" unit="V" reqService="22" reqData="148D" respService="62" respData="148D" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p43" name="diagnosticTroubleCodeRequirementsIlluminatedFaultIndicator1" label="@P6167-DATA" unit="" reqService="22" reqData="2220" respService="62" respData="2220" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p44" name="malfuntionIndicator" label="@P6168-DATA" unit="" reqService="22" reqData="2220" respService="62" respData="2220" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6219-DATA"/>
+			  		<Discrete value="00000000" label="@P6214-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p45" name="lowVoltageControlLoopFaultIndicatorTestStatus" label="@P6169-DATA" unit="" reqService="22" reqData="135F" respService="62" respData="135F" respDataLength="1" position="3" length="1" bit="00000011" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000001" label="@P6216-DATA"/>
+			  		<Discrete value="00000010" label="@P6217-DATA"/>
+			  		<Discrete value="00000011" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p46" name="faultIndicatorTestStateControlCircuitOpen" label="@P6170-DATA" unit="" reqService="22" reqData="135F" respService="62" respData="135F" respDataLength="1" position="3" length="1" bit="00001100" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00000100" label="@P6216-DATA"/>
+			  		<Discrete value="00001000" label="@P6217-DATA"/>
+			  		<Discrete value="00001100" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p47" name="faultIndicatorControlCircuitHighVoltageTestStatus" label="@P6171-DATA" unit="" reqService="22" reqData="135F" respService="62" respData="135F" respDataLength="1" position="3" length="1" bit="00110000" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6215-DATA"/>
+			  		<Discrete value="00010000" label="@P6216-DATA"/>
+			  		<Discrete value="00100000" label="@P6217-DATA"/>
+			  		<Discrete value="00110000" label="@P6218-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p48" name="constantSpeedConfiguration" label="@P6172-DATA" unit="" reqService="22" reqData="150C" respService="62" respData="150C" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6211-DATA"/>
+			  		<Discrete value="00000000" label="@P6212-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p49" name="brakePedalPositionSensorSignal" label="@P6173-DATA" unit="" reqService="22" reqData="1124" respService="62" respData="1124" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6221-DATA"/>
+			  		<Discrete value="00000000" label="@P6220-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p50" name="engineOilLevelSwitch" label="@P6174-DATA" unit="" reqService="22" reqData="1127" respService="62" respData="1127" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6218-DATA"/>
+			  		<Discrete value="00000000" label="@P6222-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p51" name="engineOilPressureSwitch" label="@P6175-DATA" unit="" reqService="22" reqData="1127" respService="62" respData="1127" respDataLength="1" position="3" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00010000" label="@P6218-DATA"/>
+			  		<Discrete value="00000000" label="@P6222-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p52" name="vehicleSpeedSensor" label="@P6176-DATA" unit="km/h" reqService="22" reqData="000D" respService="62" respData="000D" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p53" name="sincePreheatingSinceNumberOfClearDtcs" label="@P6177-DATA" unit="" reqService="22" reqData="0030" respService="62" respData="0030" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p54" name="emissionsFailurePreheatingTimes" label="@P6178-DATA" unit="" reqService="22" reqData="1232" respService="62" respData="1232" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p55" name="withoutExceptionNumberOfWarmupEmissionsFailure" label="@P6179-DATA" unit="" reqService="22" reqData="1233" respService="62" respData="1233" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p56" name="distanceTraveledSinceTheClearDtcs" label="@P6180-DATA" unit="km" reqService="22" reqData="0031" respService="62" respData="0031" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>	
+			  	<Parameter id="p57" name="torqueConveyorSignal" label="@P6181-DATA" unit="Nm" reqService="22" reqData="1A2D" respService="62" respData="1A2D" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="2" factor="0.25" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p58" name="intakeAirTemperatureSensor1" label="@P6182-DATA" unit="°C" reqService="22" reqData="000F" respService="62" respData="000F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="-40">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p59" name="diagnostictroublecoderequirementsilluminatedfaultindicator2" label="@P6183-DATA" unit="" reqService="22" reqData="2020" respService="62" respData="2020" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>	  	
+			  	<Parameter id="p60" name="engineRunningTime" label="@P6184-DATA" unit="s" reqService="22" reqData="001F" respService="62" respData="001F" respDataLength="2" position="3" length="2" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>0000</MinValue>
+							<MaxValue>FFFF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>		  	
+			  	<Parameter id="p61" name="inhibitionTorqueRequestFuel" label="@P6185-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="0" order="00000010" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000010" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p62" name="suppressTorqueRequestMinimumIdle" label="@P6186-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="10000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="10000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p63" name="inhibitionTorqueRequestMinimumTorque" label="@P6187-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00010000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00010000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p64" name="suppressTorqueRequestIgnitionTimingAdvance" label="@P6188-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="01000000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="01000000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p65" name="suppressTorqueRequestIgnitionTiming" label="@P6189-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p66" name="suppressTorqueRequestTACRestrictions" label="@P6190-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00100000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00100000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p67" name="suppressTorqueRequestTAC" label="@P6191-DATA" unit="" reqService="22" reqData="204D" respService="62" respData="204D" respDataLength="1" position="3" length="1" bit="00001000" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00001000" label="@P6207-DATA"/>
+			  		<Discrete value="00000000" label="@P6208-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p68" name="1haveBeenStudyingApplicationAcceleratorPedalSensLocation" label="@P6192-DATA" unit="%" reqService="22" reqData="2856" respService="62" respData="2856" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p69" name="2haveBeenStudyingApplicationAcceleratorPedalSensLocation" label="@P6193-DATA" unit="%" reqService="22" reqData="2857" respService="62" respData="2857" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter> 	
+			  	<Parameter id="p70" name="clutchPedalSwitch" label="@P6194-DATA" unit="" reqService="22" reqData="1125" respService="62" respData="1125" respDataLength="1" position="3" length="1" bit="00000100" order="0" encoding="BOOL" format="0" factor="0" offset="0">
+			  		<Discrete value="00000100" label="@P6221-DATA"/>
+			  		<Discrete value="00000000" label="@P6220-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p71" name="clutchPedalSensor" label="@P6195-DATA" unit="V" reqService="22" reqData="201B" respService="62" respData="201B" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p72" name="learningApplicationsClutchPedalPosition" label="@P6196-DATA" unit="%" reqService="22" reqData="201C" respService="62" respData="201C" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p73" name="clutchPedalPositionLearningState" label="@P6197-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  		<Discrete value="00000010" label="@P6225-DATA"/>
+			  		<Discrete value="00000011" label="@P6226-DATA"/>
+			  		<Discrete value="00000100" label="@P6227-DATA"/>
+			  		<Discrete value="00000101" label="@P6228-DATA"/>
+			  	</Parameter>
+			  	<Parameter id="p74" name="learningReleaseClutchPedalPosition" label="@P6198-DATA" unit="V" reqService="22" reqData="201E" respService="62" respData="201E" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p75" name="clutchPedalPositionSensor" label="@P6199-DATA" unit="%" reqService="22" reqData="201F" respService="62" respData="201F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>	
+			  	<Parameter id="p76" name="fuelAlcoholContent" label="@P6200-DATA" unit="%" reqService="22" reqData="0052" respService="62" respData="0052" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="0.390625" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p77" name="fuelCompositionSensor" label="@P6201-DATA" unit="Hz" reqService="22" reqData="20A3" respService="62" respData="20A3" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="1" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p78" name="fuelPressureSensor" label="@P6202-DATA" unit="kPa" reqService="22" reqData="000A" respService="62" respData="000A" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="0" factor="3" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p79" name="airFuelEquivalenceRatioInstruction" label="@P6203-DATA" unit="" reqService="22" reqData="0044" respService="62" respData="0044" respDataLength="2" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0078" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p80" name="rightTankFuelLevelSensor" label="@P6204-DATA" unit="V" reqService="22" reqData="1155" respService="62" respData="1155" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	<Parameter id="p81" name="leftTankFuelLevelSensor" label="@P6205-DATA" unit="V" reqService="22" reqData="1338" respService="62" respData="1338" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="2" factor="0.0196" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>			  	
+			  	<Parameter id="p82" name="fuelEconomy" label="@P6206-DATA" unit="L/h" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	
+			  	<!--  TEMP TEMP ! -->
+			  	<!--  HERE STARTS THE SIMULATION OF OBD2 PROTOCOL DATA FOR ISMULATION PURPOSE ONLY (AVOID TO SWITCH ECU AND CAR) -->
+			  	<!--  TEMP TEMP ! -->
+			  	<!--<Parameter id="p83" name="timeSinceEngineStart" label="@P55-DATA" unit="s" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p84" name="fuelSystem1Status" label="@P25-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  		<Discrete value="00000010" label="@P6225-DATA"/>
+			  		<Discrete value="00000011" label="@P6226-DATA"/>
+			  		<Discrete value="00000100" label="@P6227-DATA"/>
+			  		<Discrete value="00000101" label="@P6228-DATA"/>
+			  	</Parameter>
+
+			  	<Parameter id="p85" name="fuelRailPressuregauge" label="@P33-DATA" unit="kPa" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p86" name="fuelLevelInput" label="@P70-DATA" unit="%" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+
+			  	<Parameter id="p87" name="fuelTypeUsed" label="@P128-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  		<Discrete value="00000010" label="@P6225-DATA"/>
+			  		<Discrete value="00000011" label="@P6226-DATA"/>
+			  		<Discrete value="00000100" label="@P6227-DATA"/>
+			  		<Discrete value="00000101" label="@P6228-DATA"/>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p88" name="engineOilTemperature" label="@P5698-DATA" unit="°C" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>
+				
+				
+				<Parameter id="p89" name="mILStatus" label="@P2-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6235-DATA"/>
+			  		<Discrete value="00000001" label="@P6236-DATA"/>
+			  	</Parameter>
+				
+				<Parameter id="p90" name="ambientAirTemperature" label="@P6131-DATA" unit="°C" reqService="22" reqData="203F" respService="62" respData="203F" respDataLength="1" position="3" length="1" bit="0" order="0" encoding="UNM" format="1" factor="0.5" offset="0">
+			  		<ValueRanges>
+						<UsableRange>
+							<MinValue>00</MinValue>
+							<MaxValue>FF</MaxValue>
+						</UsableRange>
+					</ValueRanges>
+			  	</Parameter>-->
+			
+			
+	
+			  	<!--  TO DO DICTIONAARY ENTRIES ! -->
+				
+			  	<!--<Parameter id="p91" name="airbagStatus" label="@P6229-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6235-DATA"/>
+			  		<Discrete value="00000001" label="@P6236-DATA"/>
+			  	</Parameter>
+			  	
+			  	<Parameter id="p92" name="evfl" label="@P6230-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6223-DATA"/>
+			  		<Discrete value="00000001" label="@P6224-DATA"/>
+			  	</Parameter>
+			  	
+			  	
+			 	<Parameter id="p93" name="avfl" label="@P6231-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6233-DATA"/>
+			  		<Discrete value="00000001" label="@P6234-DATA"/>
+			  	</Parameter>
+			  	
+			 	<Parameter id="p94" name="airbagLight" label="@P6232-DATA" unit="" reqService="22" reqData="201D" respService="62" respData="201D" respDataLength="1" position="3" length="1" bit="00000111" order="0" encoding="ENUM" format="0" factor="0" offset="0">
+			  		<Discrete value="00000000" label="@P6233-DATA"/>
+			  		<Discrete value="00000001" label="@P6234-DATA"/>
+			  	</Parameter>-->
+			  
+			  	
+			  	
+			  	<!--  TEMP TEMP ! -->
+			  	<!--  HERE ENDS THE SIMULATION OF OBD2 PROTOCOL DATA FOR ISMULATION PURPOSE ONLY (AVOID TO SWITCH ECU AND CAR) -->
+			  	<!--  TEMP TEMP ! -->
+			  	
+	        </Parameters>
+			<ParametersMapping>
+				<Category id="c1" name="ENGINE_DATA" displayName="@P6490-DATA" >
+					<ParameterRef idref="p1"/>
+					<ParameterRef idref="p2"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+					<ParameterRef idref="p6"/>
+					<ParameterRef idref="p7"/>
+					<ParameterRef idref="p8"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p10"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p12"/>
+					<ParameterRef idref="p13"/>
+					<ParameterRef idref="p14"/>
+					<ParameterRef idref="p15"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p18"/>
+					<ParameterRef idref="p19"/>
+					<ParameterRef idref="p20"/>
+					<ParameterRef idref="p21"/>
+					<ParameterRef idref="p22"/>
+					<ParameterRef idref="p23"/>
+					<ParameterRef idref="p24"/>
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p26"/>
+					<ParameterRef idref="p27"/>
+					<ParameterRef idref="p35"/>
+					<ParameterRef idref="p36"/>
+					<ParameterRef idref="p37"/>
+					<ParameterRef idref="p38"/>
+					<ParameterRef idref="p39"/>
+					<ParameterRef idref="p40"/>
+					<ParameterRef idref="p41"/>
+					<ParameterRef idref="p42"/>
+					<ParameterRef idref="p43"/>
+					<ParameterRef idref="p44"/>
+				    <ParameterRef idref="p45"/>
+					<ParameterRef idref="p46"/>
+					<ParameterRef idref="p47"/>
+					<ParameterRef idref="p48"/>
+				</Category>
+				<Category id="c2" name="AUTOMATIC_TRANSMISSION_DATA" displayName="@P6499-DATA" >
+					<ParameterRef idref="p57"/>
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p58"/>
+					<ParameterRef idref="p9"/>
+					<ParameterRef idref="p11"/>
+					<ParameterRef idref="p15"/>
+					<ParameterRef idref="p16"/>
+					<ParameterRef idref="p17"/>
+					<ParameterRef idref="p52"/>
+					<ParameterRef idref="p49"/>
+					<ParameterRef idref="p38"/>
+					<ParameterRef idref="p59"/>
+					<ParameterRef idref="p60"/>
+					<ParameterRef idref="p61"/>
+					<ParameterRef idref="p62"/>
+					<ParameterRef idref="p63"/>
+					<ParameterRef idref="p64"/>
+					<ParameterRef idref="p65"/>
+					<ParameterRef idref="p66"/>
+					<ParameterRef idref="p67"/>
+					<ParameterRef idref="p68"/>
+					<ParameterRef idref="p69"/>
+					<ParameterRef idref="p70"/>
+					<ParameterRef idref="p71"/>
+					<ParameterRef idref="p72"/>
+					<ParameterRef idref="p73"/>
+				</Category>
+				<Category id="c3" name="FUEL" displayName="@P6771-DATA" >
+					<ParameterRef idref="p76"/>
+					<ParameterRef idref="p77"/>
+					<ParameterRef idref="p78"/>
+					<ParameterRef idref="p79"/>
+					<ParameterRef idref="p80"/>
+					<ParameterRef idref="p81"/>
+					<!-- TEMP NOT REALLY RELATED DATA BUT OK FOR DEMO -->
+					<ParameterRef idref="p23"/>
+					<ParameterRef idref="p24"/>
+					<ParameterRef idref="p25"/>
+					<ParameterRef idref="p82"/>
+				</Category>
+				<!-- PARAMETER INSIDE THIS GROUP ARE NOT REALLY MAINTENANCE ONES, FOR DEMOR ONLY -->
+				<Category id="c4" name="MAINTENANCE" displayName="@P6772-DATA" >
+					<!-- TEMP NOT REALLY RELATED DATA BUT OK FOR DEMO -->
+					<ParameterRef idref="p3"/>
+					<ParameterRef idref="p4"/>
+					<ParameterRef idref="p5"/>
+					<ParameterRef idref="p17"/>
+				</Category>
+			</ParametersMapping>
+			
+	        <ECUInfos allowUDSLikeParaReading="true" numMaxID="4">
+	        </ECUInfos>
+			<IOCs/>
+      	</ECU>
+    </Family>
+</Vehicle>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Main configuration file for Tips for category folder location -->
+<Article version="1.0">
+	<Title>上海大众</Title>
+	<!-- Date is formatted as YYYY/MM/DD -->
+	<Date>2013/03/29</Date>
+	<!-- Unused tag for now -->
+	<Author>SmartDiag</Author>
+	<!-- Body content of the article, specific characters not allowed in XML must be escaped -->
+	<BodyContent>上海大众
+	
+	帕萨特B5（装备MT）位置：变速杆后，驻车制动杆旁，去掉盖板即可看见；16PIN.
+	
+	帕萨特B5（装备AT）位置：驾驶室仪表板下方驾驶员一侧.
+	
+	桑塔纳99新秀：OBD诊断头；大众奥迪系统；诊断头在排挡杆前方。
+	
+	大众2000位置：变速杆防尘罩下；16PIN.
+	
+	波罗位置：仪表板下方；16PIN.
+	
+	高尔：驾驶室仪表板下方，主继电器拉门横截面橡胶防尘盖下
+	
+	</BodyContent>
+</Article>
+	
